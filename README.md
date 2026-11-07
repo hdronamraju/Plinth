@@ -10,3 +10,11 @@ Plinth helps Piedmont, CA homeowners and their architects check a project agains
 Plinth never sends email, files permits, or makes permit decisions.
 
 See [PLAN.md](PLAN.md) for the full build plan.
+
+## Repo layout
+
+- `PLAN.md`: product and build plan
+- `knowledge/`: the knowledge lake (city code, policies, staff precedent). See `knowledge/README.md`.
+- `tools/ingest.py`: fetch city documents and split them into sections; build the index
+- `tools/search.py`: search the lake (`python tools/search.py "front setback"`)
+- `CLAUDE.md`: instructions for coding agents
