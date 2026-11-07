@@ -142,7 +142,7 @@ Build `evals/lorita.yaml` with question, expected label, expected answer gist, a
 
 | # | Question | Expected label | Expected gist |
 | --- | --- | --- | --- |
-| 1 | Can I replace a window with a same-size double-pane window on the part of the house over the property line? | Code/policy (+ precedent once imported) | Yes, if size, location, operation, recess and lite pattern don't change (Window Replacement Policy) |
+| 1 | Can I replace a window with a same-size double-pane window on the part of the house over the property line? | Code/policy (+ precedent once imported) | Yes, if size, location, operation, recess and lite pattern don't change (Design Guidelines p. 2-11, item 32; staff, 2026-10-26) |
 | 2 | Can I put a smaller window in the existing opening there? | Precedent | No; not an in-kind repair (staff, 2026-10-26) |
 | 3 | Can I do interior work in the portion over the line? | Precedent | Yes, if the exterior is unaffected (staff, 2026-10-26) |
 | 4 | How do I count FAR and lot coverage for a structure crossing the property line? | Precedent | Include the entire footprint and habitable floor area regardless of location (staff, 2026-10-26) |

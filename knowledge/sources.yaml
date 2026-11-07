@@ -1,0 +1,78 @@
+# Every document in the knowledge lake. One entry per source file.
+#
+# id         stable key; used in folder names and citations (never reuse or rename)
+# kind       code | charter | policy | guideline | form | precedent
+# authority  how much weight an answer may give it:
+#              binding     adopted law (Charter, City Code)
+#              official    city-published policy, guideline or form
+#              staff       a planner's written answer (see knowledge/precedent/)
+# effective  effective date shown by the city, or null if none is shown
+# url        where the city publishes it (fetched by tools/ingest.py)
+#
+# Listing from https://piedmont.ca.gov/government/charter___city_code, checked 2026-11-07.
+# The city says the Code is "updated through Ordinance 783 N.S."
+# Chapter 17 uses the newer file linked from the Design Review page (effective 2026-05-20).
+
+sources:
+  - id: charter
+    title: Charter of the City of Piedmont
+    kind: charter
+    authority: binding
+    effective: null
+    url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/charter.pdf"
+
+  - {id: ch01, title: "Chapter 1: General Provisions", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 1.pdf"}
+  - {id: ch02, title: "Chapter 2: Administration", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 2.pdf"}
+  - {id: ch03, title: "Chapter 3: Parks", kind: code, authority: binding, effective: 2025-05-21, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 3 (effective 05.21.2025).pdf"}
+  - {id: ch04, title: "Chapter 4: Animals", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 4.pdf"}
+  - {id: ch04a, title: "Chapter 4A: Bicycles", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 4A.pdf"}
+  - {id: ch05, title: "Chapter 5: Disasters and Emergencies", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 5.pdf"}
+  - {id: ch06, title: "Chapter 6: Abatement of Nuisances", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 6.pdf"}
+  - {id: ch07, title: "Chapter 7: Excavations Generally", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 7.pdf"}
+  - {id: ch08, title: "Chapter 8: Building, Construction and Fire Prevention", kind: code, authority: binding, effective: 2026-01-01, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 8.1 (Effective 2026-01-01).pdf"}
+  - {id: ch09, title: "Chapter 9: Garbage and Rubbish", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 9.pdf"}
+  - {id: ch10, title: "Chapter 10: Licenses", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 10.pdf"}
+  - {id: ch11, title: "Chapter 11: Motor Vehicles and Traffic", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 11.pdf"}
+  - {id: ch12, title: "Chapter 12: Offenses, Miscellaneous", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12.pdf"}
+  - {id: ch12a, title: "Chapter 12A: Lost, Stolen, Confiscated or Abandoned Property", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12A.pdf"}
+  - {id: ch12b, title: "Chapter 12B: Surplus Property", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12B.pdf"}
+  - {id: ch12c, title: "Chapter 12C: Regulating the Sale of Firearms and Ammunition", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12C.pdf"}
+  - {id: ch13, title: "Chapter 13: Peddlers and Solicitors", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 13.pdf"}
+  - {id: ch14, title: "Chapter 14: Elections and Financial Disclosure", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 14.pdf"}
+  - {id: ch15, title: "Chapter 15: Motion Picture and Television Production", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 15.pdf"}
+  - {id: ch17, title: "Chapter 17: Planning and Land Use (zoning ordinance)", kind: code, authority: binding, effective: 2026-05-20, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/2026/May/Chapter 17 (Effective 2026-05-20).pdf"}
+  - {id: ch18, title: "Chapter 18: Streets and Sidewalks", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 18.pdf"}
+  - {id: ch19, title: "Chapter 19: Subdivisions", kind: code, authority: binding, effective: 2025-09-18, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 19 (effective 2025-09-18).pdf"}
+  - {id: ch20, title: "Chapter 20: Taxation", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20.pdf"}
+  - {id: ch20a, title: "Chapter 20A: Utility Use Taxes", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20A.pdf"}
+  - {id: ch20b, title: "Chapter 20B: Municipal Services Special Tax", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20B.pdf"}
+  - {id: ch20e, title: "Chapter 20E: Special Municipal Sewer Tax", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20E.pdf"}
+  - {id: ch21, title: "Chapter 21: Trailers and Commercial Vehicles", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 21.pdf"}
+  - {id: ch22, title: "Chapter 22: Underground Utilities", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 22.pdf"}
+  - {id: ch23, title: "Chapter 23: State Video Franchises", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 23.pdf"}
+  - {id: ch24, title: "Chapter 24: Bingo", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 24.pdf"}
+  - {id: ch25, title: "Chapter 25: Commissions", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 25.pdf"}
+  - {id: ch26, title: "Chapter 26: Police and Fire Pension Plan", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 26.pdf"}
+  - {id: ch27, title: "Chapter 27: Alarms", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 27.pdf"}
+  - {id: ch28, title: "Chapter 28: Protection of Police Department Canines", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 28.pdf"}
+  - {id: ch29, title: "Chapter 29: Emergency Medical Services", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 29.pdf"}
+  - {id: ch30, title: "Chapter 30: Storm Water Management and Discharge", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 30.pdf"}
+  - {id: ch31, title: "Chapter 31: Trip Reduction", kind: code, authority: binding, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 31.pdf"}
+
+  # Planning policies and guidance linked from the Design Review page
+  # (https://piedmont.ca.gov/services/permits/planning/types/design-review, checked 2026-11-07)
+  - {id: page-design-review, title: "Design Review web page (permit types, standards, exemptions, how to apply)", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/services/permits/planning/types/design-review"}
+  - {id: design-guidelines, title: "Piedmont Design Guidelines", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov//UserFiles/DBFiles/server_13659739/201911/16183531/design_review_guidelines.pdf"}
+  - {id: policy-window-replacement, title: "Window Replacement Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/window_rep.pdf"}
+  - {id: policy-parking-driveway, title: "Residential Parking and Driveway Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/parking.pdf"}
+  - {id: policy-site-visit, title: "Site Visit Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/site_visit.pdf"}
+  - {id: policy-story-pole, title: "Story Pole Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/story_pole.pdf"}
+  - {id: policy-tankless-water-heater, title: "Tankless Water Heater Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/tankless_wh.pdf"}
+  - {id: guide-building-height, title: "Building Height Calculation Example", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/bhc.pdf"}
+  - {id: guide-corner-obstructions, title: "Corner Obstructions Regulations", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/corner_obs.pdf"}
+  - {id: guide-graphic-calcs, title: "Graphic Calculations Example: Structure Coverage, Hardscape Coverage and FAR", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/graphic_calcs.pdf"}
+  - {id: guide-construction-cost, title: "Construction Cost Estimate", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Construction Cost Estimation.pdf"}
+  - {id: guide-heat-pump, title: "Heat Pump Requirements", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/HEATPUMP.pdf"}
+  - {id: form-agent-authorization, title: "Agent and Permit Authorization Form", kind: form, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Agent Authorization.pdf"}
+  - {id: form-director-design-review, title: "Director Design Review Application (rev. 2023-07-01)", kind: form, authority: official, effective: 2023-07-01, url: "https://piedmont.ca.gov//Userfiles/DBFiles/server_13659739/202306/19646425/director_design_review_application.pdf"}
+  - {id: form-pc-design-review, title: "Planning Commission Design Review Application", kind: form, authority: official, effective: null, url: "https://piedmont.ca.gov//Userfiles/DBFiles/server_13659739/202306/19646420/design_review_permit_planning_commission.pdf"}
