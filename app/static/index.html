@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plinth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#3A6E69;--ochre:#C8A55E;--ink:#262E33;--sage:#B7CFC4;--stucco:#EDE8DE;--cream:#F6F3EC;--warn:#8a3b2b}
+*{box-sizing:border-box}body{margin:0;background:var(--stucco);color:var(--ink);font:16px/1.5 Jost,system-ui,sans-serif}
+header{background:var(--cream);border-bottom:2px solid var(--teal);padding:12px 16px;display:flex;align-items:baseline;gap:14px}
+header h1{font:400 36px Yellowtail,cursive;color:var(--teal);margin:0}header span{font:500 12px Oswald;letter-spacing:.14em;text-transform:uppercase}
+main{display:grid;grid-template-columns:minmax(280px,1fr) minmax(320px,1.4fr) minmax(260px,1fr);gap:16px;padding:16px;max-width:1500px;margin:auto}
+@media(max-width:980px){main{grid-template-columns:1fr}}
+section{background:var(--cream);border:1px solid var(--sage);border-radius:8px;padding:14px;display:flex;flex-direction:column;min-height:200px}
+h2{font:600 14px Oswald;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:0 0 10px}
+input,textarea{font:inherit;width:100%;padding:8px;border:1px solid #b9b3a6;border-radius:6px;background:#fff;color:var(--ink)}
+button{font:500 13px Oswald;letter-spacing:.1em;text-transform:uppercase;background:var(--teal);color:var(--cream);border:0;border-radius:6px;padding:9px 14px;cursor:pointer}
+button.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal)}button:disabled{opacity:.5}
+.row{display:flex;gap:8px;margin-bottom:8px}.fact{margin-bottom:8px}.fact label{display:block;font-size:12px;font-weight:500}
+.fact small{color:#6b6b60}.warn{background:#f3ddd6;color:var(--warn);padding:8px;border-radius:6px;margin-bottom:8px;font-size:14px}
+.nc{background:var(--sage);padding:8px;border-radius:6px;font-size:13px;margin:8px 0}
+details{font-size:13px;margin-top:8px}pre{white-space:pre-wrap;font:12px/1.4 ui-monospace,monospace;max-height:220px;overflow:auto;background:#fff;padding:8px;border-radius:6px}
+#log{flex:1;overflow:auto;max-height:62vh;min-height:260px;margin-bottom:10px}
+.msg{padding:9px 12px;border-radius:8px;margin-bottom:8px;white-space:pre-wrap}.user{background:var(--sage);margin-left:12%}.bot{background:#fff;margin-right:6%}
+.msg blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid var(--ochre);color:#444;background:#faf7ef}
+.note{font-size:12px;color:var(--warn);margin-top:4px}.sq{background:#fff;border-radius:6px;padding:8px;margin-bottom:8px;font-size:14px}
+.sq b{display:block}.sq .acts{display:flex;gap:6px;margin-top:6px}.sq .acts button{padding:3px 8px;font-size:11px}
+.hint{font-size:13px;color:#6b6b60}a{color:var(--teal)}
+</style></head><body>
+<header><h1>Plinth</h1><span>Permits, handled.</span></header>
+<main>
+<section id="prop"><h2>1 · Your address</h2>
+ <div class="row"><input id="addr" placeholder="e.g. 21 Lorita Ave, Piedmont, CA"><button id="go">Look up</button></div>
+ <div id="propbody" class="hint">Enter an address to start. Facts are labeled with their source.</div></section>
+<section id="chat"><h2>2 · Ask about the code</h2><div id="log"></div>
+ <div class="row"><textarea id="q" rows="2" placeholder="Ask a question about your project…"></textarea><button id="send">Ask</button></div>
+ <div class="hint">Answers quote the Piedmont code or staff answers, or say “Needs staff”. Not legal advice.</div></section>
+<section id="staff"><h2>3 · Open staff questions</h2><div id="sqs" class="hint">None yet. Ask a question the code can't answer, or ask me to add one.</div>
+ <textarea id="proj" rows="3" placeholder="Short project description for the PDF (optional)"></textarea>
+ <div class="row" style="margin-top:8px"><button id="exp" disabled>Export PDF</button><button class="ghost" id="askexp" disabled>Ask Plinth to curate &amp; export</button></div>
+ <div id="pdfs"></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);let S=localStorage.getItem('plinth_s');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function api(path,opt={}){const r=await fetch(path+(path.includes('?')?'&':'?')+'s='+S,{...opt,headers:{'content-type':'application/json','x-session':S}});
+ const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
+function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|\n)&gt; ?(.*)/g,'$1<blockquote>$2</blockquote>').replace(/<\/blockquote>\n/g,'</blockquote>')}
+function msg(cls,t,notes=[]){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=cls=='bot'?md(t):esc(t);
+ notes.forEach(n=>{const e=document.createElement('div');e.className='note';e.textContent=n;d.append(e)});$('log').append(d);$('log').scrollTop=1e9}
+const LAB={apn:'APN',zone:'Zone (e.g. A)',lot_size:'Lot size',year_built:'Year built',existing_structures:'Existing structures',easements:'Easements / encroachments',permits_on_file:'Permits / survey on file'};
+function renderProp(p,zone){if(!p){return}let h='';(p.warnings||[]).forEach(w=>h+=`<div class="warn">${esc(w)}</div>`);
+ const f=p.facts;h+=`<div class="fact"><label>Address</label><b>${esc(f.address.value)}</b> <small>— ${esc(f.address.source)}, as of ${esc(f.address.as_of)}</small></div>`;
+ for(const k in LAB){const v=f[k];h+=`<div class="fact"><label for="f_${k}">${LAB[k]}</label><input id="f_${k}" data-k="${k}" value="${esc(v.value)}"><small>${esc(v.source)}${v.value?', as of '+esc(v.as_of):''}</small></div>`}
+ h+=`<button id="savef" class="ghost">Save facts</button><div class="nc">${esc(p.not_confirmed)}</div>`;
+ if(zone){h+=zone.section?`<details open><summary><b>${esc(zone.label)}:</b> ${esc(zone.cite)} (effective ${esc(zone.effective)})</summary><pre>${esc(zone.text)}</pre></details>`:`<div class="warn">Zone “${esc(zone.zone)}”: ${esc(zone.note)}</div>`}
+ $('propbody').innerHTML=h;$('propbody').className='';
+ $('savef').onclick=async()=>{const facts={};document.querySelectorAll('[data-k]').forEach(i=>facts[i.dataset.k]=i.value);
+  const r=await api('/api/property',{method:'POST',body:JSON.stringify({facts})});renderProp(r.property,r.zone)}}
+function renderSQ(list,pdfs){$('sqs').className='';$('sqs').innerHTML=list.length?list.map(q=>`<div class="sq"><b>${esc(q.title)}</b>${esc(q.question)}<br><small>Proposed: ${esc(q.proposed_reading)}</small><div class="acts"><button class="ghost" data-del="${q.id}">Remove</button></div></div>`).join(''):'<span class="hint">None yet. Ask a question the code can\'t answer, or ask me to add one.</span>';
+ $('exp').disabled=$('askexp').disabled=!list.length;
+ document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{const r=await api('/api/staff-questions',{method:'PUT',body:JSON.stringify({staff_questions:list.filter(q=>q.id!=b.dataset.del)})});renderSQ(r.staff_questions,pdfs)});
+ $('pdfs').innerHTML=(pdfs||[]).map(p=>`<p>📄 <a href="/api/pdf/${p.file}?s=${S}" target="_blank">${esc(p.doc_id)} v${p.version}</a> (${p.count} questions)</p>`).join('')}
+async function ask(text){msg('user',text);$('send').disabled=true;const t=document.createElement('div');t.className='hint';t.textContent='Searching the knowledge base…';$('log').append(t);
+ try{const r=await api('/api/chat',{method:'POST',body:JSON.stringify({message:text})});t.remove();msg('bot',r.answer,r.notes);renderSQ(r.staff_questions,r.pdfs)}
+ catch(e){t.remove();msg('bot','⚠ '+e.message)}$('send').disabled=false}
+$('go').onclick=async()=>{const a=$('addr').value.trim();if(!a)return;$('go').disabled=true;
+ try{const r=await api('/api/property',{method:'POST',body:JSON.stringify({address:a})});renderProp(r.property,r.zone)}catch(e){$('propbody').textContent=e.message}$('go').disabled=false};
+$('addr').onkeydown=e=>{if(e.key=='Enter')$('go').click()};
+$('send').onclick=()=>{const t=$('q').value.trim();if(t){$('q').value='';ask(t)}};
+$('q').onkeydown=e=>{if(e.key=='Enter'&&!e.shiftKey){e.preventDefault();$('send').click()}};
+$('askexp').onclick=()=>ask('Please review my open staff questions and export them to a PDF. Project: '+($('proj').value||'(none given)'));
+$('exp').onclick=async()=>{try{const r=await api('/api/export',{method:'POST',body:JSON.stringify({project_description:$('proj').value})});const s=await api('/api/state');renderSQ(s.staff_questions,s.pdfs)}catch(e){alert(e.message)}};
+(async()=>{if(!S){S=(await (await fetch('/api/session',{method:'POST'})).json()).session;localStorage.setItem('plinth_s',S)}
+ try{const s=await api('/api/state');if(s.property)renderProp(s.property,s.zone);renderSQ(s.staff_questions,s.pdfs);s.messages.forEach(m=>msg(m.role=='user'?'user':'bot',m.text))}catch(e){localStorage.removeItem('plinth_s');S=(await (await fetch('/api/session',{method:'POST'})).json()).session;localStorage.setItem('plinth_s',S)}})();
+</script></body></html>

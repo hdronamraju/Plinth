@@ -24,3 +24,5 @@ All city code, policies and staff precedent live in `knowledge/`. See `knowledge
 - `python tools/ingest.py all`: fetch, extract, split and index every source in `knowledge/sources.yaml`
 - `python tools/ingest.py index`: rebuild the search index after editing sections or precedent
 - `python tests/test_ingest.py` (or `pytest tests/`): parser tests
+- `pip install -r requirements.txt && ANTHROPIC_API_KEY=... uvicorn app.main:app --reload`: run the prototype app (`app/`). The chat agent is `app/agent.py`; the PDF export skill is `skills/export-staff-questions/`.
+- `pytest tests/`: also runs `tests/test_app.py` (no network or API key needed).
