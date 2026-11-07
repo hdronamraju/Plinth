@@ -216,3 +216,52 @@ def test_password_gate_and_rate_limit(monkeypatch):
     h = {**good, "x-session": c.post("/api/session", headers=good).json()["session"]}
     codes = [c.post("/api/chat", headers=h, json={"message": "hi"}).status_code for _ in range(3)]
     assert codes[-1] == 429 and 429 not in codes[:2]
+
+
+# ---- address suggestions
+from app import suggest as sg
+
+PHOTON = {"features": [
+    {"properties": {"housenumber": "21", "street": "Portsmouth Road", "city": "Piedmont", "postcode": "94610"}},
+    {"properties": {"housenumber": "21", "street": "Portsmouth Road", "city": "Piedmont", "postcode": "94610"}},  # dupe
+    {"properties": {"street": "Portsmouth Road", "city": "Piedmont", "postcode": "94610"}},      # no number
+    {"properties": {"housenumber": "21", "street": "Portsmouth Ave", "city": "Oakland"}},         # wrong city
+    {"properties": {"name": "Cafe", "city": "Piedmont"}}]}                                          # no street
+
+
+def test_suggest_formats_filters_and_dedupes():
+    sg._cache.clear()
+    assert sg.suggest("21 Ports", fetch=lambda q: PHOTON) == ["21 Portsmouth Road, Piedmont, CA 94610"]
+    sg._cache.clear()
+    assert sg.suggest("Portsmouth", fetch=lambda q: PHOTON)[:2] == [
+        "21 Portsmouth Road, Piedmont, CA 94610", "Portsmouth Road, Piedmont, CA 94610"]
+
+
+def test_suggest_short_fail_soft_and_cache():
+    sg._cache.clear()
+    assert sg.suggest("ab", fetch=lambda q: 1 / 0) == []
+    def boom(q):
+        raise OSError("down")
+    assert sg.suggest("21 Ports", fetch=boom) == []
+    calls = []
+    def ok(q):
+        calls.append(q)
+        return PHOTON
+    sg.suggest("21 Ports", fetch=ok)
+    sg.suggest("21  PORTS ", fetch=ok)  # same after normalising -> cached
+    assert len(calls) == 1 and "Piedmont" in calls[0]
+
+
+def test_suggest_endpoint_gate_and_limit(monkeypatch):
+    from app import main
+    c = TestClient(main.app)
+    sid = c.post("/api/session").json()["session"]
+    h = {"x-session": sid}
+    monkeypatch.setattr(sg, "_fetch", lambda q, timeout=4: PHOTON)
+    sg._cache.clear()
+    assert c.get("/api/suggest?q=21 Ports", headers=h).json()["suggestions"] == ["21 Portsmouth Road, Piedmont, CA 94610"]
+    assert c.get("/api/suggest?q=21 Ports").status_code == 400  # needs a session
+    monkeypatch.setattr(main, "SUGGEST_LIMIT", 1)
+    main._calls.clear()
+    assert c.get("/api/suggest?q=21 Ports", headers=h).status_code == 200
+    assert c.get("/api/suggest?q=21 Ports", headers=h).status_code == 429

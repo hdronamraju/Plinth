@@ -15,21 +15,24 @@ from starlette.responses import FileResponse, JSONResponse, Response
 from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 
-from . import agent, store
+from . import agent, store, suggest
 from . import property as prop
 
 STATIC = Path(__file__).parent / "static"
 LLM_LIMIT = int(os.environ.get("PLINTH_LLM_PER_HOUR", "40"))
+SUGGEST_LIMIT = int(os.environ.get("PLINTH_SUGGEST_PER_HOUR", "300"))
 _calls: dict[str, list[float]] = defaultdict(list)
 
 
-def over_limit(sid: str) -> bool:
-    """Per-session cap on LLM calls (chat + paste) so a shared link can't run up the API bill."""
+def over_limit(sid: str, bucket: str = "llm", limit: int | None = None) -> bool:
+    """Per-session hourly cap (default: LLM calls, so a shared link can't run up the API bill)."""
+    limit = LLM_LIMIT if limit is None else limit
+    key = f"{bucket}:{sid}"
     now = time.time()
-    _calls[sid] = [t for t in _calls[sid] if now - t < 3600]
-    if len(_calls[sid]) >= LLM_LIMIT:
+    _calls[key] = [t for t in _calls[key] if now - t < 3600]
+    if len(_calls[key]) >= limit:
         return True
-    _calls[sid].append(now)
+    _calls[key].append(now)
     return False
 
 
@@ -109,6 +112,13 @@ async def property_post(request):
     return JSONResponse({"property": rec, "zone": prop.zone_info(rec) if rec else None})
 
 
+async def suggest_get(request):
+    sid = sid_of(request)
+    if over_limit(sid, "suggest", SUGGEST_LIMIT):
+        return JSONResponse({"suggestions": []}, status_code=429)
+    return JSONResponse({"suggestions": suggest.suggest(request.query_params.get("q", ""))})
+
+
 async def paste_post(request):
     sid = sid_of(request)
     text = ((await request.json()).get("text") or "").strip()
@@ -184,6 +194,7 @@ async def on_error(request, exc):
 app = Starlette(
     routes=[Route("/", index), Route("/healthz", healthz), Route("/api/session", session_new, methods=["POST"]),
             Route("/api/state", state_get), Route("/api/property", property_post, methods=["POST"]),
+            Route("/api/suggest", suggest_get),
             Route("/api/property/paste", paste_post, methods=["POST"]),
             Route("/api/chat", chat_post, methods=["POST"]),
             Route("/api/staff-questions", questions_put, methods=["PUT"]),
