@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Plinth color and type</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Oswald:wght@400;500;600&family=Jost:wght@400;500&display=swap">
+<style>
+body{margin:0}
+a{color:#3A6E69}a:hover{color:#2B524E}
+</style>
+</helmet>
+<div style="width: 1200px; height: 800px; box-sizing: border-box; padding: 56px 64px; background: #EDE8DE; font-family: 'Jost', sans-serif; color: #262E33; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase">Color &amp; type</h1>
+<div style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 0.24em; text-transform: uppercase">02 — Palette &amp; fonts</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #3A6E69"></div><div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase">Pool Teal</div><div style="font-size: 13px">#3A6E69 · Wordmark, buttons, links</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #C8A55E"></div><div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase">Ochre</div><div style="font-size: 13px">#C8A55E · Sun, highlights</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #262E33"></div><div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase">Night Ink</div><div style="font-size: 13px">#262E33 · Body text, plinth, rules</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #B7CFC4"></div><div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase">Sage</div><div style="font-size: 13px">#B7CFC4 · Backgrounds, status fills</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 120px; background: #F6F3EC; border: 2px solid #262E33; box-sizing: border-box"></div><div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase">Stucco</div><div style="font-size: 13px">#EDE8DE / #F6F3EC · Ground</div></div>
+</div>
+<div style="font-size: 14px; line-height: 1.5; background: #F6F3EC; padding: 12px 16px; border: 1px solid #262E33">
+<strong style="font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase">Contrast pairs</strong> — Cream text works on Teal and Ink. Ochre works as text only on Ink; elsewhere keep it for shapes. Roughly 60% Stucco, 20% Ink, 20% accents.
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border-top: 2px solid #262E33; padding-top: 24px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Yellowtail', cursive; font-size: 76px; line-height: 1; color: #3A6E69">Yellowtail</div>
+<div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase">Script · Wordmark &amp; accents</div>
+<div style="font-size: 14px; line-height: 1.5">The 1950s sign-painter voice. Use for the logo and one short phrase per surface, never for body copy.</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 52px; line-height: 1.1; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 14px">Oswald</div>
+<div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase">Condensed caps · Headings &amp; labels</div>
+<div style="font-size: 14px; line-height: 1.5">All caps, letter-spaced 0.12–0.3em. Headlines, tags, step names, buttons.</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Jost', sans-serif; font-weight: 500; font-size: 52px; line-height: 1.1; padding-top: 14px">Jost</div>
+<div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase">Geometric sans · Body &amp; UI</div>
+<div style="font-size: 14px; line-height: 1.5">A Futura-style workhorse for forms, explanations and code citations. 16 px minimum on screen.</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":800}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

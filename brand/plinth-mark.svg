@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Plinth mark">
+  <circle cx="60" cy="48" r="34" fill="#C8A55E"/>
+  <polygon points="34,52 60,61 86,48 86,80 34,80" fill="#3A6E69"/>
+  <polygon points="26,44 60,55 94,40 94,47 60,62 26,51" fill="#262E33"/>
+  <rect x="40" y="64" width="14" height="10" fill="#EDE8DE"/>
+  <rect x="66" y="62" width="10" height="18" fill="#C8A55E"/>
+  <rect x="22" y="80" width="76" height="9" fill="#262E33"/>
+  <rect x="12" y="91" width="96" height="11" fill="#262E33"/>
+</svg>
