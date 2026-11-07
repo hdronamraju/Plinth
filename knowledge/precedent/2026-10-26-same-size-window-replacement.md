@@ -15,6 +15,7 @@ superseded_by: null
 pending: false
 code_refs: []
 related_sources:
+- design-guidelines:p022
 - policy-window-replacement
 topics:
 - windows
@@ -36,4 +37,4 @@ Can the windows over the property line be replaced with new double-pane windows 
 
 ## Context
 
-Asked about windows over the property line; the criteria match the city's Window Replacement Policy.
+Asked about windows over the property line. The four criteria follow, nearly word for word, item 32 of the list of exceptions to design review in the Piedmont Design Guidelines, page 2-11 (sections/design-guidelines/p022.md). That item is written for wood windows replaced with clad wood windows; staff applied the same criteria here. The Window Replacement Policy (2003) covers window replacements more broadly; its item 7 also allows three-dimensional simulated divided-light grilles.

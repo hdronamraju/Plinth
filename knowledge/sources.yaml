@@ -61,6 +61,7 @@ sources:
 
   # Planning policies and guidance linked from the Design Review page
   # (https://piedmont.ca.gov/services/permits/planning/types/design-review, checked 2026-11-07)
+  - {id: page-design-review, title: "Design Review web page (permit types, standards, exemptions, how to apply)", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov/services/permits/planning/types/design-review"}
   - {id: design-guidelines, title: "Piedmont Design Guidelines", kind: guideline, authority: official, effective: null, url: "https://piedmont.ca.gov//UserFiles/DBFiles/server_13659739/201911/16183531/design_review_guidelines.pdf"}
   - {id: policy-window-replacement, title: "Window Replacement Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/window_rep.pdf"}
   - {id: policy-parking-driveway, title: "Residential Parking and Driveway Policy", kind: policy, authority: official, effective: null, url: "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/parking.pdf"}

@@ -159,14 +159,15 @@ def cmd_extract(ids: list[str]) -> None:
 
 # ---------------------------------------------------------------- sections
 
-# "17.20.040 Development standards."  "Section 1.01 Name."  "Sec. 8.12 Permits required."
-HEAD = re.compile(
-    r"^\s*(?:Sec(?:tion)?\.?\s+)?"
-    r"(?P<num>\d{1,2}[A-Z]?\.\d{1,3}[A-Z]?(?:\.\d{1,3}[A-Z]?)?)\.?\s+"
-    r"(?P<title>[A-Z][^\n]{0,160}?\.)(?=\s|$)(?P<rest>.*)$"
-)
-DIVISION = re.compile(r"^\s*(DIVISION|ARTICLE|PART)\s+(?P<num>[\dA-Z.]+)\.?\s*(?P<title>.*)$", re.I)
-TOC_LINE = re.compile(r"^\s*(?:Sections:\s*|\d{1,2}[A-Z]?\.\d{1,3}[A-Z]?(?:\.\d{1,3}[A-Z]?)?\s+[A-Z][^.]{0,120})$")
+# A heading starts at the left margin: "17.20.040   Regulations."  "17.52.010 Purpose and intent"
+# "Section 1.01 Name."  "Sec. 8.12 Permits required. Body text may follow on the same line."
+# Indented lines with the same shape are a division's table of contents.
+NUM = r"\d{1,2}[A-Z]?\.\d{1,3}[A-Z]?(?:\.\d{1,3}[A-Z]?)?"
+HEAD = re.compile(rf"^ ?(?:Sec(?:tion)?\.?\s+)?(?P<num>{NUM})\.?[ \t]+(?P<line>[A-Z][^\n]*)$")
+# Division headings are printed in capitals ("DIVISION 17.20  ZONE A: SINGLE FAMILY RESIDENTIAL").
+# Case matters: body sentences often start "division 17.38, rather than this table."
+DIVISION = re.compile(r"^\s*(DIVISION|ARTICLE|PART|SECTION)\s+(?P<num>\d+[A-Z]?(?:\.\d+)?)\.?\s+(?P<title>[A-Z0-9][A-Z0-9 ,;:&()'/.\-]*)$")
+TOC_LINE = re.compile(rf"^(?:\s*Sections:\s*|\s+{NUM}\.?\s+[A-Z][^\n]{{0,120}})$")
 PAGE_NO = re.compile(r"^\s*(?:\d+[A-Z]?\s*-\s*\d+|Page \d+( of \d+)?|\d+)\s*$")
 
 
@@ -214,15 +215,26 @@ def clean(lines: list[str]) -> str:
 def parse_sections(text: str) -> list[dict]:
     """Split one source's text into sections.
 
-    A heading is a section number followed by a title that ends in a period. Table-of-contents
-    lines ("17.66.010 Intent") have no period and are skipped. A heading whose number goes
-    backwards is treated as a cross-reference inside the body, not a new section.
+    A heading is a section number at the left margin followed by a capitalised title; the
+    title ends at its first period if one follows within 160 characters, and any text after
+    that period starts the body. Indented look-alikes are table-of-contents lines and are
+    skipped. Numbers must increase: a heading-shaped line whose number goes backwards is a
+    cross-reference in the body, unless it repeats empty sections just seen, in which case
+    those were a table of contents printed at the margin and are replaced.
     """
     pages = strip_running_heads(text.split("\f"))
     sections: list[dict] = []
     division = None
     current = None
-    last_key = None
+
+    def nonblank(s: dict) -> int:
+        return sum(1 for l in s["lines"] if l.strip())
+
+    # Sections share one numbering depth (17.20.040 has three parts). A heading-shaped line at a
+    # different depth ("17.90 Definitions & Measurements" in the chapter's table of contents) is not one.
+    depths = Counter(m.group("num").count(".") for p in pages for l in p if (m := HEAD.match(l)))
+    depth = depths.most_common(1)[0][0] if depths else None
+
     for page_no, lines in enumerate(pages, start=1):
         for line in lines:
             d = DIVISION.match(line)
@@ -230,18 +242,34 @@ def parse_sections(text: str) -> list[dict]:
                 division = f"{d.group(1).title()} {d.group('num').rstrip('.')} {d.group('title').strip()}".strip()
                 continue
             m = HEAD.match(line)
+            if m and m.group("num").count(".") != depth:
+                m = None
             if m:
                 key = sort_key(m.group("num"))
-                if last_key is None or key > last_key:
+                start = None
+                if not sections or key > sort_key(sections[-1]["section"]):
+                    start = len(sections)
+                else:
+                    # A margin-printed table of contents: the same numbers again, all still empty.
+                    for i, s in enumerate(sections):
+                        if s["section"] == m.group("num") and all(nonblank(t) == 0 for t in sections[i:]):
+                            start = i
+                            break
+                if start is not None:
+                    del sections[start:]
+                    text_after = m.group("line").strip()
+                    title, rest = text_after, ""
+                    dot = re.search(r"\.(\s|$)", text_after)
+                    if dot and dot.start() <= 160:
+                        title, rest = text_after[:dot.start()], text_after[dot.end():].strip()
                     current = {
                         "section": m.group("num"),
-                        "title": m.group("title").strip().rstrip("."),
+                        "title": re.sub(r"\s+", " ", title).strip(),
                         "division": division,
                         "pages": [page_no],
-                        "lines": [m.group("rest").strip()] if m.group("rest").strip() else [],
+                        "lines": [rest] if rest else [],
                     }
                     sections.append(current)
-                    last_key = key
                     continue
             if TOC_LINE.match(line):
                 continue  # a division's table of contents, not body text
@@ -259,9 +287,13 @@ def page_chunks(text: str) -> list[dict]:
     out = []
     for i, lines in enumerate(strip_running_heads(text.split("\f")), start=1):
         body = clean(lines)
-        if body:
-            out.append({"section": f"p{i:03d}", "title": f"Page {i}", "division": None,
-                        "pages": [i], "body": body})
+        if not body:
+            continue
+        # Many city documents print their own page label ("3-5") at the foot; cite that if present.
+        tail = [l.strip() for l in lines if l.strip()][-3:]
+        label = next((m.group(1) for l in reversed(tail) if (m := re.search(r"(?:^|\s)(\d{1,2}-\d{1,3})$", l))), None)
+        title = f"Page {label} (PDF page {i})" if label else f"Page {i}"
+        out.append({"section": f"p{i:03d}", "title": title, "division": None, "pages": [i], "body": body})
     return out
 
 
@@ -273,8 +305,7 @@ def citation(src: dict, section: str | None) -> str:
     if src["kind"] in ("code", "charter") and section and not section.startswith("p"):
         prefix = "Piedmont City Charter §" if src["kind"] == "charter" else "Piedmont City Code §"
         return prefix + section
-    page = f", p. {section[1:].lstrip('0')}" if section and section.startswith("p") else ""
-    return f"{src['title']}{page}"
+    return src["title"]
 
 
 def cmd_sections(ids: list[str]) -> None:
@@ -303,7 +334,7 @@ def cmd_sections(ids: list[str]) -> None:
                 "section": s["section"],
                 "title": s["title"],
                 "division": s["division"],
-                "cite": citation(src, s["section"]),
+                "cite": citation(src, s["section"]) + ("" if mode == "sections" else f", {s['title'][0].lower()}{s['title'][1:]}"),
                 "effective": src.get("effective"),
                 "pages": s["pages"],
                 "source_url": src["url"],

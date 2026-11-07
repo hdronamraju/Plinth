@@ -153,7 +153,8 @@ def main() -> None:
     for i, r in enumerate(res, 1):
         flag = " [SUPERSEDED]" if r["status"] == "superseded" else ""
         eff = f", {r['effective']}" if r.get("effective") else ""
-        print(f"{i}. {r['cite']} {r['title'] or ''}{flag}\n   {r['authority']}{eff} · {r['path']}\n   {r['snippet']}\n")
+        title = "" if not r["title"] or r["title"].lower() in r["cite"].lower() else " " + r["title"]
+        print(f"{i}. {r['cite']}{title}{flag}\n   {r['authority']}{eff} · {r['path']}\n   {r['snippet']}\n")
 
 
 if __name__ == "__main__":

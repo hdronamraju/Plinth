@@ -1,0 +1,42 @@
+{
+  "ch17": {
+    "file": "raw/code/ch17.pdf",
+    "sha256": "65f08119fa208d4bc1ab846754e5126007ceff07ece04675a48294e561b5f797",
+    "bytes": 1244234,
+    "obtained": "2026-11-07T21:48:21Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/2026/May/Chapter 17 (Effective 2026-05-20).pdf"
+  },
+  "design-guidelines": {
+    "file": "raw/guideline/design-guidelines.pdf",
+    "sha256": "351aea223d645c20670e50ec832d2f21146365c4fe82ce2d653748a88402f162",
+    "bytes": 15530046,
+    "obtained": "2026-11-07T21:48:21Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov//UserFiles/DBFiles/server_13659739/201911/16183531/design_review_guidelines.pdf"
+  },
+  "guide-graphic-calcs": {
+    "file": "raw/guideline/guide-graphic-calcs.pdf",
+    "sha256": "866f41f104601b96648ac9923401caf4b0a5a927afaf07c4d4768a5424fc294d",
+    "bytes": 106579,
+    "obtained": "2026-11-07T21:48:21Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/graphic_calcs.pdf"
+  },
+  "page-design-review": {
+    "file": "raw/guideline/page-design-review.pdf",
+    "sha256": "e105c8b10448cb818a3fec0eb03fdc0463a518dbb8b1d39ecc43c9fd236fa79e",
+    "bytes": 136618,
+    "obtained": "2026-11-07T21:48:21Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/services/permits/planning/types/design-review"
+  },
+  "policy-window-replacement": {
+    "file": "raw/policy/policy-window-replacement.pdf",
+    "sha256": "2272fc2060caa5a35e5e826695811dd3825dbf6dd61d7a848c2573907167f618",
+    "bytes": 16495,
+    "obtained": "2026-11-07T21:48:21Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/window_rep.pdf"
+  }
+}
