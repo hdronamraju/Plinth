@@ -7,11 +7,13 @@ import json
 import urllib.parse
 import urllib.request
 
-from . import knowledge
+from . import knowledge, parcel
 
 GEOCODER = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
-FIELDS = ["apn", "zone", "lot_size", "year_built", "existing_structures", "easements", "permits_on_file"]
+FIELDS = ["apn", "zone", "lot_size", "year_built", "building_sqft", "bedrooms", "bathrooms",
+          "existing_structures", "easements", "permits_on_file"]
 LABELS = {"apn": "APN", "zone": "Zone", "lot_size": "Lot size", "year_built": "Year built",
+          "building_sqft": "Building size (sq ft)", "bedrooms": "Bedrooms", "bathrooms": "Bathrooms",
           "existing_structures": "Existing structures", "easements": "Easements / encroachments",
           "permits_on_file": "Permits / survey on file"}
 PIEDMONT_ZIPS = {"94610", "94611", "94618"}
@@ -34,7 +36,7 @@ def geocode(address: str, timeout: float = 10) -> dict | None:
     return m[0] if m else None
 
 
-def build(address: str, geo: dict | None = None, use_geocoder: bool = True) -> dict:
+def build(address: str, geo: dict | None = None, use_geocoder: bool = True, fetch=None) -> dict:
     geo = geo if geo is not None else (geocode(address) if use_geocoder else None)
     warnings = []
     if geo:
@@ -55,13 +57,22 @@ def build(address: str, geo: dict | None = None, use_geocoder: bool = True) -> d
         prop = {"address": fact(address.strip(), "entered by owner")}
     for f in FIELDS:
         prop[f] = fact("", "entered by owner")
-    return {"facts": prop, "warnings": warnings, "not_confirmed": NOT_CONFIRMED, "confirmed": False}
+    notes = []
+    if geo and prop.get("latitude", {}).get("value") is not None:
+        found, notes = parcel.lookup(prop["latitude"]["value"], prop["longitude"]["value"],
+                                     **({"fetch": fetch} if fetch else {}))
+        prop.update(found)
+    return {"facts": prop, "warnings": warnings, "parcel_notes": notes, "not_confirmed": NOT_CONFIRMED,
+            "confirmed": False}
 
 
-def update_facts(record: dict, updates: dict) -> dict:
+def update_facts(record: dict, updates: dict, source: str = "entered by owner") -> dict:
+    """Apply edits. Unchanged values keep their original source; changed values become owner-entered."""
     for k, v in updates.items():
         if k in FIELDS or k == "address":
-            record["facts"][k] = fact(str(v).strip(), "entered by owner")
+            v = str(v).strip()
+            if record["facts"].get(k, {}).get("value") != v:
+                record["facts"][k] = fact(v, source)
     return record
 
 

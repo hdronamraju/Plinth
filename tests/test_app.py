@@ -137,3 +137,82 @@ def test_http_flow():
     assert c.get("/api/state", headers=h).json()["property"] is None
     assert c.post("/api/chat", headers=h, json={"message": "hi"}).status_code in (502, 503)
     assert c.get("/").status_code == 200
+
+
+# ---- parcel lookup, paste-to-fill
+from app import parcel
+
+FAKE_PARCEL = {"features": [{"attributes": {"PARNO": "050-3456-012-00", "ACRES": 0.2, "YEARBUILT": 1927, "BEDS": 0}}]}
+GEO = {"matchedAddress": "21 PORTSMOUTH RD, PIEDMONT, CA, 94610", "coordinates": {"x": -122.23, "y": 37.82},
+       "addressComponents": {"city": "PIEDMONT", "state": "CA", "zip": "94610"}}
+
+
+def test_parcel_fills_only_returned_fields_with_source():
+    rec = prop.build("x", GEO, fetch=lambda u: FAKE_PARCEL)
+    f = rec["facts"]
+    assert f["apn"]["value"] == "050-3456-012-00" and "UCD_Parcels" in f["apn"]["source"]
+    assert f["lot_size"]["value"].startswith("8,712 sq ft") and f["year_built"]["value"] == "1927"
+    assert f["bedrooms"]["value"] == "" and f["zone"]["value"] == ""  # not returned -> blank, not guessed
+
+
+def test_parcel_failure_is_soft():
+    def boom(u):
+        raise OSError("blocked")
+    rec = prop.build("x", GEO, fetch=boom)
+    assert rec["facts"]["apn"]["value"] == "" and len(rec["parcel_notes"]) >= 1
+
+
+def test_edit_changes_source_only_when_value_changes():
+    rec = prop.build("x", GEO, fetch=lambda u: FAKE_PARCEL)
+    prop.update_facts(rec, {"apn": "050-3456-012-00", "year_built": "1930"})
+    assert "UCD" in rec["facts"]["apn"]["source"] and rec["facts"]["year_built"]["source"] == "entered by owner"
+
+
+def test_paste_extraction_drops_ungrounded_values():
+    text = "Built in 1927. Lot size: 8,700 sq ft. 3 bed / 2 bath."
+    stub = SimpleNamespace(messages=SimpleNamespace(create=lambda **kw: SimpleNamespace(content=[
+        {"type": "tool_use", "id": "x", "name": "record_facts",
+         "input": {"year_built": "1927", "lot_size": "8,700 sq ft", "zone": "A", "bedrooms": "3"}}])))
+    facts, dropped = agent.extract_property_facts(text, client=stub)
+    assert facts == {"year_built": "1927", "lot_size": "8,700 sq ft", "bedrooms": "3"} and dropped == ["zone"]
+
+
+def test_paste_endpoint(monkeypatch):
+    from app.main import app
+    monkeypatch.setattr(agent, "extract_property_facts", lambda t, client=None: ({"year_built": "1927"}, ["zone"]))
+    monkeypatch.setattr(prop, "geocode", lambda a, timeout=10: GEO)
+    monkeypatch.setattr(parcel, "_get", lambda u, timeout=10: {"features": []})
+    c = TestClient(app)
+    h = {"x-session": c.post("/api/session").json()["session"]}
+    assert c.post("/api/property/paste", headers=h, json={"text": "x"}).status_code == 400  # no property yet
+    c.post("/api/property", headers=h, json={"address": "21 Portsmouth Rd"})
+    r = c.post("/api/property/paste", headers=h, json={"text": "Built 1927"}).json()
+    assert r["property"]["facts"]["year_built"]["source"] == "entered by owner (pasted text)"
+    assert r["dropped"] == ["zone"]
+
+
+def test_grounding_rules():
+    g = agent._grounded
+    assert not g("zone", "A", "A charming home with 3 bath")
+    assert g("zone", "A", "Zoning: Zone A, single family")
+    assert not g("bedrooms", "3", "built 1930, 2,300 sq ft")
+    assert g("bedrooms", "3", "3 bed / 2 bath")
+    assert g("lot_size", "8,700 sq ft", "Lot: 8700 sq ft")
+
+
+def test_password_gate_and_rate_limit(monkeypatch):
+    import base64
+    from app import main
+    c = TestClient(main.app)
+    monkeypatch.setenv("PLINTH_PASSWORD", "s3cret")
+    assert c.get("/").status_code == 401
+    assert c.get("/healthz").status_code == 200
+    good = {"authorization": "Basic " + base64.b64encode(b"anyone:s3cret").decode()}
+    bad = {"authorization": "Basic " + base64.b64encode(b"anyone:nope").decode()}
+    assert c.get("/", headers=bad).status_code == 401
+    assert c.get("/", headers=good).status_code == 200
+    monkeypatch.setattr(main, "LLM_LIMIT", 2)
+    main._calls.clear()
+    h = {**good, "x-session": c.post("/api/session", headers=good).json()["session"]}
+    codes = [c.post("/api/chat", headers=h, json={"message": "hi"}).status_code for _ in range(3)]
+    assert codes[-1] == 429 and 429 not in codes[:2]

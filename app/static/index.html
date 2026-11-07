@@ -18,7 +18,7 @@ button.ghost{background:transparent;color:var(--teal);border:1px solid var(--tea
 .row{display:flex;gap:8px;margin-bottom:8px}.fact{margin-bottom:8px}.fact label{display:block;font-size:12px;font-weight:500}
 .fact small{color:#6b6b60}.warn{background:#f3ddd6;color:var(--warn);padding:8px;border-radius:6px;margin-bottom:8px;font-size:14px}
 .nc{background:var(--sage);padding:8px;border-radius:6px;font-size:13px;margin:8px 0}
-details{font-size:13px;margin-top:8px}pre{white-space:pre-wrap;font:12px/1.4 ui-monospace,monospace;max-height:220px;overflow:auto;background:#fff;padding:8px;border-radius:6px}
+details{font-size:13px;margin-top:8px}h3{font:600 12px Oswald;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin:12px 0 6px}select{font:inherit;width:100%;padding:8px;border:1px solid #b9b3a6;border-radius:6px;background:#fff}pre{white-space:pre-wrap;font:12px/1.4 ui-monospace,monospace;max-height:220px;overflow:auto;background:#fff;padding:8px;border-radius:6px}
 #log{flex:1;overflow:auto;max-height:62vh;min-height:260px;margin-bottom:10px}
 .msg{padding:9px 12px;border-radius:8px;margin-bottom:8px;white-space:pre-wrap}.user{background:var(--sage);margin-left:12%}.bot{background:#fff;margin-right:6%}
 .msg blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid var(--ochre);color:#444;background:#faf7ef}
@@ -47,15 +47,27 @@ async function api(path,opt={}){const r=await fetch(path+(path.includes('?')?'&'
 function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|\n)&gt; ?(.*)/g,'$1<blockquote>$2</blockquote>').replace(/<\/blockquote>\n/g,'</blockquote>')}
 function msg(cls,t,notes=[]){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=cls=='bot'?md(t):esc(t);
  notes.forEach(n=>{const e=document.createElement('div');e.className='note';e.textContent=n;d.append(e)});$('log').append(d);$('log').scrollTop=1e9}
-const LAB={apn:'APN',zone:'Zone (e.g. A)',lot_size:'Lot size',year_built:'Year built',existing_structures:'Existing structures',easements:'Easements / encroachments',permits_on_file:'Permits / survey on file'};
+const LAB={apn:'APN',zone:'Zone',lot_size:'Lot size',year_built:'Year built',building_sqft:'Building size (sq ft)',bedrooms:'Bedrooms',bathrooms:'Bathrooms',existing_structures:'Existing structures',easements:'Easements / encroachments',permits_on_file:'Permits / survey on file'};
+const isOwner=v=>v.source.startsWith('entered by owner');
+function field(k,v){if(k=='zone'){return `<div class="fact"><label for="f_zone">Zone</label><select id="f_zone" data-k="zone"><option value="">Not known</option>${['A','B','C','D','E'].map(z=>`<option ${v.value==z?'selected':''}>${z}</option>`).join('')}</select><small>${v.value?esc(v.source)+', as of '+esc(v.as_of):'Not in public data we can query. Piedmont\'s official zoning map is held by the City Clerk (§17.08.020). Pick it once you have confirmed it.'}</small></div>`}
+ return `<div class="fact"><label for="f_${k}">${LAB[k]}</label><input id="f_${k}" data-k="${k}" value="${esc(v.value)}"><small>${esc(v.source)}${v.value?', as of '+esc(v.as_of):''}</small></div>`}
 function renderProp(p,zone){if(!p){return}let h='';(p.warnings||[]).forEach(w=>h+=`<div class="warn">${esc(w)}</div>`);
  const f=p.facts;h+=`<div class="fact"><label>Address</label><b>${esc(f.address.value)}</b> <small>— ${esc(f.address.source)}, as of ${esc(f.address.as_of)}</small></div>`;
- for(const k in LAB){const v=f[k];h+=`<div class="fact"><label for="f_${k}">${LAB[k]}</label><input id="f_${k}" data-k="${k}" value="${esc(v.value)}"><small>${esc(v.source)}${v.value?', as of '+esc(v.as_of):''}</small></div>`}
- h+=`<button id="savef" class="ghost">Save facts</button><div class="nc">${esc(p.not_confirmed)}</div>`;
+ const pub=[],own=[],empty=[];for(const k in LAB){const v=f[k];(!v.value?empty:isOwner(v)?own:pub).push(k)}
+ if(pub.length){h+=`<h3>From public records</h3>`+pub.map(k=>field(k,f[k])).join('')}
+ else{h+=`<div class="nc">No public parcel record could be fetched for this address, so nothing below is pre-filled.${(p.parcel_notes||[]).length?`<details><summary>Why?</summary>${p.parcel_notes.map(esc).join('<br>')}</details>`:''}</div>`}
+ if(own.length)h+=`<h3>You entered</h3>`+own.map(k=>field(k,f[k])).join('');
+ if(empty.length)h+=`<h3>Not yet known</h3>`+empty.map(k=>field(k,f[k])).join('');
+ h+=`<button id="savef" class="ghost">Save facts</button><div class="nc">${esc(p.not_confirmed)}</div>
+ <details><summary><b>Paste property details</b></summary><p class="hint">Paste text from the county assessor, a listing, or your survey. Plinth fills only what the text literally says, and labels it as entered by you.</p><textarea id="paste" rows="4"></textarea><button id="pastego" class="ghost" style="margin-top:6px">Fill from pasted text</button><div id="pastemsg" class="hint"></div></details>`;
  if(zone){h+=zone.section?`<details open><summary><b>${esc(zone.label)}:</b> ${esc(zone.cite)} (effective ${esc(zone.effective)})</summary><pre>${esc(zone.text)}</pre></details>`:`<div class="warn">Zone “${esc(zone.zone)}”: ${esc(zone.note)}</div>`}
  $('propbody').innerHTML=h;$('propbody').className='';
  $('savef').onclick=async()=>{const facts={};document.querySelectorAll('[data-k]').forEach(i=>facts[i.dataset.k]=i.value);
-  const r=await api('/api/property',{method:'POST',body:JSON.stringify({facts})});renderProp(r.property,r.zone)}}
+  const r=await api('/api/property',{method:'POST',body:JSON.stringify({facts})});renderProp(r.property,r.zone)};
+ $('pastego').onclick=async()=>{const t=$('paste').value.trim();if(!t)return;$('pastego').disabled=true;
+  try{const r=await api('/api/property/paste',{method:'POST',body:JSON.stringify({text:t})});renderProp(r.property,r.zone);
+   $('pastemsg').textContent=`Filled: ${r.filled.map(k=>LAB[k]).join(', ')||'nothing'}.`+(r.dropped.length?` Skipped (not literally in the text): ${r.dropped.join(', ')}.`:'')}
+  catch(e){$('pastemsg').textContent=e.message}$('pastego').disabled=false}}
 function renderSQ(list,pdfs){$('sqs').className='';$('sqs').innerHTML=list.length?list.map(q=>`<div class="sq"><b>${esc(q.title)}</b>${esc(q.question)}<br><small>Proposed: ${esc(q.proposed_reading)}</small><div class="acts"><button class="ghost" data-del="${q.id}">Remove</button></div></div>`).join(''):'<span class="hint">None yet. Ask a question the code can\'t answer, or ask me to add one.</span>';
  $('exp').disabled=$('askexp').disabled=!list.length;
  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{const r=await api('/api/staff-questions',{method:'PUT',body:JSON.stringify({staff_questions:list.filter(q=>q.id!=b.dataset.del)})});renderSQ(r.staff_questions,pdfs)});

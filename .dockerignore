@@ -1,0 +1,8 @@
+.git
+.venv
+generated
+knowledge/raw
+knowledge/text
+brand
+tests
+__pycache__

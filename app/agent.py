@@ -224,3 +224,48 @@ def chat(sid: str, user_text: str, client=None) -> dict:
     store.save(sid, state)
     return {"answer": text, "notes": notes, "staff_questions": state["staff_questions"],
             "pdfs": state["pdfs"]}
+
+
+EXTRACT_TOOL = {"name": "record_facts", "description": "Record property facts found in the pasted text. "
+    "Include only fields the text explicitly states. Copy values as written. Omit anything not stated.",
+    "input_schema": {"type": "object", "properties": {k: {"type": "string"} for k in prop.FIELDS}}}
+
+
+def _grounded(field: str, value: str, text: str) -> bool:
+    """True only if `value` is literally in `text`. Short values must match a whole token, and a zone
+    must be written as "zone X", so a stray letter or digit can't pass as a fact."""
+    if field == "zone":
+        return bool(re.search(r"zone\W{0,3}(?:is\s+)?" + re.escape(value.strip()) + r"(?![A-Za-z0-9])", text, re.I))
+    v = re.sub(r"[\s,\$]", "", value.lower())
+    if not v:
+        return False
+    if len(v) <= 3:
+        return bool(re.search(r"(?<![A-Za-z0-9])" + re.escape(value.strip()) + r"(?![A-Za-z0-9])", text, re.I))
+    return v in re.sub(r"[\s,\$]", "", text.lower())
+
+
+def extract_property_facts(text: str, client=None) -> tuple[dict, list[str]]:
+    """Pull property facts out of pasted text. Values not literally present in the text are dropped,
+    so the model cannot invent facts. Returns (facts, dropped_field_names)."""
+    if client is None:
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            raise RuntimeError("ANTHROPIC_API_KEY is not set. Export it and restart the server.")
+        import anthropic
+        client = anthropic.Anthropic()
+    resp = client.messages.create(
+        model=MODEL, max_tokens=800, tools=[EXTRACT_TOOL], tool_choice={"type": "tool", "name": "record_facts"},
+        system="Extract property facts from text the user pasted. Never infer, convert or guess. If unsure, omit.",
+        messages=[{"role": "user", "content": "<pasted>\n" + text[:20000] + "\n</pasted>"}])
+    raw = {}
+    for b in resp.content:
+        b = b.model_dump() if hasattr(b, "model_dump") else b
+        if b["type"] == "tool_use":
+            raw = b["input"]
+    keep, dropped = {}, []
+    for k, v in raw.items():
+        if k in prop.FIELDS and isinstance(v, str) and v.strip():
+            if _grounded(k, v, text):
+                keep[k] = v.strip()
+            else:
+                dropped.append(k)
+    return keep, dropped
