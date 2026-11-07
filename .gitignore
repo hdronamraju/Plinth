@@ -1,0 +1,11 @@
+node_modules/
+.next/
+dist/
+.env
+.env.*
+*.log
+.DS_Store
+uploads/
+generated/
+*.sqlite
+*.db
