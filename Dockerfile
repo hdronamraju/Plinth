@@ -4,6 +4,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY app app
 COPY skills skills
+COPY brand brand
 COPY tools/search.py tools/search.py
 COPY knowledge/index knowledge/index
 COPY knowledge/sections knowledge/sections

@@ -265,3 +265,40 @@ def test_suggest_endpoint_gate_and_limit(monkeypatch):
     main._calls.clear()
     assert c.get("/api/suggest?q=21 Ports", headers=h).status_code == 200
     assert c.get("/api/suggest?q=21 Ports", headers=h).status_code == 429
+
+
+# ---- logo on the PDF
+def _render_png(pdf_path, page, scale=2):
+    pdfium = pytest.importorskip("pypdfium2")
+    return pdfium.PdfDocument(str(pdf_path))[page].render(scale=scale).to_pil().convert("RGB")
+
+
+def _count(img, rgb, box, tol=12):
+    w, h = img.size
+    x0, y0, x1, y1 = (int(box[0] * w), int(box[1] * h), int(box[2] * w), int(box[3] * h))
+    px = list(img.crop((x0, y0, x1, y1)).getdata())
+    return sum(1 for p in px if all(abs(p[i] - rgb[i]) <= tol for i in range(3)))
+
+
+def test_pdf_has_logo_on_cover_and_footer():
+    st = _state_with_questions()
+    r = agent.make_pdf(st, "Rebuild garage.")
+    path = store.DIR / r["file"]
+    cover = _render_png(path, 0)
+    ochre, teal = (0xC8, 0xA5, 0x5E), (0x3A, 0x6E, 0x69)
+    assert _count(cover, ochre, (0.05, 0.05, 0.25, 0.16)) > 200       # sun in the cover header
+    assert _count(cover, teal, (0.05, 0.05, 0.40, 0.16)) > 200        # house + wordmark
+    for page in (0, 1):                                              # footer mark on every page
+        img = _render_png(path, page, scale=4)
+        assert _count(img, ochre, (0.25, 0.945, 0.40, 0.985), tol=30) > 5
+    text = "".join(p.extract_text() for p in pypdf.PdfReader(path).pages)
+    assert "Plinth" in text and "PERMITS" in text.replace(" ", "").upper()
+    assert "Prepared with Plinth. Not an application or permit." in text
+
+
+def test_pdf_still_builds_without_script_font(monkeypatch, tmp_path):
+    exp = agent._export_module()
+    monkeypatch.setattr(exp, "WORDMARK_FONT", "Helvetica-Bold")
+    out = exp.build_pdf(tmp_path / "x.pdf", "PL-X", 1, "1 Main St", [("Zone", "A", "owner")], "p", [
+        {"id": "a", "title": "t", "context": "c", "code_ref": "", "code_cite": "", "precedent": "", "proposed": "p"}])
+    assert {"q1_decision", "q1_notes", "reviewer_name"} <= set(pypdf.PdfReader(out).get_fields())

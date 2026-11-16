@@ -14,6 +14,8 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph
 
@@ -25,6 +27,70 @@ M = 0.75 * inch
 CW = W - 2 * M
 FOOT = "Prepared with Plinth. Not an application or permit."
 OPTIONS = ["Confirmed", "Not as proposed", "Need more info"]
+
+# ---- brand (brand/README.md). The mark is the only place brand colors besides teal appear.
+OCHRE = colors.HexColor("#C8A55E")
+NIGHT = colors.HexColor("#262E33")
+STUCCO = colors.HexColor("#EDE8DE")
+BRAND_DIR = Path(__file__).resolve().parents[2] / "brand"
+YELLOWTAIL = BRAND_DIR / "fonts" / "Yellowtail-Regular.ttf"
+WORDMARK_FONT = "Helvetica-Bold"
+try:  # optional script wordmark; falls back to bold sans if the font file isn't there
+    if YELLOWTAIL.exists():
+        pdfmetrics.registerFont(TTFont("Yellowtail", str(YELLOWTAIL)))
+        WORDMARK_FONT = "Yellowtail"
+except Exception:
+    WORDMARK_FONT = "Helvetica-Bold"
+
+
+def draw_mark(c, x, y, size):
+    """Draw brand/plinth-mark.svg (120x120 viewBox, y down) with its bottom-left at (x, y)."""
+    k = size / 120.0
+
+    def P(px, py):
+        return x + px * k, y + (120 - py) * k
+
+    def poly(pts, fill):
+        path = c.beginPath()
+        path.moveTo(*P(*pts[0]))
+        for pt in pts[1:]:
+            path.lineTo(*P(*pt))
+        path.close()
+        c.setFillColor(fill)
+        c.drawPath(path, fill=1, stroke=0)
+
+    def rect(px, py, w, h, fill):
+        c.setFillColor(fill)
+        c.rect(x + px * k, y + (120 - py - h) * k, w * k, h * k, fill=1, stroke=0)
+
+    c.saveState()
+    c.setFillColor(OCHRE)
+    c.circle(*P(60, 48), 34 * k, fill=1, stroke=0)
+    poly([(34, 52), (60, 61), (86, 48), (86, 80), (34, 80)], TEAL)
+    poly([(26, 44), (60, 55), (94, 40), (94, 47), (60, 62), (26, 51)], NIGHT)
+    rect(40, 64, 14, 10, STUCCO)
+    rect(66, 62, 10, 18, OCHRE)
+    rect(22, 80, 76, 9, NIGHT)
+    rect(12, 91, 96, 11, NIGHT)
+    c.restoreState()
+
+
+def draw_brand_header(c, x, top):
+    """Logo lockup on the cover: mark + "Plinth" wordmark + tagline. Returns its height."""
+    size = 0.55 * inch
+    draw_mark(c, x, top - size, size)
+    tx = x + size + 9
+    c.setFillColor(TEAL)
+    if WORDMARK_FONT == "Yellowtail":
+        c.setFont("Yellowtail", 26)
+        c.drawString(tx, top - 26, "Plinth")
+    else:
+        c.setFont("Helvetica-Bold", 20)
+        c.drawString(tx, top - 24, "Plinth")
+    c.setFillColor(GREY)
+    c.setFont("Helvetica-Bold", 7)
+    c.drawString(tx, top - size + 3, "P E R M I T S ,   H A N D L E D .")
+    return size
 
 S = {
     "body": ParagraphStyle("body", fontName="Helvetica", fontSize=9.5, leading=12.5, textColor=INK),
@@ -87,6 +153,7 @@ def _render(path, doc_id, version, address, facts, project, questions, attachmen
     d.new_page()
 
     # ---- cover
+    d.y -= draw_brand_header(c, M, d.y) + 20
     c.setFillColor(TEAL)
     c.setFont("Helvetica-Bold", 20)
     c.drawString(M, d.y - 20, "Planning questions")
@@ -174,6 +241,10 @@ def _footer(d, total):
     c.drawString(M, 0.42 * inch, f"{d.address} · {d.doc_id} v{d.version}")
     c.drawRightString(W - M, 0.42 * inch, f"Page {d.page} of {total}")
     c.drawCentredString(W / 2, 0.28 * inch, FOOT)
+    # small mark just left of the centered line, so any page that gets photographed or forwarded
+    # still carries the brand
+    mark = 0.15 * inch
+    draw_mark(c, W / 2 - c.stringWidth(FOOT, "Helvetica", 7.5) / 2 - mark - 4, 0.2 * inch, mark)
 
 
 FIELDS_H = 150
