@@ -255,6 +255,14 @@ _NO_PREC = re.compile(r"\b(nothing|no match(?:es)?|no staff|none|found no|not fi
 _LABEL_LINE = re.compile(r"^\W*(?:staff have said)\b[^\n]*$", re.I)
 
 
+def _is_absence_claim(sent: str) -> bool:
+    """A sentence saying staff precedent was searched and not found, or that staff haven't addressed it."""
+    if re.search(r"\bstaff (?:haven't|have not|hasn't|has not) (?:addressed|said|ruled|answered)", sent, re.I):
+        return True
+    return bool(re.search(r"precedent", sent, re.I) and _NO_PREC.search(sent)
+                and re.match(r"\W*(?:I|A|My|The)\b.*\b(?:search|searched|found|knowledge base|has no)", sent, re.I))
+
+
 def strip_precedent_claims(text: str, staff_seen: bool) -> tuple[str, int]:
     """Staff precedent can be missing from this deployment, so the agent cannot know that none exists.
     Drop any sentence or "Staff have said" paragraph that claims so, unless a staff record was returned."""
@@ -274,16 +282,15 @@ def strip_precedent_claims(text: str, staff_seen: bool) -> tuple[str, int]:
         if out and re.fullmatch(r"\W*staff have said\W*(?:\(.*?\))?\W*", out[-1], re.I) and _NO_PREC.search(p):
             out.pop(); dropped += 1            # bare label on its own line followed by the claim
             continue
-        kept = []
-        for sent in re.split(r"(?<=[.!?])\s+(?=[A-Z*])", p):
-            if (re.search(r"precedent", sent, re.I) and _NO_PREC.search(sent)
-                    and re.match(r"\W*(?:I|A|My|The)\b.*\b(?:search|searched|found|knowledge base|has no)", sent, re.I)
-                    ) or re.search(r"\bstaff (?:haven't|have not|hasn't|has not) (?:addressed|said|ruled|answered)", sent, re.I):
-                dropped += 1
-                continue
-            kept.append(sent)
-        if kept:
-            out.append(" ".join(kept))
+        lines = []
+        for line in p.split("\n"):             # per line, so a claim inside a bullet list is found
+            sents = re.split(r"(?<=[.!?])\s+(?=[A-Z*])", line)
+            kept = [x for x in sents if not _is_absence_claim(x)]
+            dropped += len(sents) - len(kept)
+            if kept and re.search(r"\w", " ".join(kept)):
+                lines.append(" ".join(kept))
+        if lines:
+            out.append("\n".join(lines))
     while out and re.fullmatch(r"\W*staff have said\W*(?:\(.*?\))?\W*", out[-1], re.I):
         out.pop(); dropped += 1                # a bare label left with nothing under it
     return "\n\n".join(out), dropped

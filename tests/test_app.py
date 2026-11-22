@@ -406,3 +406,13 @@ def test_precedent_guard_catches_variants_seen_in_production():
     out, n = agent.strip_precedent_claims(text, staff_seen=False)
     assert n == 3 and "precedent" not in out.lower() and "Staff haven't" not in out
     assert out.strip() == "**Code says** the 2026 amendments are listed."  # a bullet holding only the claim goes too
+
+
+def test_precedent_guard_finds_claims_inside_bullet_lists():
+    text = ("**Needs staff:**\n- Does the no-setback rule cover a garage over the line?\n"
+            "- I searched staff precedent and found no matches.\n- Was the garage lawfully built?\n\n"
+            "**Code says** 20 feet.")
+    out, n = agent.strip_precedent_claims(text, staff_seen=False)
+    assert n == 1 and "precedent" not in out.lower()
+    assert "Does the no-setback rule" in out and "Was the garage lawfully built?" in out and "20 feet" in out
+    assert out.count("\n- ") == 2          # the other bullets are untouched
