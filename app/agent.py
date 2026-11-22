@@ -45,6 +45,12 @@ a question turns on a staff judgment, write **Needs staff** and say nothing abou
 9. Copy blockquotes from the full text in tool results. Search results include the full text of the top \
 passages; use get_section for any code section or document page (for example design-guidelines:p022) \
 whose text you need in full. Never quote from a cut-off snippet or paraphrase inside a blockquote.
+10. Never say that something is not on, not allowed by, or not covered by a list, table or section unless you \
+have read all of it. Lists and tables in the guidelines run across several pages, and search results may show \
+only one of them (a hit with next_page or prev_page is one page of a longer document). If a passage looks like \
+part of a longer list, read the rest first with get_section("source:pNNN-pNNN"). If you have not read it all, \
+say "I only read part of the list" and do not claim anything is absent. The guidelines' list of exceptions to \
+design review permits (section 2.05) is design-guidelines:p018-p022.
 To export questions to PDF, call load_skill("export-staff-questions") first and follow it."""
 
 TOOLS = [
@@ -55,7 +61,8 @@ TOOLS = [
          "source": {"type": "string", "description": "optional source id, e.g. ch17"},
          "authority": {"type": "string", "enum": ["binding", "official", "staff"]}}, "required": ["query"]}},
     {"name": "get_section", "description": "Full text of one code section (e.g. 17.20.040) or one page of a "
-     "document (e.g. design-guidelines:p022, policy-window-replacement:p001, page-design-review:p002).",
+     "document (e.g. design-guidelines:p022, policy-window-replacement:p001, page-design-review:p002), or a run "
+     "of up to 6 pages (e.g. design-guidelines:p018-p022).",
      "input_schema": {"type": "object", "properties": {"number": {"type": "string"}}, "required": ["number"]}},
     {"name": "get_property", "description": "The homeowner's property record with each fact's source.",
      "input_schema": {"type": "object", "properties": {}}},
@@ -144,6 +151,7 @@ def run_tool(name: str, args: dict, state: dict, ctx: dict) -> str:
             except Exception:
                 continue
             ctx["retrieved"].append(body)
+            h.update(knowledge.neighbors(h.get("doc_id", "")))   # next_page / prev_page for page documents
             if n < FULL_TEXT_HITS:
                 h["text"] = body[:FULL_TEXT_CHARS]
         if not hits:
