@@ -335,14 +335,6 @@
     "how": "fetched",
     "url": "https://piedmont.ca.gov//Userfiles/DBFiles/server_13659739/202306/19646420/design_review_permit_planning_commission.pdf"
   },
-  "guide-building-height": {
-    "file": "raw/guideline/guide-building-height.pdf",
-    "sha256": "e810a37a7b1a314ba42e989760a4b3d56a99d2497d7ad558263c4eab6e2e4c31",
-    "bytes": 37210,
-    "obtained": "2026-11-22T07:52:00Z",
-    "how": "fetched",
-    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/bhc.pdf"
-  },
   "guide-construction-cost": {
     "file": "raw/guideline/guide-construction-cost.pdf",
     "sha256": "72db2650f2d6c55c069c5bf13e337d0afd82a23505ab0aa0a2d14a7dc0efe16c",
@@ -350,14 +342,6 @@
     "obtained": "2026-11-22T07:45:32Z",
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Construction Cost Estimation.pdf"
-  },
-  "guide-corner-obstructions": {
-    "file": "raw/guideline/guide-corner-obstructions.pdf",
-    "sha256": "b06ad9b18234f91ccd891641fd8cb6425af89dfe6226698f5875aba2ec840dd5",
-    "bytes": 259880,
-    "obtained": "2026-11-22T07:45:32Z",
-    "how": "added by hand",
-    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/corner_obs.pdf"
   },
   "guide-graphic-calcs": {
     "file": "raw/guideline/guide-graphic-calcs.pdf",
