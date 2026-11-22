@@ -1,0 +1,312 @@
+                                                 Alarms
+
+
+                                    Chapter 27
+                                    ALARMS
+
+
+
+
+'27.1      Definitions
+'27.1-1    Alarm Agent
+'27.1-2    Alarm Business
+'27.1-3    Alarm Owner
+'27.1-4    Appellant
+'27.1-5    Applicant
+'27.1-6    Audible Alarm
+'27.1-7    City
+'27.1-8    Day
+'27.1-9    False Alarm
+'27.1-10   Fire Alarm System
+'27.1-11   Fire Chief
+'27.1-12   Fire Emergency
+'27.1-13   Notice
+'27.1-14   Permit Issuer
+'27.1-15   Permit Holder
+'27.1-16   Person
+'27.1-17   Police Alarm System
+'27.1-18   Police Chief
+'27.1-19   Police Emergency
+'27.1-20   Proprietor Alarm
+'27.1-21   Subscriber
+'27.2      Alarm System Requirements
+'27.3      Alarm System Inspections
+'27.4      Alarm Agent Permits
+'27.4-1    State Permit
+'27.4-2    City Permit
+'27.4-3    Permit Approval and Issuance
+'27.5      False Alarms
+'27.5-1    Notice Required
+'27.5-2    Owner Response before Arrival
+'27.5-3    Service Charge
+'27.5-4    Appeal
+'27.6      Violations
+'27.6-1    Suspend Service
+
+                                       27-1
+                                                                                                     Alarms
+
+
+'27.6-2         Order Removal
+'27.6-3         Revoke Permit
+'27.7           Judicial Enforcement
+'27.8           Severability
+'27.9           Fee Exemptions
+'27.10          Car Alarms
+'27.11          Confidentiality
+
+
+
+
+SEC. 27.1       DEFINITIONS
+
+      For purposes of this chapter, the following words and phrases shall have the following
+meaning, unless it is apparent from the context that a different meaning is intended.
+
+        27.1-1       Alarm Agent: means any person who is employed by an alarm business, either
+directly or indirectly, whose duties include any of the following: selling, maintaining, leasing,
+servicing, repairing, altering, replacing, moving or installing on any building, structure or facility,
+an alarm system within the City. Exemption: the provisions of this section do not include a
+person who engages in the manufacture or sale of an alarm system from a fixed location and who
+neither visits the location where the alarm system is to be installed, nor designs the scheme for
+the physical location and installation of the alarm system in a specific location.
+
+        27.1-2      Alarm Business: means the business of any individual, partnership,
+corporation or other entity engaged in selling, leasing, maintaining, servicing, repairing, altering,
+replacing, moving or installing any alarm system or causing to be sold, leased, maintained, service
+repair altered, replaced, moved or installed any alarm system in or on any building structure, or
+facility within the City.
+
+       27.1-3      Alarm Owner: person upon whose property the alarm is installed.
+
+       27.1-4      Appellant: means a person who appeals a decision made pursuant to this
+ordinance.
+
+       27.1-5     Applicant: means a person who files an application for a new or renewal
+permit as provided in this ordinance.
+
+        27.1-6     Audible Alarm: means any mechanical or electrical device designed for the
+detection of unauthorized entry on the land, building, structure and/or facility of an alarm owner;
+or any mechanical or electrical device designed for the detection of smoke and/or heat therein,
+which generates an audible sound outdoors when it is activated.
+
+
+                                                 27-2
+                                                                                                      Alarms
+
+
+       27.1-7      City: means the City of Piedmont.
+
+       27.1-8      Day: means calendar day.
+
+        27.1-9    False Alarm: shall mean an alarm signal to which personnel of the Piedmont
+police or Piedmont fire department respond where there is no police or fire emergency as defined
+in this Chapter.
+
+        27.1-10 Fire Alarm System: means any mechanical or electrical device which is
+designed or used for the detection of smoke and/or heat within a building, structure, facility or
+any portion thereof, which when activated emits a sound, displays a light or transmits a signal or
+message outside the protected building for the purpose of alerting occupants or others of the
+existence of a fire emergency. Fire alarm systems include, but are not limited to, audible alarms
+and proprietor alarms. Devices which are not designed or used to register alarms that are audible,
+visible or perceptible outside of the protected building, structure or facility are not included
+within this definition.
+
+       27.1-11     Fire Chief: means the fire chief of the City.
+
+        27.1-12 Fire Emergency: means any incident requiring the immediate response of the
+fire department due to danger to life, health, or property.
+
+       27.1-13 Notice: means written notice, given by personal service upon the addressee or
+given by United States mail, postage prepaid, addressed to the person to be notified at his last
+known address. Service of such notice shall be effective upon the completion of personal service
+or upon placing of the same in the custody of the United States Postal Service.
+
+       27.1-14     Permit Issuer: means the Department of Public Works.
+
+       27.1-15 Permit Holder: means any person who shall be granted a business permit, as
+provided in this chapter, and agents and representatives of that person.
+
+        27.1-16 Person: means natural person, firm, partnership, association, corporation or
+other legal capacity.
+
+        27.1-17 Police Alarm System: means any mechanical or electrical device which is
+designed or used for the detection of unauthorized entry into a building, structure or facility and
+for alerting others of an unauthorized entry or other danger to life or health, and which emits a
+sound or transmits a signal message outside the protected building when activated. Alarm
+systems include, but are not limited to, audible alarms and proprietor alarms. Devices which are
+not designed or used to register alarms that are audible, visible, or perceptible outside of the
+protected building, structure or facility are not included within this definition.
+
+                                                27-3
+                                                                                                   Alarms
+
+
+       27.1-18     Police Chief: means the police chief of the City.
+
+        27.1-19 Police Emergency: means any incident requiring the immediate response of the
+police department due to an unauthorized entry of a building or a danger to life, health, or
+property.
+
+       27.1-20 Proprietor Alarm: means an alarm which is not serviced by an alarm business
+or an owner installed alarm system not serviced by an alarm business.
+
+       27.1-21 Subscriber: means any person who purchases, leases, contracts for, or
+otherwise obtains an alarm system from an alarm business. (Ord. No. 511 N.S., 7/89)
+
+SEC. 27.2      ALARM SYSTEM REQUIREMENTS
+
+        The police chief and fire chief may prescribe minimum standards and regulations for the
+construction and maintenance of all alarm systems installed within the City. These standards and
+regulations shall become effective upon adoption thereof by resolution of the City Council of the
+City of Piedmont.
+
+       (a)     No alarm system shall be installed which protects any outdoor property
+perimeter, except locked entry gates may be alarmed.
+
+        (b)     Any alarm system installed in the City of Piedmont must have posted in a
+conspicuous location the emergency twenty-four hour telephone number to be called in order to
+reset or turn off an alarm system which has been activated.
+
+       (c)    No person shall use or cause to be used any telephone device or telephone
+attachment on the primary trunk line of the Piedmont police and fire departments which
+reproduces any prerecorded message without permission of the chief of police or the fire chief
+respectively.
+
+        (d)    An audible alarm shall have a timing device that will terminate the alarm within
+fifteen (15) minutes of activation.
+
+        (e)     It shall be unlawful to install such a system which activates a sound similar to
+sirens in use on emergency vehicles or for civil disaster purposes.
+
+        (f)     For the protection and safety of building inhabitants, an alarm company which
+relays a manually operated alarm from a customer of the company to the police communications
+center shall notify the police communications center that the alarm was manually operated. (Ord.
+No. 511 N.S., 7/89)
+
+SEC. 27.3      ALARM SYSTEM INSPECTIONS
+                                    27-4
+                                                                                                       Alarms
+
+
+
+        The police chief may require the inspection and approval of all police alarm systems
+installed within the City and the fire chief may require inspection and approval of all fire alarm
+systems installed within the City. (Ord. No. 511 N.S., 7/89)
+
+SEC. 27.4      ALARM AGENT PERMITS
+
+       27.4-1     State Permit. Alarm agents shall carry a valid alarm agent permit as issued by
+the Bureau of Consumer Affairs of the State of California on his or her person at all times while
+so engaged within the City. (Ord. No. 511 N.S., 7/89)
+
+        27.4-2      City Permit. Any person engaged in the business of selling or leasing or
+installation of alarms in the City of Piedmont shall obtain a yearly business permit from the City
+of Piedmont Department of Public Works. The fee for such permit shall be set by Council
+resolution.
+
+       After the effective date of this chapter, no alarm agent shall install a police or fire alarm
+system within the City of Piedmont without first obtaining a Piedmont business permit. (Ord.
+No. 511 N.S., 7/89)
+
+        27.4-3     Permit Approval and Issuance. A City of Piedmont business permit
+application shall be submitted by an alarm agent to the Fire Chief or the Police Chief for
+approval. Approval shall not be given unless sufficient proof is submitted that the alarm agent's
+alarm system devices to be installed in Piedmont meet or exceed the requirements of Section 27.2.
+ (Ord. No. 511 N.S., 7/89)
+
+SEC. 27.5      FALSE ALARMS
+
+        27.5-1      Notice Required. If a false alarm is activated by any alarm system within the
+City of Piedmont, a notice of false alarm shall be issued to the alarm owner by the police
+department. This notice of false alarm shall set forth the time and nature of the false alarm and, if
+applicable, the fact that a service charge under section 27.5.3 is due and payable within fifteen
+(15) days after service of the notice.
+
+        27.5-2      Owner Response Before Arrival: Alarm owners who make contact with the
+police department before responding units arrive at the location of the alarm shall not be charged
+with a false alarm.
+
+        27.5-3      Service Charge. A service charge as set by Council resolution from time to
+time shall be imposed upon the fourth and all ensuing false alarms occurring within a twelve-
+month period at any one building or premises, except that when ownership of the building or
+premises changes completely, the count of false alarms shall begin anew. Notice shall be given as
+set forth in Section 27.5-1 above.
+                                               27-5
+                                                                                                     Alarms
+
+
+
+        27.5-4      Appeal. The determination of the existence of any false alarm and the
+imposition of a service charge may be appealed by the alarm owner by a written request to the
+police chief. The police chief shall, within five (5) days after receiving such request, set a time
+for hearing and give notice to the owner. The owner may appear at such hearing and testify. The
+decision of the chief of police shall be final and the alarm owner shall be notified in writing of that
+decision. (Ord. No. 511 N.S., 7/89)
+
+
+SEC. 27.6      VIOLATIONS
+
+       Any failure to pay a service charge imposed under Section 27.5 or any failure to comply
+with the requirements of Section 27.2 shall constitute a violation of this Chapter. If a violation
+has occurred, the chief of police may take any one or more of the following actions:
+
+        27.6-1      Suspend Service. The chief of police may suspend the provision of a police or
+fire response to an alarm at the building where the violation occurred or whose owner has
+otherwise violated this chapter. The suspension of services may be appealed by the property
+owner or resident in the manner provided in Section 27.5.4.
+
+       27.6-2      Order Removal. The chief of police may order the removal within thirty (30)
+days of any device or attachment not operated or maintained in accordance with the provision of
+this Chapter, pursuant to the provisions of Chapter 6 of this Code pertaining to the abatement of
+nuisances.
+
+        27.6-3     Revoke Permit. The chief of police may revoke any business license permit
+issued hereunder for failure to comply with the conditions thereof, after providing (1) a written
+notice to the permit holder of the intent to revoke the permit and (2) a reasonable opportunity
+for the permit holder to appeal the proposed revocation. (Ord. No. 511, 7/89)
+
+SEC. 27.7      JUDICIAL ENFORCEMENT
+
+        An action may be commenced in the name of the City in any court of competent
+jurisdiction for the amount of any delinquent fine. All fines shall be deemed delinquent thirty
+(30) days after they are due and payable. (Ord. No. 511 N.S., 7/89)
+
+SEC. 27.8      SEVERABILITY
+
+        If any section, subsection, sentence, clause or phrase of this ordinance is for any reason
+held to be invalid or unconstitutional by the decision of any court of competent jurisdiction, such
+decision shall not affect the validity of the remaining portions of this ordinance. The City
+Council hereby declares that it would have passed this ordinance and each section, subsection,
+sentence, clause and phrase hereof, irrespective of the fact that any one or more of the sections,
+                                                 27-6
+                                                                                                    Alarms
+
+
+subsections, sentences, clauses or phrases hereof be declared invalid or unconstitutional. (Ord.
+No. 511 N.S., 7/89)
+
+SEC. 27.9      FEE EXEMPTIONS
+
+       The United States Government, the State of California, counties, municipal corporations,
+departments thereof and other governmental entities are exempt from all fees authorized by this
+chapter.
+
+
+SEC. 27.10     CAR ALARMS
+
+      The provisions of this Chapter are not applicable to audible alarms affixed to
+automobiles. (Ord. No. 511 N.S., 7/89)
+
+SEC. 27.11     CONFIDENTIALITY
+
+        The information furnished and secured pursuant to this ordinance shall be confidential in
+character and shall not be subject to public inspection and shall be kept so that the contents
+thereof shall not be known except to the persons charged with the administration of this
+ordinance. (Ord. No. 511 N.S., 7/89)
+
+
+
+
+                                               27-7
+

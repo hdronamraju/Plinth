@@ -1,0 +1,11 @@
+BUILDING HEIGHT
+[Transcribed by hand from a scanned, hand-drawn diagram. The PDF's built-in text is unreadable OCR noise.]
+
+A = the distance between the highest grade and the maximum height of the house*
+B = the distance between the lowest grade and the maximum height of the house*
+
+(A + B) / 2 = building height
+
+* The maximum height of the house excludes the chimney.
+
+The diagram shows four elevations of a house on sloping ground (front, right side, rear, left side). Distance A is measured from the highest grade, and distance B from the lowest grade, up to the maximum height of the house (the roof peak, not the chimney).

@@ -1,0 +1,616 @@
+                              Chapter 30
+            STORM WATER MANAGEMENT AND DISCHARGE CONTROL
+
+ARTICLE I. TITLE, PURPOSE, AND GENERAL PROVISIONS
+
+30.1    Purpose and intent
+30.2    Definitions
+30.3    Responsibility for administration
+30.4    Construction and application
+30.5    Severability and validity
+30.6    Taking
+
+ARTICLE II DISCHARGE REGULATIONS AND REQUIREMENTS
+
+30.7    Discharge of pollutants
+30.8    Discharge in violation of permit
+30.9    Illicit discharge and illicit connections
+30.10   Reduction of pollutants in storm water
+30.11   Watercourse protection
+
+ARTICLE III INSPECTION AND ENFORCEMENT
+
+30.12   Authority to inspect
+30.13   Industrial and commercial site controls
+30.14   Violations constituting misdemeanors
+30.15   Violations constituting infractions
+30.16   Penalty for violation
+30.17   Continuing violation
+30.18   Concealment
+30.19   Acts potentially resulting in violation of federal Clean Water Act and/or Porter-
+        Cologne Act
+30.20   Violations deemed a public nuisance
+30.21   California code of civil procedure. Section 1094.6
+30.22   Civil actions
+30.23   Administrative enforcement powers
+30.24   Authority to arrest or issue citations
+30.25   Remedies not exclusive
+
+ARTICLE IV COORDINATION WITH OTHER PROGRAMS
+
+30.26 Coordination with hazardous materials inventory and response program
+
+             ARTICLE I. TITLE, PURPOSE, AND GENERAL PROVISIONS
+
+SEC. 30.1      INTENT AND PURPOSE
+The purpose of this Chapter is to ensure the future health, safety, and general welfare of
+Piedmont residents by:
+
+        (a)    eliminating non-storm water discharges into the City’s municipal storm drain
+               system.
+
+        (b)    controlling the discharge into the City’s municipal storm drain system from spills,
+               dumping or disposal of materials other than storm water.
+
+        (c)    reducing pollutants in storm water discharges to the maximum extent practicable.
+
+The intent of this ordinance is to protect and enhance the water quality in the City’s watercourses,
+water bodies, and wetlands in a manner pursuant to and consistent with the Porter-Cologne Water
+Quality Control Act and the Federal Clean Water Act and any acts amendatory thereof or
+supplementary thereto. (Ord. 694 N.S. 09/2010)
+
+SEC. 30.2      DEFINITIONS.
+
+        30.2.1 Any terms defined in the Federal Clean Water Act and acts amendatory thereof or
+        supplementary thereto, and/or defined in the regulations for the storm water discharge
+        permitting program issued by the Environmental Protection Agency on November 16, 1990
+        (as may from time to time be amended) as used in this ordinance shall have the same
+        meaning as in that statute or regulations. The following words and phrases when used in this
+        chapter shall be as defined below:
+
+               30.2.1.1 Discharge of a Pollutant
+
+               (a)     any addition of any pollutant to navigable waters from any point source, or
+
+               (b)     any addition of any pollutant to the waters of the contiguous zone or the
+                       ocean from any point source other than a vessel or other floating craft.
+
+               30.2.1.2        Illicit Discharge.    Any discharge into the City’s storm drain
+               system that is not composed entirely of storm water except discharges pursuant to a
+               NPDES permit and discharges resulting from fire fighting activities.
+
+               30.2.1.3      Pollutant       Dredged soil, solid waste, incinerator residue,
+               sewage, garbage, sewage sludge, munitions, chemical wastes, biological
+materials,            radioactive materials, heat, wrecked or discarded equipment, rock, sand,
+cellar dirt           and industrial, municipal, and agricultural waste discharge into the City’s
+storm
+               drain system.
+
+               30.2.1.4      Publicly Owned Treatment Works ("POTW"). Any device or
+               system used in the treatment (including recycling and reclamation) of municipal
+                                                 2
+               sewage or industrial wastes of liquid nature which is owned by a "State" or
+               "municipality." This definition includes sewers, pipes or other conveyances only if
+               they convey wastewater to a POTW providing treatment.
+
+               30.2.1.5        Storm Water. Flow on the surface of the ground resulting from
+               precipitation, snow melt runoff, surface runoff, and subsurface drainage.
+
+       30.2.2 When used in this Chapter, the following words shall have the meanings ascribed to
+       them in this Section:
+
+               30.2.2.1      Authorized Enforcement Official. The following City Officials:
+               Director of Public Works, Public Services Superintendent, Public Services
+               Supervisor, Building Official, City Planner, Fire Chief, Police Chief, and sworn
+               officers.
+
+               30.2.2.2        Best Management Practices ("BMPs").Schedules of activities,
+               prohibitions of practices, maintenance procedures, and other management practices
+               to prevent or reduce the pollution of "waters of the United States." BMPs also
+               include treatment requirements, operating procedures, prohibitions and practices to
+               control plant site runoff, spillage or leaks, sludge or waste disposal, drainage from
+               raw material storage and other management practices, to prevent or reduce the
+               discharge of pollutants directly or indirectly to watercourses, water bodies and
+               wetlands.
+
+               30.2.2.3       City. The City of Piedmont
+
+               30.2.2.4        City Storm Drain System. Includes but is not limited to the
+               facilities within the city by which storm water may be conveyed to waters of the
+               United States, including any roads with drainage systems, municipal streets, catch
+               basins, curbs, gutters, ditches, man-made channels or storm drains, which is not part
+               of a Publicly Owned Treatment Works (POTW) as defined at 40 CFR 122.2.
+
+               30.2.2.5       Non-Storm Water Discharge. Any discharge of a pollutant that is
+               not entirely composed of storm water.
+
+               30.2.2.6      Premises. Any building, lot parcel, real estate, or land or portion of
+               land whether improved or unimproved including
+               adjacent sidewalks and parking strips. (Ord. 694 N.S. 09/2010)
+
+
+SEC. 30.3      RESPONSIBILITY FOR ADMINISTRATION.
+
+This Chapter shall be administered for the City by the Director of Public Works. Where storm drain
+facilities and/or watercourses have been accepted for maintenance by the Alameda County Flood
+Control and Water Conservation District (ACFCWCD) or other public agency legally responsible
+                                                 3
+for certain watercourses then the responsibility for enforcing the provisions of this Chapter are
+hereby assigned to those public agencies over those watercourses for which they have accepted
+maintenance.
+
+SEC. 30.4      CONSTRUCTION AND APPLICATION.
+
+This ordinance shall be construed to assure consistency with the requirements of the Federal Clean
+Water Act and acts amendatory thereof or supplementary thereto, applicable implementing
+regulations, and NPDES Permit No. CAS612008, and any amendment, revision or reissuance
+thereof. (Ord. 694 N.S. 09/2010)
+
+SEC. 30.5      SEVERABILITY AND VALIDITY.
+
+If any portion of this ordinance is declared invalid, the remaining portions of this ordinance are
+to be considered valid.
+
+SEC. 30.6      TAKING.
+
+The provisions of this ordinance shall not operate to deprive any landowner of substantially all of the
+market value of his/her property or otherwise constitute an unconstitutional taking without
+compensation. If application of this ordinance to a specific project would create a taking then
+pursuant to the ordinance the (City Council) may allow additional land uses, but only to the extent
+necessary to avoid a taking. Such uses shall be consistent with and carry out the intent and purposes
+of this ordinance as stated in section 30.1 above. (Ord. 694 N.S. 09/2010)
+
+          ARTICLE II DISCHARGE REGULATIONS AND REQUIREMENTS
+
+SEC. 30.7      DISCHARGE OF POLLUTANTS.
+
+The discharge of non-storm water discharges to the City storm drain system is prohibited. All
+discharges of material other than storm water must be in compliance with a NPDES permit
+issued for the discharge (other than NPDES Permit No. CAS612008). l other
+
+       30.7.1 Exceptions to Discharge Prohibition. The following discharges are exempt from
+       the prohibitions of this Chapter.
+
+               30.7.1.1        The prohibition on discharges shall not apply any discharge regulated
+                               under a National Pollutant Discharge Elimination System (NPDES)
+                               permit issued to the discharger and administered by the State of
+                               California under authority of the United States Environmental
+                               Protection Agency, provided that the discharger is in full compliance
+                               with all requirements of the permit and other applicable laws or
+                               regulations.
+
+               30.7.1.2        Discharges from the following activities will not be considered a
+                                                  4
+                                 source of pollutants to waters of the United States only if appropriate
+                                 control measures are implemented as required by a NPDES permit,
+                                 and any of it’s amendments, revisions, or reissuance thereof - water
+                                 line flushing and other discharge from potable water source,
+                                 landscape irrigation and lawn watering; irrigation water; diverted
+                                 stream flows; rising ground waters; infiltration from separate storm
+                                 drains; uncontaminated pumped ground water; foundation and
+                                 footing drains; water from crawl space pumps; air conditioning
+                                 condensation; springs; personal car washing; flows from riparian
+                                 habitats and wetlands; dechlorinated swimming pool discharges or
+                                 flows from fire fighting; flows from riparian habitats or wetlands;
+                                 diverted stream flows; flows from natural springs; rising ground
+                                 water; uncontaminated and unpolluted groundwater infiltration;
+                                 pumped groundwater; pumped groundwater from water aquifer; and
+                                 accordingly will not be subject to the prohibition on discharges. (Ord.
+                                 694 N.S. 09/2010)
+
+SEC.30.8        DISCHARGE IN VIOLATION OF PERMIT.
+
+Any discharge that would result in or contribute to a violation of NPDES Permit No. CAS612008
+and any amendment, revision or reissuance thereof, either separately considered or when combined
+with other discharges, is prohibited. Liability for any such discharge shall be the responsibility of
+the person(s) causing or responsible for the discharge, and such person shall defend, indemnify and
+hold harmless the City in any administrative or judicial enforcement action relating to such
+discharge. (Ord. 694 N.S. 09/2010)
+
+SEC.30.9        ILLICIT DISCHARGE AND ILLICIT CONNECTIONS.
+
+It is prohibited to establish, use, maintain, or continue illicit drainage connections to the City storm
+drain system, and to commence or continue any illicit discharges to the City storm drain system.
+This prohibition is expressly retroactive and applies to connections made in the past, regardless of
+whether made under a permit or other authorization or whether permissible under the law or
+practices applicable or prevailing at the time of the connection. (Ord. 694 N.S. 09/2010)
+
+SEC.30.10       REDUCTION OF POLLUTANTS IN STORM WATER.
+
+Any person engaged in activities which will or may result in pollutants entering the City storm
+drain system shall undertake all practicable measures to reduce such pollutants. Examples of such
+activities include ownership and use of facilities which may be a source of pollutants such as parking
+lots, gasoline stations, industrial facilities, commercial facilities, stores fronting City street, etc. The
+following minimal requirements shall apply.
+
+        30.10.1 Littering. No person shall throw, deposit, leave, maintain, keep, or permit to be
+        thrown, deposited, placed, left or maintained any "refuse," "rubbish," "garbage," or other
+        discarded or abandoned objects, articles, and accumulations, in or upon any street, alley,
+                                                     5
+sidewalk, storm drain, inlet, catch basin, conduit or other drainage structures, business
+place, or upon any public or private lot of land in the City, so that the same might be or
+become a pollutant, except in containers or in lawfully established dumping grounds.
+
+The occupant or tenant, or in the absence or occupant or tenant, the owner, lessee, or
+proprietor of any real property in the City of Piedmont in front of which there is a paved
+sidewalk shall maintain said sidewalks free of dirt or litter. Sweepings from said sidewalks
+shall not be swept or otherwise made or allowed to go into the gutter or roadway, but shall be
+disposed of in receptacles maintained on said real property as required for the disposal of
+garbage.
+
+No person shall throw or deposit litter in any fountain, pond, lake, stream, or any other
+body of water in a park or elsewhere within the City.
+
+30.10.2 Standard for Parking Lots and Similar Structures. Persons owning or operating a
+parking lot, gas station tarmac or similar structure shall clean those structures as frequently
+and thoroughly as practicable in a manner that does not result in discharge of pollutants to
+the City storm drain system.
+
+30.10.3 Best Management Practices for New Developments and Redevelopments. Any
+construction contractor performing work in the City shall comply with and undertake the
+latest best management practices for construction projects adopted by the Alameda
+Countywide Clean Water Program, and if required, any approved erosion and sediment
+control plans incorporated into said building permit. The Director of Public Works may
+establish controls on the volume and rate of storm water runoff from new developments and
+redevelopments as may be appropriate to minimize the discharge and transport of pollutants.
+
+30.10.4 Notification of Intent and Compliance with General Permits. Each industrial and
+commercial discharger, discharger associated with construction activity, or other discharger,
+described in any general storm water permit addressing such discharges, as may be adopted
+by the United States Environmental Protection Agency, the State Water Resources Control
+Board or the California Regional Water Quality Control Board, San Francisco Bay Region,
+shall provide notice of intent, comply with and undertake all other activities required by any
+general storm water permit applicable to such discharges.
+
+Each discharger identified in an NPDES permit relating to storm water discharges shall
+comply with and undertake all activities required by such permit.
+
+30.10.5 Compliance with Best Management Practices. Where best management practices,
+guidelines or requirements have been issued by any federal, State of California, regional or
+city agency, for any activity, operation, or facility which may cause or contribute to storm
+water pollution or contamination, illicit discharges and/or discharge of non-storm water to
+the storm drain system, every person undertaking such activity or operation or owning or
+operating such facility shall comply with such guidelines or requirements (as may be
+identified by the Director of Public Works). (Ord. 694 N.S. 09/2010)
+                                          6
+SEC.30.11      WATERCOURSE PROTECTION
+
+Every person owning property through which a watercourse passes, or such person's lessee or tenant,
+shall keep and maintain that part of the watercourse within the property reasonably free of trash,
+debris, excessive vegetation, and other obstacles which would pollute, contaminate, or significantly
+retard the flow of water through the watercourse; shall maintain existing privately owned structures
+within or adjacent to a watercourse, so that such structures will not become a hazard to the use,
+function, or physical integrity of the watercourse; and shall not remove healthy bank vegetation
+beyond that actually necessary for said maintenance, nor remove said vegetation in such a manner as
+to increase the vulnerability of the watercourse to erosion.
+
+No person shall commit or cause to be committed any of the following acts, unless a written permit
+has first been obtained from the Director of Public Works:
+
+       30.11.1         Discharge into or connect any pipe or channel to a watercourse;
+
+       30.11.2         Modify the natural flow of water in a watercourse;
+
+       30.11.3         Carry out development within a setback;
+
+       30.11.4         Deposit in, plant in, or remove any material from a watercourse including
+                       its banks, except as required for necessary maintenance;
+
+       30.11.5         Construct, alter, enlarge, connect to, change, or remove any structure in a
+                       watercourse; or
+
+       30.11.6         Place any loose or unconsolidated material along the side of or within a
+                       watercourse or so close to the side as to cause a diversion of the flow, or to
+                       cause a probability of such material being carried away by storm waters
+                       passing through such watercourses.
+
+                    ARTICLE III INSPECTION AND ENFORCEMENT
+
+SEC. 30.12     AUTHORITY TO INSPECT.
+
+Whenever necessary to make an inspection to enforce any of the provisions of this Chapter, or
+whenever an authorized enforcement official has reasonable cause to believe that there exists in any
+building or upon any premises any condition which constitutes a violation of the provisions of this
+Chapter, the official may enter such building or premises at all reasonable times to inspect the same
+or perform any duty imposed upon the official by this Chapter; provided that
+
+       (i)     if such building or premises be occupied, he or she shall first present proper
+               credentials and request entry; and
+
+                                                 7
+       (ii)    if such building or premises be unoccupied, he or she make a reasonable effort to
+               locate the owner or other persons having charge or control of the building or
+               premises and request entry.
+
+Any such request for entry shall state that the property owner or occupant has the right to refuse
+entry and that in the event such entry is refused, inspection may be made only upon issuance of a
+search warrant by a duly authorized magistrate. In the event the owner and/or occupant refuses entry
+after such request has been made, the official is hereby empowered to seek assistance from any court
+of competent jurisdiction in obtaining such entry.
+
+Routine or area inspections shall be based upon such reasonable selection processes as may be
+deemed necessary to carry out the objectives of this ordinance, including but not limited to random
+sampling and/or sampling in areas with evidence of storm water contamination, illicit discharges,
+discharge of non-storm water to the storm water system, or similar factors.
+
+       30.12.1 Authority to Sample and Establish Sampling Devices. The City shall have the
+       right to establish on any property such devices as are necessary to conduct sampling or
+       metering operations. During all inspections as provided herein, the official may take any
+       samples deemed necessary to aid in the pursuit of the inquiry or in the recordation of the
+       activities onsite.
+
+       30.12.2 Notification of Spills. As soon as any person in charge of a facility or responsible
+       for emergency response for a facility has knowledge of any confirmed or unconfirmed
+       release of materials, pollutants or waste which may result in pollutants or non-storm water
+       discharges entering the City storm sewer system, such person shall take all necessary steps
+       to ensure the discovery and containment and clean up of such release and shall notify the
+       City of the occurrence by telephoning Department of Public Works, if the spill occurs
+       during normal business hours or the Fire Department, if the spill occurs when the
+       Department of Public Works is closed.
+
+       30.12.3 Requirement to Test or Monitor. Any authorized enforcement official may request
+       that any person engaged in any activity and/or owning or operating any facility which may
+       cause or contribute to storm water pollution or contamination, illicit discharges, and/or
+       discharge of any non-storm water to the storm water system, undertake such monitoring
+       activities and/or analysis and furnish such reports as the official may specify. The burden,
+       including costs of these activities, analyses and reports shall bear a reasonable relationship to
+       the need for the monitoring, analyses and reports and the benefits to be obtained. The
+       recipient of such request shall undertake and provide the monitoring analyses and/or reports
+       requested. (Ord. 694 N.S. 09/2010)
+
+SEC. 30.13     INDUSTRIAL AND COMMERCIAL SITE CONTROLS
+
+The City shall implement an industrial and commercial site control program at all sites which could
+reasonably be considered to cause or contribute to pollution of stormwater runoff, with inspections
+and effective follow-up and enforcement to abate actual or potential pollution sources consistent
+                                                  8
+with the City’s Enforcement Response Plan (ERP), to prevent discharge of pollutants and impacts on
+beneficial uses of receiving waters. Inspectors shall confirm implementation of appropriate and
+effective BMP’s and other pollutant controls by industrial and commercial site operators.
+
+       30.13.1 Industrial and Commercial Site Controls
+
+       Legal Authority for Effective Site Management
+
+       (a)     Task Description – The City shall enforce effective stormwater pollutant control on
+               industrial sites. The City shall have the ability to inspect and require effective
+               stormwater pollutant control and to escalate progressively stricter enforcement to
+               achieve expedient compliance and pollutant abatement at commercial and industrial
+               sites within its jurisdiction.
+
+       (b)     Implementation Level
+
+                 i.   The City may oversee, inspect, and require expedient compliance and
+                      pollution abatement at all industrial and commercial sites which may be
+                      reasonably considered to cause or contribute to pollution of stormwater
+                      runoff. The City shall require implementation of BMPs at industrial and
+                      commercial to address pollutant sources associated with outdoor process and
+                      manufacturing areas, outdoor material storage areas, outdoor waste storage
+                      and disposal areas, outdoor vehicle and equipment, storage and maintenance
+                      areas, outdoor parking areas and access roads, outdoor wash areas, outdoor
+                      drainage from indoor areas, rooftop equipment, and contaminated and
+                      erodible surface areas, and other sources determined by the City or Water
+                      Board Executive Officer to have a reasonable potential to contribute to
+                      pollution of stormwater runoff.
+
+                ii.   The City shall notify the discharger of any actual or potential pollutant
+                      sources and violations and require problem correction within a reasonably
+                      short and expedient timeframe commensurate with the threat to water quality.
+                      The City shall require timely correction of problems involving rapid
+                      temporary repair, and may allow longer time periods for implementation of
+                      more permanent solutions, if these require significant capital expenditure or
+                      construction. Violations shall be corrected prior to the next rain event or
+                      within 10 business days after the violations are noted. If more than 10
+                      business days are required for correction, a rationale shall be given in the
+                      tabulated sheets.
+
+       30.13.2 Illicit Discharge Detection and Elimination
+
+       Legal Authority
+
+
+                                                9
+(a)    Task Description – The City shall have the authority to prohibit and control illicit
+       discharges and escalate stricter enforcement to achieve expedient compliance.
+
+(b)    Implementation Level
+
+       i. The City may address stormwater and non-stormwater pollution associated with,
+       but not limited to the following:
+
+              (a) Sewage;
+              (b) Discharges of wash water resulting from the cleaning of exterior surfaces
+                  and pavement, or the equipment and other facilities of any commercial
+                  business, or any other public or private facility;
+              (c) Discharges of runoff from material storage areas, including containing
+                  chemicals, fuels, or other potentially polluting or hazardous materials;
+              (d) Discharges of pool or fountain water containing chlorine, biocides, or
+                  other chemicals; discharges of pool or fountain filter backwash water;
+              (e) Discharges of sediment, pet waste, vegetation clippings, or other
+                  landscape or construction-related wastes; and
+              (f) Discharges of food-related wastes (e.g., grease, fish processing, and
+                  restaurant kitchen mat and trash bin wash water, etc.
+
+       ii. The City may discover through inspection and surveillance, illicit
+       connections and discharges to storm drains and thereafter take whatever means
+       necessary to eliminate said connections or discharges.
+
+30.13.3 Construction Site Control
+
+Legal Authority for Effective Site Management
+
+(a)    Task Description – The City shall require effective stormwater pollutant control, and
+       escalate progressively stricter enforcement to achieve expedient compliance and
+       clean up at all public and private construction sites.
+
+(b)    Implementation Level
+
+       i.     The City shall require at all construction sites year round effection erosion
+              control, run-on and runoff control, sediment control, active treatment
+              systems (as appropriate), good site management,           and non storm water
+              management through all phases of construction (including but not limited to
+              site grading, building, and finishing of lots) until the site is fully stabilized by
+              landscaping or the installation of permanent erosion control measures.
+
+       ii.    The City shall oversee, inspect, and require expedient compliance and clean
+              up at all construction sites year round.
+
+                                         10
+               iii.    Reporting – The City shall comply with reporting requirements of the
+                       Alameda County Clean Water Program. (Ord. 694 N.S. 09/2010)
+
+
+SEC. 30.14     VIOLATIONS CONSTITUTING MISDEMEANORS.
+
+Unless otherwise specified by ordinance, the violations of any provision of this Chapter, or failure to
+comply with any of the mandatory requirements of this Chapter shall constitute a misdemeanor;
+except that not withstanding any other provisions of this Chapter, any such violation constituting a
+misdemeanor under this Chapter may, in the discretion of the enforcing authority be charged and
+prosecuted as an infraction.
+
+SEC. 30.15     VIOLATIONS CONSTITUTING INFRACTIONS.
+
+Any person violating or failing to comply with any of the following provisions of this ordinance
+shall be guilty of an infraction, which shall be enforced and punishable in the manner prescribed by
+the Penal Code and the Government Code of the State of California or abated as a nuisance as
+provided in Chapter 12 of the Piedmont City Code.
+
+SEC. 30.16     PENALTY FOR VIOLATION.
+
+Upon conviction of a misdemeanor, a person shall be subject to payment of a fine, or imprisonment,
+or both, not to exceed the limits set forth in California Government Code Section 36901.
+
+Upon conviction of an infraction, a person shall be subject to payment of a fine, not to exceed the
+limits set forth in California Government Code Section 36900. After a third conviction for a
+violation of the same provision subsequent violations within a twelve (12) month period may be
+charged as a misdemeanor.
+
+SEC. 30.17     CONTINUING VIOLATION.
+
+Unless otherwise provided, a person, firm, corporation, or organization shall be deemed guilty of a
+separate offense for each and every day during any portion of which a violation of this Chapter is
+committed, continued or permitted by the person, firm, corporation, or organization and shall be
+punishable accordingly as herein provided.
+
+
+
+SEC. 30.18     CONCEALMENT.
+
+Causing, permitting, aiding, abetting or concealing a violation of any provision of this Chapter shall
+constitute a violation of such provision.
+
+SEC. 30.19     ACTS POTENTIALLY RESULTING IN VIOLATION OF FEDERAL CLEAN
+               WATER ACT AND/OR PORTER COLOGNE ACT.
+                                                  11
+Any person who violates any provision of this Chapter, any provision of any permit issued pursuant
+to the Chapter, or who discharges waste or wastewater which causes pollution, or who violates any
+cease an desist order, prohibition, effluent limitation, may also be in violation of the Federal Clean
+Water Act and/or Porter-Cologne Act and any amendments thereto and shall be subject to the
+sanctions of those Acts including civil and criminal penalty. Any enforcement action authorized
+under this Article shall also include notice to the violator of such potential liability. (Ord. 694 N.S.
+09/2010)
+
+SEC. 30.20     VIOLATIONS DEEMED A PUBLIC NUISANCE.
+
+In addition to the penalties hereinbefore provided, any condition caused or permitted to exist in
+violation of any of the provisions of this Chapter is a threat to the public health, safety and welfare
+and is declared and deemed a nuisance, and may be summarily abated and/or restored by any
+authorized enforcement official, and/or civil action to abate, enjoin or otherwise compel the
+cessation of such nuisances may be taken by the City Attorney as provided in Chapter 6 of this code
+including the assessment of the costs of abatement which may be collected at the same time and in
+the same manner as ordinary municipal taxes as provided by Government Code Section 38773.5 and
+by civil action to abate, enjoin or otherwise compel the cessation of such nuisance by the City. (Ord.
+694 N.S. 09/2010)
+
+SEC.30.21      CALIFORNIA CODE OF CIVIL PROCEDURE. SECTION 1094.6.
+
+The provisions of Section 1094.6 of the California Code of Civil Procedure are applicable to judicial
+review of City decisions pursuant to this Chapter.
+
+SEC. 30.22     CIVIL ACTIONS.
+
+In addition to any other remedies provided in this section, any violation of this section may be
+enforced by civil action brought by the City. In any such action the City may seek, and the court
+shall grant, as appropriate, the following remedies:
+
+       (1)     A temporary or permanent injunction.
+
+       (2)     Assessment of the violator for the cost of any investigation, inspection, or monitoring
+               survey which led to the establishment of the violation, and for the reasonable costs of
+               preparing and bringing legal action under this subsection.
+
+       (3)     Costs incurred in removing, correcting, or terminating the adverse effects resulting
+               from the violation.
+
+       (4)     Compensatory damages for loss or destruction to water quality, wildlife, fish and
+               aquatic life. Assessments under this subsection shall be paid to the City to be used
+               exclusively for costs associated with monitoring and establishing storm water
+               discharge pollution control systems and/or implementing or enforcing the
+                                                  12
+               provisions of this ordinance.
+
+SEC. 30.23     ADMINISTRATIVE ENFORCEMENT POWERS.
+
+In addition to the other enforcement powers and remedies established by this ordinance, any
+authorized enforcement official has the authority to utilize the following administrative remedies.
+
+       30.23.1 Cease and Desist Orders. When an authorized enforcement official finds that a
+       discharge has taken place or is likely to take place in violation of this Chapter, the official
+       may issue an order to cease and desist such discharge, or practice, or operation likely to
+       cause such discharge and direct that those persons not complying shall:
+
+               (a)     comply with the requirement,
+
+               (b)     comply with a time schedule for compliance, and/or
+
+               (c)     take appropriate remedial or preventative action to prevent the violation
+                       from recurring.
+
+       30.23.2 Notice to Clean. Whenever an authorized enforcement official finds any oil, earth,
+       dirt, grass, weeds, dead trees, tin cans, rubbish, refuse, waste or any other material of any
+       kind, in or upon the sidewalk abutting or adjoining any parcel of land or upon any
+                parcel of land or grounds, which may result in an increase in pollutants entering the
+       City storm sewer system or a non-storm water discharge to the City storm sewer system, he
+       or she shall give notice to remove such oil, earth, dirt, grass, weeds, dead trees, tin cans,
+       rubbish, refuse, waste or other material, in any manner that he or she may reasonably
+       provide.
+
+SEC. 30.24     AUTHORITY TO ARREST OR ISSUE CITATION.
+
+Authorized enforcement officials shall have and are hereby vested with the authority to arrest or cite
+any person who violates any Section of this Code in the manner provided by the California Penal
+Code for the arrest or release on citation of misdemeanor infractions as prescribed by Chapter 5, 5c,
+and 5d of Title 3, Part 2 of the Penal Code (or as the same may be hereinafter amended).
+
+Such authorized enforcement officials or employees may issue a citation and notice to appear in the
+manner prescribed by Chapter 5c of Title 3, Part 2 of the Penal Code, including Section 853.6 (or as
+the same may hereafter be amended). It is the intent of the City Council that the immunities
+prescribed in Section 836.5 of the Penal Code be applicable to public officers or employees or
+employees acting in the course and scope of employment pursuant to this Chapter.
+
+       (Bail for infractions shall be as set by resolution of the City Council.)
+
+SEC. 30.25     REMEDIES NOT EXCLUSIVE.
+
+                                                 13
+Remedies under this Article are in addition to and do not supersede or limit any and all other
+remedies, civil or criminal. The remedies provided for herein shall be cumulative and not exclusive.
+
+ARTICLE IV COORDINATION WITH OTHER PROGRAMS.
+
+SEC. 30.26     COORDINATION WITH HAZARDOUS WASTE MATERIALS INVENTORY
+               AND RESPONSE PROGRAM.
+
+The first revision of the business plan for any facility subject to the City's hazardous materials
+inventory and response program shall include a program for compliance with this Chapter,
+including the prohibitions on non-storm water discharges and illicit discharges, and the
+requirement to reduce storm water pollutants to the maximum extent practicable.
+
+
+Rev. 2010-10-20
+
+
+
+
+                                                 14
+

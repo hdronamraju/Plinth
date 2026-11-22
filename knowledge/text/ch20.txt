@@ -1,0 +1,1560 @@
+                                                                                                   Taxation
+
+
+
+                                                Chapter 20
+                                                Taxation 1
+
+
+                ARTICLE I. UNIFORM LOCAL SALES AND USE TAXES
+
+§20.1             Citation
+§20.2             Purpose
+§20.3             Operative dates; contract with the state
+§20.4             Sales tax generally
+§20.5             Use tax generally
+§20.6             Amendments to state law
+§20.6-1           Application of provisions relating to exclusions and exemptions
+§20.7             Suits to enjoin collection
+
+                ARTICLE II. PERSONAL AND REAL PROPERTY TAXES
+                           Division 1. Assessment and Levy
+
+§20.8             Assessor or deputy may administer oaths
+§20.9             Property to be assessed in accordance with state law; exemptions from
+                  assessment
+§20.10            Assessment to be made annually; list
+§20.11            Certification of assessment list; deposit with clerk; form of oath
+§20.12            Lands to be assessed in parcels or subdivisions; owners; mistake in name
+                  of owner not to invalidate assessment
+§20.13            Statement of ownership-Assessor may require; contents
+§20.14            Same-Form
+§20.15            Same-Same-Affidavit of firm or corporation
+§20.16            Same-Time for completing
+§20.17            Same-Power of assessor to enforce; penalty
+§20.18            Same-Refusal to submit
+§20.19            List of those refusing to submit; contents
+§20.20            Notice of completion of assessment list and time of meeting of Council as
+                  board of equalization
+§20.21            Meeting of Council as board of equalization; powers and duties generally;
+                  assessment roll
+§20.22            Reduction in valuation-Must be requested in writing under oath
+§20.23            Same-Hearing; procedure
+
+1
+         As to providing a system for the assessment, levy, collection and equalization of taxes, see char.,
+         §4.07. As to tax limit, see char., §4.08.
+
+         For state law as to transfer of City tax functions to county, see Gov. C., §§51500 to 51521.
+
+         As to special gas tax street improvement fund, see §§2.20 to 2.22 of this Code.
+
+
+                                                    20-1
+                                                                               Taxation
+
+
+§20.24     Clerk to make record of meeting of board of equalization; correction
+           assessment list
+§20.25     Certification of corrected assessment roll
+§20.26     Council to fix levy; rate limitation
+§20.27     Duty of clerk upon completion of levy
+§20.27A    Alternative assessment and board of equalization procedures
+
+                              Division 2. Collection
+
+§20.28     Tax collector to collect all taxes
+§20.29     Delivery of assessment roll to tax collector-Time
+§20.30     Same-Tax collector charged with full amount of levy
+§20.31     Time for payment; delinquency; penalty
+§20.32     Entire tax may be paid when first installment is due
+§20.33     Additional charge for preparing delinquent roll, etc.
+§20.34     Time for payment of unsecured personal property taxes;
+           collection by seizure and sales permitted
+§20.35     Receipt for payment; contents
+§20.36     Tax collector to enter payment in assessment roll
+§20.37     Tax collector to account for collections
+§20.38     Settlement of tax collector with clerk’s office-Second roll
+§20.39     Same-Secured roll and delinquent roll; final settlement
+§20.40     Lien on property
+§20.41     Publication of delinquent list; information to be shown; penalty; sale, etc.
+§20.42     Copy of publication of delinquent list to be filed with clerk; affidavit
+           required
+§20.43     Property to be sold to City
+§20.44     Entries on delinquent list; tax collector to be credited
+§20.45     Suit may be brought to enforce collection
+§20.46     Certificate of sale; information to be shown; where filed
+§20.47     Right of owner or possessor to pay taxes, etc., on day of sale
+§20.48     Redemption of property may be made within five years from date of sale;
+           payment made to clerk; disposition of moneys collected
+§20.49     Failure to redeem; deed to be made to City; form of deed
+§20.50     Further provisions concerning deed to City; force and effect of deed
+§20.51     Assessment roll, delinquent list or certified copies thereof prima facie
+           evidence of assessment, etc.
+§20.52     Redemption of property after sale to City-Amount to be paid
+§20.53     Same-Redemption penalties
+§20.53-1   Same-Property not on current roll
+§20.53-2   Same-Certificate of redemption
+§20.53-3   Same-Destruction of redemption certificates more than twelve years old
+§20.54     Effect of mistake, invalid assessment, etc., on sale
+§20.55     Seizure and sale of personal property for taxes; sale to be at public
+           auction; notice
+§20.56     Final settlement of tax collector with clerk; procedure
+
+                                       20-2
+                                                                                Taxation
+
+
+§20.57      Refund of taxes
+§20.58      Double assessments
+§20.59      Discovery of error in assessment, etc., before sale; transferred to next
+            year’s assessment list
+§20.60      When assessor is to collect taxes on personal property; procedure
+
+            ARTICLE III. PARAMEDIC SPECIAL SERVICES TAX
+
+§20.61      Authority to Adopt Measure
+§20.62      Title and Purpose
+§20.63      Maximum Tax Rate and Method of Assessment
+§20.64      Funding and Expending Proceeds
+§20.65      Severability
+§20.66      Duration, Amendment or Repeal
+
+§§20.67 to 20.82 REPEALED
+
+            ARTICLE IV. REAL PROPERTY CONVEYANCE TAX
+
+§20.83      Title and purpose
+§20.84      Imposition of tax
+§20.85      Liability for payment
+§20.86      Exemption-Written security instrument
+§20.87      Same-United States, state or political subdivision
+§20.88      Same-Bankruptcy proceedings
+§20.89      Same-Instruments pursuant to S.E.C. order
+§20.90      Same-Partnerships
+§20.91      Instruments in lieu of foreclosure
+§20.92      Administration of tax
+§20.93      Due dates; delinquency; penalties; interest
+§20.94      Declaration required
+§20.95      Determination of deficiency
+§20.96      Notice of determination
+§20.97      Manner of giving notice
+§20.98      Petition for redetermination
+§20.99      Consideration of petition
+
+
+
+
+                                        20-3
+                                                                                               Taxation
+
+
+               ARTICLE I. UNIFORM LOCAL SALES AND USE TAXES 2
+
+SEC. 20.1        CITATION
+
+        This article shall constitute the Uniform Local Sales and Use Tax Ordinance of
+the City, and may be cited as such. (Ord. No. 182 N.S., §1)
+
+SEC. 20.2        PURPOSE
+
+        The City Council hereby declares that this article is adopted to achieve the
+following, among other purposes, and directs that the provisions hereof be interpreted in
+order to accomplish these purposes:
+
+       (a)    To adopt a sales and use tax ordinance which complies with the
+requirements and limitations contained in Part 1.5 of Division 2 of the Revenue and
+Taxation Code of the state.
+
+        (b)     To adopt a sales and use tax ordinance which incorporates provisions
+identical to those of the Sales and Use Tax Law of the state, insofar as those provisions
+are not inconsistent with the requirements and limitations contained in Part 1.5 of
+Division 2 of the Revenue and Taxation Code.
+
+        (c)     To adopt a sales and use tax ordinance which imposes a ninety-five
+hundredths percent tax and provides a measure therefor that can be administered and
+collected the by the state board of equalization in a manner that adapts itself as fully as
+practical to, and requires the least possible deviation from, the existing statutory and
+administrative procedures followed by the state board of equalization in administering
+and collecting the state sales and use taxes.
+
+        (d)     To adopt a sales and use tax ordinance which can be administered in a
+manner that will, to the degree possible consistent with the provisions of Part 1.5 of
+Division 2 of the Revenue and Taxation Code, minimize the cost of collecting City sales
+and use taxes and at the same time minimize the burden of record keeping upon persons
+subject to taxation under the provisions of this article.
+
+SEC. 20.3        OPERATIVE DATES; CONTRACT WITH STATE
+
+         This article shall become operative on July 1, 1956, and prior thereto this City
+shall contract with the state board of equalization to perform all functions incident to the
+administration and operation of this sales and use tax ordinance; provided, however, that
+if this City shall not have contracted with the state board of equalization, as above set
+forth, prior to July 1, 1956, this article shall not be operative until the first day of the first
+calendar quarter following the execution of such a contract by the City and by the state
+board of equalization; provided, further, that this article shall not become operative prior
+
+
+2
+        For state law as to sales and use taxes generally, see Rev. & Tax. C., §6001 et seq.
+                                                   20-4
+                                                                                      Taxation
+
+
+to the operative date of the Uniform Local Sales and Use Tax Ordinance of the County of
+Alameda. (Ord. No. 182 N.S., §3)
+
+SEC. 20.4       SALES TAX GENERALLY
+
+        (A)      (1)     For the privilege of selling tangible personal property at retail a tax
+is hereby imposed upon all retailers in the City at the rate of ninety five hundredths
+percent of the gross receipts of the retailer from the sale of all tangible personal property
+sold at retail in the City on and after the operative date of this article.
+
+                 (2)     For the purposes of this article all retail sales are consummated at
+the place of business of the retailer unless the tangible personal property sold is delivered
+by the retailer or his agent to an out-of-state destination or to a common carrier for
+delivery to an out-of-state destination. The gross receipts from such sales shall include
+delivery charges, when such charges are subject to the state sales and use tax, regardless
+of the place to which delivery is made. In the event a retailer has no permanent place of
+business in the state or had more than one place of business, the place or places at which
+the retail sales are consummated shall be determined under rules and regulations to be
+prescribed and adopted by the board of equalization.
+
+         (B)     (1)    Except as hereinafter provided, and except insofar as they are
+inconsistent with the provisions of Part 1.5 of Division 2 of the Revenue and Taxation
+Code, all of the provisions of Part 1 of Division 2 of such code, as amended and in force
+and effect on July 1, 1956, applicable to sales taxes are hereby adopted and made a part
+of this article as though fully set forth herein.
+
+                  (2)     Wherever, and to the extent that, in Part 1 of Division 2 of the
+Revenue and Taxation Code the state is named or referred to as the taxing agency, the
+City shall be substituted therefore. Nothing in this subsection shall be deemed to require
+the substitution of the name if the City for the word “state” when that word is used as part
+of the title of the state controller, the state treasurer, the state board of control, the state
+board of equalization, or the name of the state treasury, or of the constitution of the state;
+nor shall the name of the City be substituted for that of the state in any section when the
+result of that substitution would require action to be taken by or against the City or any
+agency thereof, rather than by or against the state board of equalization in performing the
+functions incident to the administration or operation of this article; and neither shall the
+substitution be deemed to have been made in those sections, including, but not
+necessarily limited to, sections referring to the exterior boundaries of the state, where the
+result of the substitution would be to provide an exemption from this tax with respect to
+certain gross receipts which would not otherwise be exempt from this tax while those
+gross receipts remain subject to tax by the state under the provisions of Part 1 of Division
+2 of the Revenue and Taxation Code; or to impose this tax with respect to certain gross
+receipts which would not be subject to tax by the state under the provisions of that code;
+and, in addition, the name of the City shall not be substituted for that of the state in
+sections 6701, 6702 (except in the last sentence thereof), 6711, 6715, 6737, 6797, and
+6828 of the Revenue and Taxation Code, as adopted.
+
+                                             20-5
+                                                                                     Taxation
+
+
+
+                (3)     If a seller’s permit has been issued to a retailer under section 6067
+of the Revenue and Taxation Code, an additional seller’s permit shall not be required by
+reason of this section.
+
+               (4)     There shall be excluded from the gross receipts by which the tax is
+measured:
+
+                      (i)      The amount of any sales or use tax imposed by
+       the state upon a retailer or consumer.
+
+
+                        (ii)   The gross receipts from the sale of tangible personal
+       property to operators of aircraft to be used or consumed principally outside the
+       city in which the sale is made and directly and exclusively in the use of such
+       aircraft as common carriers of persons or property under the authority of the laws
+       of this state, the United States, or any foreign government. (Ord. No. 454 12/5/83)
+
+               (4.5)   There shall be excluded from the gross receipts by which the tax is
+measured:
+               (i)             The amount of any sales or use tax imposed by the State of
+       California upon a retailer or consumer.
+               (ii)            The gross receipts from the sale of tangible personal
+       property to operators of waterborne vessels to be used or consumed principally
+       outside of the city in which the sale is made and directly and exclusively in the
+       carriage of persons or property in such vessels for commercial purposes.
+
+                (iii)          The gross receipts from the sale of tangible personal
+       property to operators of aircraft to be used or consumed principally outside the
+       city in which the sale is made and directly and exclusively in the use of such
+       aircraft as common carriers of persons or property under the authority of the laws
+       of this state, the United States, or any foreign government. (Ord. No. 182 N.S.,
+       §4; Ord. No. 224 N.S., §§2 to 4; Ord. No. 313 N.S., §1; Ord. No. 454 N.S., §1, 3,
+       eff. 3/1/84)
+
+SEC. 20.5      USE TAX GENERALLY
+
+        (A)     An excise tax is hereby imposed on the storage, use or other consumption
+in the City of tangible personal property purchased from any retailer on or after the
+operative date of this article for storage, use or other consumption in the City at the rate
+of ninety-five hundredths percent of the sales price of the property. The sales price shall
+include delivery charges when such charges are subject to state sales or use tax,
+regardless of the place to which delivery is made.
+
+       (B)     (1)     Except as hereinafter provided, and except insofar as they are
+inconsistent with the provisions of Part 1.5 of Division 2 of the Revenue and Taxation
+
+                                            20-6
+                                                                                      Taxation
+
+
+Code, all of the provisions of Part 1 of Division 2 of such code, as amended and in force
+and effect on July 1, 1956, applicable to use taxes are hereby adopted and made a part of
+this article as though fully set forth herein.
+
+                 (2)     Wherever, and to the extent that, in Part 1 of Division 2 of the
+Revenue and Taxation Code the state is named or referred to as the taxing agency, the
+name of this City shall be substituted therefor. Nothing in this subdivision shall be
+deemed to require the substitution of the name of this City for the word “state” when that
+word is used as part of the title of the state controller, the state treasurer, the state board
+of equalization, or the name of the state treasury, or of the constitution of the state; nor
+shall the name of the City be substituted for that of the state in any section when the
+result of that substitution would require action to be taken by or against the City or any
+agency thereof, rather than by or against the state board of equalization in performing the
+functions incident to the administration or operation of this article; and neither shall the
+substitution be deemed to have been made in those sections, including, but not
+necessarily limited to, sections referring to the exterior boundaries of the state, where the
+result of the substitution would be to provide an exemption from this tax with respect to
+certain storage, use or other consumption of tangible personal property which would not
+otherwise be exempt from this tax while such storage, use or other consumption remains
+subject to tax by the state under the provisions of Part 1 of Division 2 of the Revenue and
+Taxation Code, or to impose this tax with respect to certain storage, use or other
+consumption of tangible personal property which would not be subject to tax by the state
+under the provisions of that Code; and in addition, the name of the City shall not be
+substituted for that of the state in sections 6701, 6702 (except in the last sentence
+thereof), 6711, 6715, 6737, 6797 and 6828 of the Revenue and Taxation Code as adopted
+and the name of the City shall not be substituted for the word “state” in section 6203 nor
+in the definition of that phrase in section 6203 (Ord. No. 224 N.S., §5)
+
+               (3)     There shall be exempt from the tax due under this section:
+
+                (i)    The amount of any sales tax or use tax imposed by the state upon a
+       retailer or consumer.
+
+                (ii)    The storage, use or other consumption of tangible personal
+       property, the gross receipts from the sale of which have been subject to sales tax
+       under a sales and use tax ordinance enacted in accordance with Part 1.5 of
+       Division 2 of the Revenue and Taxation Code by any city and county, county, or
+       city in this state.
+
+              (iii) The storage, use or other consumption of tangible personal
+       property purchased by operators of waterborne vessels and used or consumed by
+       such operators directly and exclusively in the carriage of persons or property in
+       such vessels for commercial purposes. (Ord. No. 454 12/3/83)
+
+
+
+
+                                             20-7
+                                                                                    Taxation
+
+
+                (iv)   In addition to the exemptions provided in Sections 6366 and
+       6366.1 of the Revenue & Taxation Code, the storage, use, or other consumption
+       of tangible personal property purchased by operators or aircraft and used or
+       consumed by such operators directly and exclusively in the use of such aircraft as
+       common carriers of persons or property for hire or compensation under a
+       certificate of public convenience and necessity issued pursuant to the laws of this
+       state, the United States, or any foreign government.
+
+               (3.5)   There shall be exempt from the tax due under this section:
+
+              (i)    The amount of any sales or use tax imposed by the State of
+       California upon a retailer or consumer.
+
+                (ii)    The storage, use or other consumption of tangible personal
+       property, the gross receipts from the sale of which have been subject to sales tax
+       under a sales and use tax ordinance enacted in accordance with Part 1.5 of
+       Division 2 of the Revenue and Taxation Code by any city and county, county, or
+       city in this state.
+
+       (iii) In addition to the exemptions provided in Sections 6366 and 6366.1 of the
+       Revenue & Taxation Code, the storage, use or other consumption of tangible
+       personal property purchased by operators of aircraft and used or consumed by
+       such operators directly and exclusively in the use of such aircraft as common
+       carriers of persons or property for hire or compensation under a certificate of
+       public convenience and necessity issued pursuant to the laws of this state, the
+       United States, or any foreign government. (Ord. No. 182 N.S., §5; Ord. No. 224
+       N.S., §§5,6; Ord. No. 313 N.S., §2; Ord. No. 454 N.S., §4, eff. 3/1/84)
+
+SEC. 20.6      AMENDMENTS TO STATE LAW
+
+        All amendments of the Revenue and Taxation Code enacted subsequent to the
+effective date of this article which relate to the sales and use tax and which are not
+inconsistent with Part 1.5 of Division 2 of the Revenue and Taxation Code shall
+automatically become a part of this article. (Ord. No. 182 N.S., §6)
+
+SEC. 20.6-1    APPLICATION OF PROVISIONS RELATING TO EXCLUSIONS AND
+               EXEMPTIONS
+
+        (a)    Sections 20.4(b) (4.5) and 20.5 (b) (3.5) of this article shall become
+operative on January 1st of the year following the year in which the state board of
+equalization adopts an assessment ratio for state-assessed property which is identical to
+the ratio which is required for local assessments by section 401 of the Revenue and
+Taxation Code, at which time sections 20.4 (b) (4) and 20.5 (b) (3) of this ordinance shall
+become inoperative.
+
+
+
+                                           20-8
+                                                                                    Taxation
+
+
+        (b)      In the event that sections 20.4 (b) (4.5) and 20.5 (b) (3.5) of this article
+become operative and the state board of equalization subsequently adopts an assessment
+ratio for state-assessed property which is higher than the ratio which is required for local
+assessments by section 401 of the Revenue and Taxation Code, sections 20.4 (b) (4) and
+20.5 (b) (3) of this article shall become operative on the first day of the month following
+the month in which such higher ration is adopted, at which time sections 20.4 (b) (4.5)
+and 20.5 (b) (3.5) of this article shall become inoperative until the first day of the month
+following the month in which the board again adopts an assessment ratio for the state-
+assessed property which is identical to the ratio required for local assessments by section
+401 of the Revenue and Taxation Code, at which time sections 20.4 (b) (4.5) and 20.5 (b)
+(3.5) shall again become operative and sections 20.4 (b) (4) and 20.5 (b) (3) shall become
+inoperative. (Ord. No. 313 N.S., §3)
+
+SEC. 20.7       SUITS TO ENJOIN COLLECTION
+
+        No injunction or writ of mandate or other legal or equitable process shall issue in
+any suit, action or proceeding in any court against the state or this City, or against any
+officer of the state or this City, to prevent or enjoin the collection under this article, or
+part 1.5 of Division 2 of the Revenue and Taxation Code, of any tax or any amount of tax
+required to be collected. (Ord. No. 182 N.S., §7)
+
+              ARTICLE II. PERSONAL AND REAL PROPERTY TAXES 3
+                           Division 1. Assessment and Levy
+
+SEC. 20.8       ASSESSOR OR DEPUTY MAY ADMINISTER OATHS
+
+       The assessor and his deputy shall have the power to administer all oaths and
+affirmations necessary in the performance of the duties of the office of the assessor.
+(Ord. No. 63 N.S., §2)
+
+SEC. 20.9       PROPERTY TO BE ASSESSED IN ACCORDANCE WITH STATE
+                LAW; EXEMPTIONS FROM ASSESSMENT
+
+        All taxable property in the City must be assessed in accordance with the laws of
+the state. All exemptions to assessments provided by the laws of the state applicable to
+assessments in the City shall be granted by the City. Any claim for exemption on
+property taxes properly filed with the County of Alameda which is applicable to property
+taxable by this City shall be deemed to be a filing of such claim for exemption with this
+City. (Ord. No. 63 N.S., §1; Ord. No. 272 N.S., §1; Ord. No. 285 N.S., §1)
+
+SEC. 20.10      ASSESSMENT TO BE MADE ANNUALLY; LIST
+
+       It shall be the duty of the assessor, between the first day of May and the first day
+of August in each year, to make out a true list of all taxable property within the City,
+except such as is required to be assessed by the state board of equalization. The mode of
+
+3
+       For state law as to taxation generally, see Rev. & Tax. C., §1 et seq.
+                                                  20-9
+                                                                                   Taxation
+
+
+making out of such a list, and proceedings relating thereto, shall be in conformity with
+the provisions of this article and any amendments thereto. (Ord. No. 63 N.S., §4)
+
+SEC. 20.11     CERTIFICATION OF ASSESSMENT LIST; DEPOSIT WITH CLERK;
+               FORM OF OATH
+
+      The assessor shall certify the assessment list by his oath and shall deposit the
+same with the clerk on or before the first Monday of August of each year.
+
+       The oath required to be subscribed by him and annexed to such list shall be
+substantially as follows:
+
+State of California, )
+County of Alameda, )          ss.
+City of Piedmont.    )
+
+        I, ___________________________________________, Assessor of the City of
+Piedmont, do swear that between the first day of May, 20____, and the first day of
+August, 20____, I have made diligent inquiry and examination to ascertain all property
+within the City of Piedmont, subject to assessment by me, and that the same has been
+assessed upon the attached assessment list equally and uniformly, according to the best of
+my judgment, information and belief, at its full cash value; and that I have faithfully
+complied with all the duties imposed upon the Assessor by Ordinance; and that I have not
+imposed any unjust or double assessment through malice or ill-will or otherwise nor
+allowed anyone to escape a just and equal assessment through favor or regard otherwise.
+
+                                      ________________________________
+
+Subscribed and sworn to before
+me this ____ day of ____________,
+20____.
+
+     The assessor shall then deposit the verified list with the clerk on or before the first
+Monday of August of each year. (Ord. No. 63 N.S., §4)
+
+SEC. 20.12     LANDS TO BE ASSESSED IN PARCELS OR SUBDIVISIONS;
+               OWNERS; MISTAKES IN NAME OF OWNER NOT TO
+               INVALIDATE ASSESSMENT
+
+        The assessor shall assess lands in parcels or subdivisions, and he shall assess all
+property to the person by whom it is owned or claimed, or in whose possession or control
+it was at 12:00 noon of the first Monday in March, next preceding; but, no mistake in the
+name of the owner or supposed owner of real property shall render the assessment thereof
+invalid. (Ord. No. 63 N.S., §5)
+
+
+
+                                           20-10
+                                                                                   Taxation
+
+
+SEC. 20.13     STATEMENT OF OWNERSHIP-ASSESSOR MAY REQUIRE;
+               CONTENTS
+
+        The assessor shall have the power to exact from every person a statement under
+oath, setting forth specifically all the real and personal property owned by such person, or
+in his possession, or under his control, at 12:00 noon on the first Monday in March. Such
+statement shall be in writing and shall show separately:
+
+        1.    All property belonging to, claimed by, or in the possession or under the
+control or management of such person.
+
+        2.     All property belonging to, claimed by, or in the possession or under the
+control or management of any firm or corporation of which such person is the president,
+secretary, cashier or managing agent.
+
+       3.     An exact description of all lands and parcels or subdivisions, all
+improvements and all personal property, and all deposits of money or other valuables.
+(Ord. No. 63 N.S., §6)
+
+SEC. 20.14     SAME-FORM
+
+        The assessor is hereby authorized to provide his office, at the expense of the City,
+with necessary blank forms for the statements mentioned in the preceding section and
+shall cause to be printed upon each blank form an affidavit form substantially as follows:
+
+State of California, )
+County of Alameda, )          ss.
+City of Piedmont.    )
+
+        I, _______________________________________, do swear that I am a resident
+of the City of Piedmont _____________________________________, that the within list
+contains a full and correct statement of all property subject to taxation which I, or any
+firm of which I am a member, or any corporation, association, or company of which I am
+president, secretary, cashier, or managing agent, owned, claimed, possessed or controlled
+at twelve o’clock noon on the first Monday in March last, and which is not already
+assessed this year; and that I have not in any manner whatsoever transferred or disposed
+of any property, or placed any property out of the City of Piedmont, or my possession for
+the purpose of avoiding any assessments upon the same, or of making this statement.
+
+
+                                              _______________________________
+
+Subscribed and sworn to before me
+this ___________ day of __________,
+20____.
+
+
+                                           20-11
+                                                                                      Taxation
+
+
+_______________________________
+
+(Ord. No. 63 N.S., §6)
+
+SEC. 20.15     SAME-SAME-AFFIDAVIT OF FIRM OR CORPORATION
+
+        The affidavit to the statement on behalf of a firm or corporation shall be made by
+the president, secretary or the treasurer thereof, shall state the principal place of business
+of the firm or corporation, and in other respects, shall conform to the form set out in the
+preceding section. (Ord. No. 63 N.S., §6)
+
+SEC. 20.16     SAME-TIME FOR COMPLETING
+
+         The assessor may fill out the statement of owner-ship at the time when he presents
+it, or he may deliver it to the person and require him, within a reasonable, specified time,
+to return it to him, properly filled out. (Ord. No. 63, N.S., §7)
+
+SEC. 20.17     SAME-POWER OF ASSESSOR TO ENFORCE; PENALTY
+
+        The assessor shall have the power to require any person found within the City to
+make and subscribe an affidavit, giving his name and place of residence, and he shall
+further have the power to subpoena and examine any person in relation to any statement
+furnished to him or which is assessable in the City. Any person who shall refuse to
+furnish the statement required by this article, or to make and subscribe such an affidavit
+respecting his name and place of residence, or to appear and testify when requested to do
+so by the assessor, as above provided, shall, for each and every refusal, and so often as
+the same is repeated, forfeit to the City the sum of one hundred dollars to be recovered in
+an action brought in its name by the assessor. All moneys recovered by the assessor in
+such actions shall be paid by him to the treasurer of the City and by the treasurer placed
+in the general fund. (Ord. No. 63 N.S., §8)
+
+SEC. 20.18     SAME-REFUSAL TO SUBMIT
+
+         If any person, after demand therefor by the assessor, refuses or neglects to give
+the statement provided for in this article, or to comply with the other provisions of this
+article, the assessor shall note such refusal or neglect upon the assessment book or list,
+opposite the name of such person, and must make an estimate of the value of the taxable
+property of such person. (Ord. No. 63 N.S., §9)
+
+SEC. 20.19     LIST OF THOSE REFUSING TO SUBMIT; CONTENTS
+
+         The assessor shall, when required by the Council, transmit to the Council on or
+before the first Monday in August of each year, a verified report, separate from the
+assessment roll, containing a complete list of all persons who refuse or neglect to furnish
+a statement of their property, as in this article provided, or to comply with the provisions
+of this article, the amount of the assessment upon the property of such persons, with a
+
+                                            20-12
+                                                                                    Taxation
+
+
+statement of the particular facts, if any, upon which the assessment has been made, and
+the valuation of the property so assessed. (Ord. No. 63 N.S., §10)
+
+SEC. 20.20     NOTICE OF COMPLETION OF ASSESSMENT LIST AND TIME OF
+               MEETING OF COUNCIL AS BOARD OF EQUALIZATION
+
+        As soon as completed, and on or before the first Monday in August of each year,
+the assessor shall deliver his assessment list and statement to the Council to be equalized,
+and the Council shall forthwith give notice thereof, and of the time and place when the
+Council will meet to equalize assessments by causing notices thereof to be posted in at
+least four public places in the City, and in the meantime, the assessment list or book must
+remain open for inspection of all persons interested. (Ord. No. 63 N.S., §11)
+
+SEC. 20.21     MEETING OF COUNCIL AS BOARD OF EQUALIZATION; POWERS
+               AND DUTIES GENERALLY; ASSESSMENT ROLL
+
+        The Council shall meet at their usual place of holding meetings at any time of the
+year to sit as a board of equalization. They shall have the power to hear complaints, and
+to correct, modify or strike out any assessment made by the assessor, and may, of their
+own motion, raise any assessment, upon notice to the party whose assessment is to be
+raised. The corrected list of assessments shall be a part of the assessment roll for such tax
+for that year. It shall be certified by the clerk, who shall act as clerk of the board of
+equalization, as being the assessment roll for such tax, and shall be the assessment roll
+upon which such tax is to be levied in such year. The proceedings of the board of
+equalization shall be governed by the provisions of this article. Any taxpayer may
+petition such board for a reduction in an assessment and a proportionate reduction of the
+taxes extended thereon by filing an application pursuant to section 20.22. (Ord. No. 63
+N.S., §12; Ord. No. 230 N.S., §1; Ord. No. 272 N.S., §2; Ord. No. 293 N.S., §1)
+
+SEC. 20.22     REDUCTION IN VALUATION-MUST BE REQUESTED IN WRITING
+               UNDER OATH
+
+        No reduction shall be made by the Council in the assessed valuation of property
+unless the party affected thereby or his agent makes and files with the board a written
+application therefore, verified by his oath showing the facts upon which it is claimed such
+a reduction should be made. A copy of the application made to the board of supervisors
+for a reduction of assessment of the same property shall be sufficient compliance with the
+requirements of this section. The procedure provided in this section shall also be used for
+applying for an increase in the assessed valuation of property, but shall in no way limit
+the right of the Council to raise any assessment on its own motion as provided in section
+20.21. (Ord. No. 63 N.S., §12; Ord. No. 272 N.S., §3)
+
+SEC. 20.23     SAME-HEARING; PROCEDURE
+
+
+
+
+                                           20-13
+                                                                                     Taxation
+
+
+       Before the City Council grants the application or makes any reduction or increase
+applied for in the preceding section, it may first examine, on oath, the person or the agent
+making the application touching the value of the property of such a person.
+
+       Upon the hearing of the application, the board may subpoena such witnesses, hear
+and take such evidence in relation to the subject, as in its discretion it may deem proper.
+
+       During the session of the Council, the assessor and any deputy whose testimony is
+needed may be present, and may make any statement, or introduce and examine
+witnesses on questions before the Council. (Ord. No. 63 N.S., §12; Ord. No. 272 N.S.,
+§4; Ord. No. 293 N.S., §2)
+
+SEC. 20.24     CLERK TO MAKE RECORD OF MEETING OF BOARD OF
+               EQUALIZATION; CORRECTING ASSESSMENT LIST
+
+        The clerk as the ex officio clerk of the board of equalization shall keep a full, true
+record of all of the proceedings of the board in a book marked, “Records of the Board of
+Equalization”, and in the book he shall record all changes, corrections and orders made
+by the board, and during the sessions of the board, or as soon as possible after its
+adjournment, he shall enter upon the assessment list all changes and corrections made by
+the board. (Ord. No. 63 N.S., §13)
+
+SEC. 20.25     CERTIFICATION OF CORRECTED ASSESSMENT ROLL
+
+        On or before the second Monday in September of each year the assessment list
+shall be certified by the clerk as being the assessment roll upon which City taxes are to be
+levied for the then current year. Nothing herein stated shall preclude the reduction or
+increase of assessed valuation after certification of the assessment list if a timely
+application therefor is filed and heard in accordance with sections 20.22 and 20.23. (Ord.
+No. 63 N.S., §14; Ord. No. 230 N.S., §2; Ord. No. 272 N.S., §5; Ord. No. 293 N.S., §3)
+
+SEC. 20.26     COUNCIL TO FIX LEVY; RATE LIMITATION
+
+         Not later than the second Monday in September of each year the Council shall
+levy the tax to provide for raising the necessary revenue of the City for the current fiscal
+year, shall by resolution fix the rate of taxes, designate the number of cents upon each
+one hundred dollars, using as a basis the value of property as it appears on the assessment
+roll for that year, which rate of taxation shall be sufficient to raise sufficient revenue
+estimated to be required to carry on all the departments of the City for the current fiscal
+year, not to exceed the rate provided in section 4.08 of the Charter of the City, and shall
+levy such additional amount as may be necessary and sufficient to pay the bonded
+indebtedness of the city for the current fiscal year, and an additional amount as may be
+necessary and sufficient for the providing and maintaining of parks in the City for the
+current fiscal year, and such additional amount that may be necessary and sufficient to
+carry on the recreation department of the City for the current fiscal year, and any
+additional amount that may be deemed necessary and permitted by the provisions of the
+
+                                            20-14
+                                                                                     Taxation
+
+
+Charter. Having determined the whole rate to be levied, the Council shall then levy the
+tax to provide for raising the necessary revenue of the City for the then current fiscal
+year, which fiscal year shall begin with the first day of July of each year and shall end
+with the thirtieth day of June the year next following. (Ord. No. 63 N.S., §15; Ord. No.
+230 N.S., §3)
+
+SEC. 20.27     DUTY OF CLERK UPON COMPLETION OF LEVY
+
+        When the assessments have been equalized and the tax has been levied, the clerk
+shall enter in the assessment roll in a separate money column the respective sums in
+dollars and cents, so levied on each one hundred dollars’ valuation of taxable property to
+be paid as a tax levied on the property enumerated, and shall foot up the columns,
+showing total value of property in the City as corrected under the direction of the board
+of equalization, and the total amount of taxes; all of which shall be done and completed
+on or before the first Monday in October of each year. Any changes in assessments made
+after the first Monday in October shall be promptly entered in the City assessment
+records. (Ord. No. 63 N.S., §16; Ord. No. 293 N.S., §4)
+
+SEC. 20.27A ALTERNATIVE ASSESSMENT AND BOARD OF EQUALIZATION
+            PROCEDURES
+
+        (a)     As an alternative to the procedure set forth in Division 1 of Article II of
+this chapter for the assessment of taxable real property within the City, the Council may
+by resolution designate the assessment values established by the county for taxable real
+property within the City to be the assessment values adopted for City tax purposes.
+
+        (b)     As an alternative to the procedure set forth in Division 1 of Article II of
+this chapter for the board of equalization, the Council may establish by resolution that
+any actions of the county assessment appeals board which apply to taxable real property
+within the City shall automatically apply for City tax purposes. (Ord. No. 337 N.S., §1)
+
+                                 Division 2.     Collection
+
+SEC. 20.28     TAX COLLECTOR TO COLLECT ALL TAXES
+
+        All taxes levied pursuant to the provisions of this article shall be collected by the
+tax collector. (Ord. No. 63 N.S., §3)
+
+SEC. 20.29     DELIVERY OF ASSESSMENT ROLL TO TAX COLLECTOR-TIME
+
+        On or before the first Monday of October of each year, the assessment roll shall
+be delivered to the tax collector. (Ord. No. 63 N.S., §17; Ord. No. 156 N.S., §17; Ord.
+No. 197 N.S., §1)
+
+SEC. 20.30     SAME-TAX COLLECTOR CHARGED WITH FULL AMOUNT OF
+               LEVY
+
+                                            20-15
+                                                                                   Taxation
+
+
+
+       Upon receiving the assessment roll, the tax collector shall be charged by the clerk
+with the full amount of the taxes levied. (Ord. No. 63 N.S., §18)
+
+SEC. 20.31     TIME FOR PAYMENT; DELINQUENCY; PENALTY
+
+       Half of the taxes on all real and personal property on the secured roll are due and
+payable on the first day of November and are delinquent if unpaid on the tenth day of
+December next thereafter at 5:00 p.m., and unless paid prior to such delinquency, six
+percent will be added to the amount thereof.
+
+        The remaining half of the taxes on all real and personal property on the secured
+roll will be payable on and after the first day of February and are delinquent if unpaid on
+the tenth day of April next thereafter at 5:00 p.m., and unless paid prior to such
+delinquency, six percent will be added to the amount thereof. (Ord. No. 63 N.S., §17;
+Ord. No. 156 N.S., §17; Ord. No. 197 N.S., §1)
+
+SEC. 20.32     ENTIRE TAX MAY BE PAID WHEN FIRST INSTALLMENT DUE
+
+         The entire tax may be paid at the time the first installment is due and payable
+under the provisions of this article. The second half may be paid separately only if the
+first half has been paid. (Ord. No. 63 N.S., 17; Ord. 156 N.S., §17; Ord. No. 197 N.S.,
+§1)
+
+SEC. 20.33     ADDITIONAL CHARGES FOR PREPARING DELINQUENT ROLL,
+               ETC.
+
+        After the second installment of taxes on the real property is delinquent, the tax
+collector shall collect three dollars for preparing the delinquent roll and published
+delinquent list on each separate valuation of the secured roll of real property and of
+possessory interests. Proceeds from collections under this section shall be paid into the
+general fund of the City. (Ord. No. 63 N.S., §22; Ord. No. 156 N.S., §22; Ord. No. 197
+N.S., §2; Ord. No. 229 N.S., §1)
+
+SEC. 20.34     TIME FOR PAYMENT OF UNSECURED PERSONA L PROPERTY
+               TAXES; COLLECTION BY SEIZURE AND SALE PERMITTED
+
+        The taxes on all personal property unsecured by real property are due and payable
+on the first Monday in March of each year. Taxes due on unsecured property may be
+collected by seizure and sale. (Ord. No. 197 N.S., §1)
+
+SEC. 20.35     RECEIPT FOR PAYMENT; CONTENTS
+
+        The tax collector shall give a receipt to the person paying any tax or any
+installment of any tax, specifying the amount of the assessment and the tax, or installment
+of the tax paid, and the amount remaining unpaid, if any, with a description of the
+
+                                           20-16
+                                                                                     Taxation
+
+
+property assessed; provided, however, that the receipt for the second installment of taxes
+may refer by number or in any other intelligible manner, to the receipt given for the first
+installment of taxes, in lieu of a description of the property assessed. (Ord. No. 63 N.S.,
+§19)
+
+SEC. 20.36     TAX COLLECTOR TO ENTER PAYMENT IN ASSESSMENT ROLL
+
+       The tax collector shall mark the date of payment of any tax, or any installment of
+any tax, in the assessment roll, opposite the name of the person paying the tax. (Ord. No.
+63 N.S., §20)
+
+SEC. 20.37     TAX COLLECTOR TO ACCOUNT FOR COLLECTIONS
+
+        The tax collector shall settle with the clerk for all moneys collected for the City,
+and shall pay the same to the Clerk; and, on the same day, the tax collector shall file a
+statement with the clerk, showing an account of all of his transactions and receipts as tax
+collector since his last settlement, and showing also that all money collected by him as a
+tax collector has been paid to the clerk. (Ord. No. 63 N.S., §21)
+
+SEC. 20.38     SETTLEMENT OF TAX COLLECTOR WITH CLERK’S OFFICE-
+                    SECOND ROLL
+
+       Annually or before January tenth, the tax collector shall attend at the clerk’s office
+with the second roll. Prior to February first the clerk shall:
+
+        (a)    Compute and enter the delinquent penalty against all taxes on the secured
+roll not marked paid.
+
+       (b)     Foot the penalties.
+
+       (c)     Charge the tax collector with the total penalties due on the secured roll.
+
+        (d)     Deliver the secured roll to the tax collector. After the second half of taxes
+on real property is delinquent, the tax collector shall prepare a delinquent roll. In
+numerical or alphabetical order, the delinquent roll shall show all information on the
+secured roll relating to property the taxes on which are delinquent. (Ord. No. 63 N.S.,
+§23; Ord. No. 156, N.S., §23; Ord. No. 197 N.S., §3)
+
+SEC. 20.39     SAME-SECURED ROLL AND DELINQUENT ROLL; FINAL
+               SETTLEMENT
+
+       Annually on May tenth, the tax collector shall attend at the clerk’s office with the
+secured roll and the delinquent roll. The clerk shall compare the delinquent roll with the
+secured roll. If satisfied the delinquent roll is correct, he shall:
+
+       (a)     Foot the unpaid taxes and penalties.
+
+                                            20-17
+                                                                                   Taxation
+
+
+
+        (b)    Credit the tax collector with the unpaid taxes and penalties on the secured
+roll.
+
+       (c)    Make a final settlement with him of all taxes and penalties charged against
+him on the secured roll.
+
+Thereafter, the clerk shall:
+
+        (a)    Compute and enter the penalties and costs on the delinquent roll.
+
+        (b)    Charge the tax collector with the amount due on the delinquent roll.
+
+        (c)    Deliver the delinquent roll to the tax collector.
+
+        On or before June thirtieth or immediately after time when real property is sold to
+the City for taxes, whichever is later, the tax collector shall attend at the clerk’s office
+with the delinquent roll and advise him that all property on the delinquent roll on which
+taxes have been paid has been credited with such payment on the delinquent roll. The
+clerk shall foot the amount unpaid on the delinquent roll, credit the tax collector with the
+amount, and have a final settlement with him. (Ord. No. 63 N.S., §24; Ord. No. 197 N.S.,
+§4)
+
+SEC. 20.40     LIEN ON PROPERTY
+
+         All taxes assessed, together with any percentage imposed for delinquency and the
+costs of collection, shall constitute liens upon the property assessed. Every tax upon
+personal property shall be a lien upon the real property of the owner thereof. The liens
+provided for in this section shall attach as of March first of each year at 12:01 a.m., and
+may be enforced by a sale of the real property affected, and the execution and delivery of
+all necessary certificates and deeds therefor, under such regulations as are prescribed in
+this article, or by action in any court of competent jurisdiction to foreclose such liens;
+provided, however, that any property sold for such taxes shall be subject to redemption
+within five years and upon the terms provided or that may hereafter be provided by
+ordinance. All deeds made upon any sale of property for taxes under the provisions of
+this article shall have the same force and effect in evidence as is or may hereafter be
+provided by law for deeds for property sold for nonpayment of taxes. (Ord. No. 63 N.S.,
+§3; Ord. No. 272 N.S., §6)
+
+SEC. 20.41     PUBLICATION OF DELINQUENT LIST; INFORMATION TO BE
+               SHOWN; PENALTY; SALE, ETC.
+
+        On or within five days before or after the first Monday in June of each year, the
+tax collector shall publish the delinquent list, which shall contain the names of the
+persons and a description of the property delinquent, and the amount of all taxes and
+costs due, opposite each name and description, or the several taxes due from the same
+
+                                           20-18
+                                                                                     Taxation
+
+
+person, the expense of the publication to be a charge against the City; and, the tax
+collector must append to, and publish with the delinquent list a notice that, unless the
+delinquent taxes, together with the costs and percentage penalties are paid, the real
+property upon which such taxes are a lien will be sold to the City. The publication shall
+be made once a week, for three successive weeks, in some newspaper circulated in the
+City and of general circulation as defined by the state law and so determined by a decree
+of the Superior Court of the state, in and for the County of Alameda, and shall designate
+the time and the place of sale, which time shall not be less than twenty-one nor more than
+twenty-eight days from and after the first publication and the place shall be in the tax
+collector’s office in the City. (Ord. No. 63 N.S., §25)
+
+SEC 20.42      COPY OF PUBLICATION OF DELINQUENT LIST TO BE FILED
+               WITH CLERK; AFFIDAVIT REQUIRED
+
+        The tax collector shall, as soon as he shall have made and completed the
+publication provided for in the preceding section, file with the clerk a copy of the
+publication, with an affidavit attached thereto, that it is a true copy of the same, and that
+the publication was made in a newspaper, stating its name and place of publication and
+the date of each appearance, and such affidavit shall be primary evidence of all of the
+facts stated therein. (Ord. No. 63 N.S., §26)
+
+SEC. 20.43     PROPERTY TO BE SOLD TO CITY
+
+        On the day and hour fixed for the sale, all the property delinquent, upon which the
+taxes of all kinds, penalties and costs have not been paid, shall, by operation of law and
+the declaration of the tax collector, be sold to the City. (Ord. No. 63 N.S., §28)
+
+SEC. 20.44     ENTRIES ON DELINQUENT LIST; TAX COLLECTOR TO BE
+               CREDITED
+
+        Upon sale of the property to the City as provide in the preceding section, the tax
+collector shall make an entry, “Sold to the City,” on the delinquent assessment list,
+opposite the tax, and he shall be credited with the amount thereof in his settlement made
+with the clerk. (Ord. No. 63 N.S., §28)
+
+SEC. 20.45     SUIT MAY BE BROUGHT TO ENFORCE COLLECTION
+
+       The City may bring suit in a court of competent jurisdiction against the owner of
+the property for the collection of delinquent taxes, penalties and costs. (Ord. No. 63 N.S.,
+§28)
+
+SEC. 20.46     CERTIFICATE OF SALE; INFORMATION TO BE SHOWN; WHERE
+               FILED
+
+         The tax collector shall make out a certificate of delinquent tax sale for each piece
+or tract of land sold, dated on the day of the sale, stating (if known) the name of the
+
+                                            20-19
+                                                                                      Taxation
+
+
+person assessed, a description of the land sold, that it was sold for delinquent taxes to the
+City and giving the amount and year of the assessment, and specifying when the City will
+be entitled to a deed.
+
+        Such certificates must be signed by the tax collector and shall be filed in the
+office of the clerk. (Ord. No. 63 N.S., §29)
+
+SEC. 20.47     RIGHT OF OWNER OR POSSESSOR TO PAY TAXES, ETC., ON
+               DAY OF SALE
+
+        On the day of sale the owner or person in possession of any property offered for
+sale for taxes due thereon may pay the taxes, penalties and costs due; provided, further
+that the City may bring suit against the owner of such property for the collection of such
+taxes, penalties and costs. (Ord. No. 63 N.S., §28)
+
+SEC. 20.48     REDEMPTION OF PROPERTY MAY BE MADE WITHIN FIVE
+               YEARS FROM DATE OF SALE; PAYMENT MADE TO CLERK;
+               DISPOSITION OF MONEYS COLLECTED
+
+        A redemption of the property sold may be made by the owner, or any party in
+interest, within five years from the date of the sale to the City, or at any time prior to the
+sale of such property to the City. Payment must be made to the clerk upon an estimate
+furnished by the clerk, and the clerk shall account to the City for all moneys received
+under such redemption, which money shall be distributed to the proper funds in
+accordance with the regular tax levy. (Ord. No. 63 N.S., §30)
+
+SEC. 20.49     FAILURE TO REDEEM; DEED TO BE MADE TO CITY; FORM OF
+               DEED
+
+        If the property is not redeemed within five years from the date of the sale to the
+City, the tax collector, or his successor in office, shall make to the City a deed of the
+property. Such deed shall be in substance, and may be in form, as follows:
+
+      “This indenture, made the __________ day of _____________, 20_____, between
+____________________________, Tax Collector of the City of Piedmont, County of
+Alameda, State of California, first party, and the City of Piedmont, second party,
+
+                       WITNESSETH:
+
+        THAT WHEREAS, the real property hereinafter described was duly assessed for
+taxation in the year 20____ to _____________________________ (Stating name as on
+Assessment Roll) and was thereafter on the ____ day of __________________, 20____,
+duly sold to the City of Piedmont by _______________________________, Tax
+Collector of said City of Piedmont, for nonpayment of delinquent taxes which had been
+legally levied in said year 20____, and were a lien on said real property, the total amount
+for which the same was sold being $_____________________.
+
+                                            20-20
+                                                                                  Taxation
+
+
+
+       AND WHEREAS, the period of five years has elapsed since said sale and no
+person has redeemed the said property.
+
+        NOW, THEREFORE, the said first party in consideration of the premises, and in
+pursuance of the Ordinance in such case made and provided does hereby grant to the said
+second party that certain real property in the City of Piedmont, County of Alameda, State
+of California, more particularly described as follows, to-wit: (Description)
+
+        IN WITNESS WHEREOF, said first party has hereunto set his hand the day and
+year first above written.
+
+
+                              _____________________________________
+                              Tax Collector of the
+                              City of Piedmont”
+(Ord. No. 63 N.S., §31)
+
+SEC 20.50      FURTHER PROVISIONS CONCERNING DEED TO THE CITY;
+               FORCE AND EFFECT OF DEED
+
+        No other matters need be recited in the deed than those provided for in the form
+set out in the preceding section. No charge shall be made by the tax collector for the
+making of any such deed. All such deeds shall be recorded in the office of the county
+recorder and the expense of acknowledging and recording the same shall be in charge
+against the City. All such deeds, after having been duly recorded as herein provided, shall
+be transmitted to the clerk and by him filed in his office. Such deed, duly acknowledged
+or proved, is prima facie evidence that the property was assessed as required by law; that
+the property was equalized as required by law; that the taxes were levied in accordance
+with law; that the taxes were not paid; that at a proper time and place the property was
+sold as prescribed by law and by the proper officer; that the property was not redeemed;
+and, that the person who executed the deed was the proper officer. (Ord. No. 63 N.S.,
+§31)
+
+SEC. 20.51     ASSESSMENT ROLL, DELINQUENT LIST OR CERTIFIED COPIES
+               THEREOF PRIMA FACIE EVIDENCE OF ASSESSMENT, ETC.
+
+       The assessment roll or delinquent list, or a copy thereof, certified by the clerk,
+showing unpaid taxes against any person or property, is prima facie evidence of the
+assessment, the property assessed, the delinquency, the amount of taxes due and unpaid,
+and that all the forms of law in relation to the assessment and levy of such taxes have
+been complied with. (Ord. No. 63 N.S., §33)
+
+SEC. 20.52     REDEMPTION OF PROPERTY AFTER SALE TO CITY-AMOUNT TO
+               BE PAID
+
+
+                                          20-21
+                                                                                     Taxation
+
+
+        In all cases where real estate has been or may hereafter be sold for delinquent
+taxes to the City and the City has not disposed of the same, the person whose estate has
+been or may hereafter be sold, his heirs, executors, administrators, or other successors
+interest shall, at any time after the same has been sold to the City and before the City
+shall have disposed of the same, have the right to redeem such real estate by paying to the
+clerk the sum of the following:
+
+       (a)     The amount of sold taxes
+
+        (b)     The delinquent penalties and costs which were a lien on the property at the
+time of the sale to the City.
+
+       (c)     Redemption penalties as defined in the following section.
+
+        (d)     A redemption fee of one dollar and fifty cents on each separately valued
+parcel sold to the City. (Ord. No. 63 N.S., §32; Ord. No. 197 N.S., §5)
+
+SEC. 20.53     SAME-REDEMPTION PENALTIES
+
+        Redemption penalties, as used in the preceding section, shall be the sum of the
+following:
+        (a)     Beginning July first of the year of sale to the City, and the amount of sold
+taxes at the time of sale, one percent a month for the first year; then, one-half of one
+percent a month to the time of redemption.
+
+       (b)      Beginning July first of each subsequent year, on the unpaid taxes for
+which the property would have been sold to the City in that year if there had not been a
+previous sale, one percent a month for the first year thereafter; then, one-half of one
+percent a month to the time of redemption. (Ord. No. 63 N.S., §32; Ord. No. 197 N.S.,
+§5)
+
+SEC. 20.53-1 SAME-PROPERTY NOT ON CURRENT ROLL
+
+       If the property is not on the current roll, the tax collector may do either of the
+following:
+
+       (a)    Require the the redemptioner pay the current taxes and penalties as if the
+property were originally on the current roll.
+
+        (b)    Require the redemptioner to pay the current taxes, penalties and costs
+along with the amount necessary to redeem. The tax collector shall base his computation
+of the amount of these taxes on the valuation furnished him by the assessor.
+
+       This section is not applicable if the property is not on the current roll because of
+having been acquired by the City other than by tax deed. (Ord. No. 256 N.S., §1)
+
+
+                                            20-22
+                                                                                    Taxation
+
+
+SEC. 20.53-2 SAME-CERTIFICATE OF REDEMPTION
+
+        Upon redemption the tax collector shall issue a certificate of redemption which
+shall show:
+
+       (a)     The year of sale and number.
+
+       (b)     A description of the property.
+
+       (c)     In detail, the amounts to be paid.
+
+       (d)     The name of the person making the payment.
+
+       (e)     The date of redemption. (Ord. No. 256 N.S., §2)
+
+SEC. 20.53-3 SAME-DESTRUCTION OF REDEMPTION CERTIFICATE MORE
+             THAN TWELVE YEARS OLD
+
+        Any redemption certificate more than twelve years old may be destroyed by the
+tax collector. Such description shall be approved by the order of the City Council. (Ord.
+No. 256 N.S., §3)
+
+SEC. 20.54     EFFECT OF MISTAKE, INVALID ASSESSMENT, ETC., ON SALE
+
+        When land shall have been sold as the property of a designated person for tax
+correctly imposed, no misnomer of the owner or other mistake relating to the ownership
+of such property shall affect the validity of the sale. (Ord. No. 63 N.S., §39)
+
+SEC. 20.55     SEIZURE AND SALE OF PERSONAL PROPERTY FOR TAXES;
+               SALE TO BE AT PUBLIC AUCTION; NOTICE
+
+        The tax collector may, after the first Monday in February in each year, collect the
+taxes due on personal property, except when real estate is liable therefor, by seizure and
+sale of any personal property owned by the delinquent. The sale must be at public
+auction, and of sufficient amount of the property to pay the taxes, percentages and costs.
+The sale must be made after one week’s notice of the time and place thereof, given by
+posting in three public places. (Ord. No. 63 N.S., §34)
+
+SEC. 20.56     FINAL SETTLEMENT OF TAX COLLECTOR WITH CLERK;
+               PROCEDURE
+
+        The tax collector must, on the third Monday in February and on the third Monday
+in June each year, attend at the office of the clerk, with the delinquent list, and the clerk
+must carefully compare the list with the assessments of persons and property not marked
+as paid on the assessment roll; and, when taxes have been paid, must note that fact in the
+appropriate column in the assessment roll. The clerk must then administer to the tax
+
+                                           20-23
+                                                                                     Taxation
+
+
+collector an oath, to be written and subscribed in the delinquent list, stating that every
+person and all property assessed in the delinquent list, on which taxes have been paid, has
+been credited in the list with such payment.
+
+        The clerk shall then foot up the amount of taxes remaining unpaid and credit the
+tax collector with the amount, and shall have a final settlement with him, and the
+delinquent list must then remain on file in the clerk’s office. (Ord. No. 63 N.S., §35)
+
+SEC. 20.57     REFUND OF TAXES
+
+        A refund of taxes may be ordered by the Council, but only upon those grounds
+provided in Article I, Chapter 5, Part 9, Division 1 of the Revenue and Taxation Code of
+California, and no claim for refund shall be considered unless a verified application
+therefore is made in writing, signed by or on behalf of the party who paid the taxes, and
+filed within three years after making the tax payment for which the refund is sought.
+(Ord. No. 63 N.S., §36; Ord. No. 272 N.S., §7)
+
+SEC. 20.58     DOUBLE ASSESSMENTS
+
+        When the tax collector discovers that any property has been assessed more than
+once for the same year, he shall collect only the tax justly due, and shall make return of
+the facts to the clerk by an affidavit. (Ord. No. 63 N.S., §37)
+
+SEC. 20.59     DISCOVERY OF ERROR IN ASSESSMENT, ETC., BEFORE SALE;
+               TRANSFERRED TO NEXT YEAR’S ASSESSMENT LIST
+
+        In case the tax collector shall discover before any sale that by reason of irregular
+assessment or any other error, any land ought not to be sold, he shall not offer it for sale,
+but the Council shall in such case cause the assessor to enter the uncollected taxes upon
+the assessment list of the next succeeding year, to be collected as other taxes entered
+thereon. (Ord. No. 63 N.S., §38)
+
+SEC. 20.60     WHEN ASSESSOR IS TO COLLECT TAXES ON PERSONAL
+               PROPERTY; PROCEDURE
+
+        The assessor shall collect the taxes on personal property, in all cases in which, in
+his opinion, such taxes are not a lien on real property sufficient to secure the payment of
+the taxes. He shall pay to the tax collector all personal property taxes collected by him,
+and in his hands, and he shall make settlement therefor with the tax collector, and the
+assessor shall be governed as to the amount of the taxes to be by him collected on
+personal property by the rate of the previous year. (Ord. No. 63 N.S., §40)
+
+
+                ARTICLE III. PARAMEDIC SERVICES SPECIAL TAX
+
+SECTION 20.61          AUTHORITY TO ADOPT MEASURE
+
+                                            20-24
+                                                                                    Taxation
+
+
+
+        This ordinance and the tax authorized herein is adopted pursuant to the provisions
+of Article 3. 7 of Chapter 4 of Part 1 of Division 2 of Title 5 of the Government Code
+(Sections 53720-53730); and the California Constitution, Article XIIIC, Sec. 2. The tax
+authorized herein is based on use and occupancy of improved real property. (Ord. No.
+586 N.S., §2)
+
+SECTION 20.62          TITLE AND PURPOSE
+
+This article may be cited as the "Paramedic Services Special Tax". The special tax
+imposed under this Article is solely for the purpose of raising revenue for the operation of
+city managed paramedic and ambulance transport services. This Article is not enacted for
+regulatory purposes. (Ord. No. 586 N.S., §2)
+
+SECTION 20.63          MAXIMUM TAX RATE AND METHOD OF ASSESSMENT
+
+The rate of the Paramedic Services Special Tax shall be $18.46 per year and shall be
+assessed against each parcel of improved real property within the City of Piedmont.
+
+Any tax levied under this Article shall become a lien upon the properties against which it
+is assessed and collectible in the manner provided in Chapter 20 of the Piedmont
+Municipal Code as amended from time to time. (Ord. No. 586 N.S., §2)
+
+SECTION 20.64          FUNDING AND EXPENDING PROCEEDS
+
+       Proceeds of the Paramedic Services Special Tax shall be deposited in a special
+fund for operation of city operated paramedic ambulance services to be known as the
+Paramedic Services Fund and shall be used for the sole and exclusive purpose of
+providing city operated paramedic ambulance services. (Ord. No. 586 N.S., §2)
+
+SECTION 20.65          SEVERABILITY
+
+If any provision of this ordinance or the application thereof to any person or circumstance
+is held invalid, such invalidity shall not affect any other provisions or applications, and to
+this end the provisions of this Ordinance are declared to be severable. (Ord. No. 586 N.S.,
+§2)
+
+SECTION 20.66          DURATION, AMENDMENT OR REPEAL
+
+The authorization to levy a tax under this Ordinance shall continue from year to year.
+This ordinance, or any provision thereof, may only be amended or repealed by a majority
+of the voters voting on the proposition at any initiative or referendum election.
+
+This Ordinance shall be adopted, if approved by a two-thirds (2/3) majority of the voters
+voting on the proposition at an election to be held on Tuesday, June 3, 1997, and go into
+effect on July 1, 1997. (Ord. No. 586 N.S., §2)
+
+                                           20-25
+                                                                                    Taxation
+
+
+
+
+SECS. 20.67 to 20.82 REPEALED BY ORDINANCE NO. 286 N.S., §1
+
+               ARTICLE IV. REAL PROPERTY CONVEYANCE TAX
+
+SEC. 20.83     TITLE AND PURPOSE
+
+       This article may be cited as the “Piedmont Real Property Conveyance Tax
+Ordinance”. The tax imposed under this article is solely for the purpose of raising
+revenue for the usual and current expenses of the City. This article is not enacted for
+regulatory purposes. (Ord. No. 277 N.S., §1; Ord. No. 282 N.S., §1; Ord. No. 364 N.S.,
+§1)
+
+SEC. 20.84     IMPOSITION OF TAX
+
+        A tax is hereby imposed on each transfer, by deed, instrument or writing, by
+which any lands, tenements or other real property sold, located in the City, are or is
+granted, assigned transferred or otherwise conveyed to, or vested in, a purchaser or
+purchasers thereof, or any other person or persons at or by the direction of said purchaser
+or purchasers, when the value of the consideration exceeds one hundred dollars, said tax
+to be at the rate of thirteen dollars for each one thousand dollars or fractional part of one
+thousand dollars of the value of the consideration. Transfers for no consideration are
+exempt.
+
+        As used herein, “value of the consideration” means the total consideration, valued
+in money of the United States, paid or delivered or contracted to be paid or delivered in
+return for the transfer of real property, including the amount of any indebtedness, existing
+immediately prior to the transfer which is secured by a lien, deed of trust or other
+encumbrance on the property conveyed and which continues to be secured by such lien,
+deed of trust or encumbrance after said transfer, and also including the amount of any
+indebtedness which is secured by a lien, deed of trust or encumbrance given or placed
+upon the property in connection with the transfer to secure the payment of the purchase
+price or any part thereof which remains unpaid at the time of the transfer. “Value of the
+consideration” also includes the amount of any special assessment levied or imposed
+upon the property by a public body, district or agency, where said special assessment is a
+lien or encumbrance on the property and the purchaser or transferee agrees to pay such a
+special assessment or takes the property subject to the lien of such special assessment.
+The value of any lien or encumbrance of a type other than those which are hereinabove
+specifically included, existing immediately prior to the transfer and remaining after said
+transfer, shall not be included in determining the value of the consideration. If the value
+of the consideration cannot be definitively determined, or is left open to be fixed by
+future contingencies, “value of the consideration” shall be deemed to mean the fair
+market value of the property at the time of transfer after deducting the amount of any lien
+or encumbrance if any of a type which would be excluded in determining the value of the
+
+                                           20-26
+                                                                                    Taxation
+
+
+consideration pursuant to above provisions of this section. (Ord. No. 277 N.S.; Ord. No.
+364 N.S., Ord. 546 N.S.)
+
+SEC. 20.85     LIABILITY FOR PAYMENT
+
+        Any tax imposed pursuant to section 20.84 hereof shall be paid by any person
+who makes, signs or issues any document or instrument subject to the tax, or for whose
+use or benefit the same is made, signed or issued. (Ord. No. 277 N.S., §3; Ord. No. 364
+N.S., §3)
+
+SEC. 20.86     EXEMPTION-WRITTEN SECURITY INSTRUMENT
+
+       Any tax imposed pursuant to this article shall not apply to any instrument in
+writing given to secure a debt. (Ord. No. 277 N.S., §4; Ord. No. 364 N.S., §4)
+
+SEC. 20.87     SAME-UNITED STATES, STATE OR POLITICAL SUBDIVISION
+
+        Any deed, instrument or writing to which the United States or any agency or
+instrumentality thereof, any state or territory, or political subdivision thereof, is a party
+shall be exempt from any tax imposed pursuant to this article when the exempt agency is
+acquiring title. (Ord. No. 277 N.S., §5; Ord. No. 364 N.S., §5)
+
+SEC. 20.88     SAME-BANKRUPTCY PROCEEDINGS
+
+         Any tax imposed pursuant to this article shall not apply to the making, delivering
+or filing of conveyances to make effective any plan of reorganizing or adjustment:
+
+       (a)     Confirmed under the Federal Bankruptcy Act, as amended;
+
+        (b)    Approved in an equity receivership proceeding in a court involving a
+railroad corporation, as defined in subdivision (m) of Section 205 of Title 11 of the
+United States Code, as amended;
+
+       (c)     Approved in an equity receivership proceeding in a court involving a
+corporation, as defined in subdivision (3) of Section 506 of Title 11 of the United States
+Code, as amended; or
+
+        (d)    Whereby a mere change in identity, form or place of organization is
+effected.
+
+        Subdivisions (a) to (d), inclusive, of this section shall only apply if the making,
+delivery or filing of instruments of transfer or conveyances occurs within five years from
+the date of such confirmation, approval or change. (Ord. No. 277 N.S., §6; Ord. No. 364
+N.S., §6)
+
+SEC. 20.89     SAME INSTRUMENTS PURSUANT TO S.E.C. ORDER
+
+                                           20-27
+                                                                                   Taxation
+
+
+
+         Any tax imposed pursuant to this article shall not apply to the making or delivery
+of conveyances to make effective any order of the Securities and Exchange Commission,
+as defined in subdivision (a) of Section 1083 of the Internal Revenue Code of 1954; but
+only if:
+
+        (a)     The order of the Securities and Exchange Commission in obedience to
+which such conveyance is made recites that such conveyance is necessary or appropriate
+to effectuate the provisions of Section 79K of Title 15 of the United States Code, relating
+to the Public Utility Holding Company Act of 1935;
+
+       (b)     Such order specifies the property which is ordered to be conveyed;
+
+       (c)    Such conveyance is made in obedience to such order. (Ord. No. 277 N.S.,
+§7; Ord. No. 364 N.S., §7)
+
+SEC. 20.90     SAME-PARTNERSHIPS
+
+       (a)      In the case of any realty held by a partnership, no levy shall be imposed
+pursuant to this article by reason of any transfer of an interest in a partnership or
+otherwise if:
+                (1)     Such partnership (or another partnership) is considered a
+       continuing partnership within the meaning of Section 708 of the Internal Revenue
+       Code of 1954; and
+
+              (2)      Such continuing partnership continues to hold the realty
+       concerned.
+
+        (b)     If there is a termination of any partnership within the meaning of Section
+708 of the Internal Revenue Code of 1954, for purposes of this article, such partnership
+shall be treated as having executed an instrument whereby there was conveyed, for fair
+market value (exclusive of the value of any lien or encumbrance remaining thereon), all
+realty held by such partnership at the time of such termination.
+
+        (c)     Not more than one tax shall be imposed pursuant to this article by reason
+of a termination described in subdivision (b) of this section, and any transfer pursuant
+thereto, with respect to the realty held by such partnership at the time of such termination.
+(Ord. No. 277 N.S., §9; Ord. No. 364 N.S., §8)
+
+SEC. 20.91     INSTRUMENTS IN LIEU OF FORECLOSURE
+
+        Any tax imposed pursuant to this article shall not apply with respect to any
+transfer to a beneficiary or mortgagee which is taken in lieu of a foreclosure. (Ord. No.
+277 N.S., §9; Ord. No. 364 N.S., §9)
+
+SEC. 20.92     ADMINISTRATION OF TAX
+
+                                           20-28
+                                                                                    Taxation
+
+
+
+         The tax collector of the City (hereinafter in this article referred to as “tax
+collector”) shall collect the tax imposed under this article and shall otherwise administer
+this article. He may make such rules and regulations, not inconsistent with the article, as
+he may deem reasonably necessary or desirable to administer this article. In the
+administration of this article, the tax collector shall interpret its provisions consistently
+with those Documentary Stamp Tax Regulations adopted by the Internal Revenue Service
+of the United States Treasury Department which relate to the tax on conveyances and
+identified as Sections 47.4361-1, 47.4361-2 and 47.4362-1 of Part 47 of Title 26 of the
+Code of Federal Regulations, as the same existed on November 8, 1967, except that for
+the purposes of this article:
+
+        (a)    The term “realty” as used in said regulations, shall be deemed to mean
+“real property” as such term is defined by and under the laws of the state;
+
+        (b)     Those provisions of said regulations providing for deduction of the value
+of any lien or encumbrance existing before the sale and not removed thereby shall not
+apply;
+
+         (c)   Those provisions of said regulations relating to the rate of the tax shall not
+apply;
+         (d)     Those provisions of said regulations which conflict with the provisions of
+this article shall not apply. (Ord. No. 277 N.S., §10; Ord. No. 364 N.S., §10)
+
+SEC. 20.93     DUE DATES; DELINQUENCY; PENALTIES; INTEREST
+
+        The tax imposed under this article is due and payable at the time of the deed,
+instrument or writing effecting a transfer subject to the tax is delivered, and is delinquent
+if unpaid at the time of recordation thereof. In the event that the tax is not paid prior to
+becoming delinquent, a delinquency penalty of ten percent of the amount of tax shall
+accrue.
+
+        In the event a portion of the tax is unpaid prior to becoming delinquent, the
+penalty shall only accrue as to the portion remaining unpaid. An additional penalty of ten
+percent shall accrue if the tax remains unpaid on the ninetieth day following the date of
+the original delinquency. Interest shall accrue at the rate of one-half of one percent a
+month or fraction thereof, on the amount of tax, exclusive of penalties, from the date the
+tax becomes delinquent to the date of payment. Interest and penalty accrued shall become
+a part of the tax. (Ord. No. 277 N.S., §11; Ord. No. 364 N.S., §11)
+
+SEC. 20.94     DECLARATION REQUIRED
+
+        The tax imposed by this article shall be paid to the tax collector by the persons
+referred to in section 20.95. Payment shall be accompanied by a declaration of the
+amount of tax due signed by the person paying the tax or by his agent. The declaration
+shall include a statement that the value of the consideration on which the tax due was
+
+                                           20-29
+                                                                                   Taxation
+
+
+computed includes all indebtedness secured by liens, deeds of trust, or other
+encumbrances remaining or placed on the property transferred at the time of transfer, and
+also includes all special assessments on the property which the purchaser or transferee
+agrees to pay or which remain a lien on the property at the time of transfer. The
+declaration shall identify the deed, instrument or writing effecting the transfer for which
+the tax is being paid. The tax collector may require delivery to him of a copy of such
+deed, instrument or writing whenever he deems such to be reasonably necessary to
+adequately identify such writing or to administer the provisions of this article. The tax
+collector may rely on the declaration as to the amount of the tax due, provided he has no
+reason to believe that the full amount of the tax due is not shown on the declaration.
+
+       Whenever the tax collector has reason to believe that the full amount of tax due is
+not shown on the declaration or has not been paid, he may, by notice served upon any
+person liable for the tax, require him to furnish a true copy of he records relevant to the
+value of the consideration or fair market value of the property transferred. Such notice
+may be served at any time within three years after recordation of the deed, instrument or
+writing which transfers such property. (Ord. No. 364 N.S., §12)
+
+SEC. 20.95     DETERMINATION OF DEFICIENCY
+
+        If on the basis of such information as he receives pursuant to the last paragraph of
+section 20.94 and/or on the basis of such other relevant information that comes into his
+possession, he determines that the amount of tax due as set forth in the declaration, or as
+paid, as insufficient, he may recomputed the tax due on the basis of such information.
+
+        If the declaration required by section 20.94 is not submitted, the tax collector may
+make an estimate of the value of the consideration for the property conveyed and
+determined the amount of tax to be paid on the basis of any information in the possession
+or that may come into his possession.
+
+        One or more deficiency determinations may be made of the amount due with
+respect to any transfer. (Ord. No. 364 N.S., §13)
+
+SEC. 20.96     NOTICE OF DETERMINATION
+
+        The tax collector shall give notice to a person liable for payment of the tax
+imposed under this article of his determination made under section 20.95. Such notice
+shall be given within three years after the recordation of the deed, instrument or writing
+effecting the transfer on which the tax deficiency determination was made. (Ord. No. 364
+N.S., §14)
+
+SEC. 20.97     MANNER OF GIVING NOTICE
+
+       Any notice required to be given by the tax collector under this article may be
+served personally or by mail; if by mail, service shall be made by depositing the notice in
+the United States mail, in a sealed envelope with postage paid addressed to the person on
+
+                                           20-30
+                                                                                    Taxation
+
+
+whom it is to be served at his address as it appears in the records of the City or as
+ascertained by the tax collector. The service is complete at the time of the deposit of the
+notice in the United States mail, without extension of time for any reason. (Ord. No. 364
+N.S., §15)
+
+SEC. 20.98     PETITION FOR REDETERMINATION
+
+        Any person against whom a determination is made under this article or any person
+directly interested may petition for a redetermination within sixty days after service upon
+the person of notice thereof. If a petition for redetermination is not filed within the sixty-
+day period, the determination becomes final at the expiration of the period. (Ord. No. 364
+N.S., §16)
+
+SEC. 20.99     CONSIDERATION OF PETITION; HEARING
+
+        If a petition for redetermination is filed within the sixty-day period, the tax
+collector shall reconsider the determination and, if the person has so requested in his
+petition, shall grant the person an oral hearing, and shall give him ten days’ notice of the
+time and place of the hearing. The tax collector may designate one or more deputies for
+the purpose of conducting hearings and may continue a hearing from time to time as may
+be necessary. (Ord. No. 364 N.S., §17)
+
+
+
+Rev. 07/01/1997 (Ord. 586 N.S.)
+
+
+
+
+                                            20-31
+
