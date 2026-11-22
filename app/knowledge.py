@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import search as _search  # noqa: E402
 
+CATALOG_FILES = ("knowledge/sources.yaml", "knowledge/covers.yaml")   # catalog() reads these; the Dockerfile must COPY them
 MAX_PAGE_RUN = 6  # most pages one get_section("source:pNNN-pNNN") call may return
 CODE_EDITION = "Piedmont City Code Chapter 17, effective 2026-05-20"
 LABEL = {"binding": "Code says", "official": "City policy says", "staff": "Staff have said"}
