@@ -31,14 +31,6 @@
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Construction Cost Estimation.pdf"
   },
-  "guide-corner-obstructions": {
-    "file": "raw/guideline/guide-corner-obstructions.pdf",
-    "sha256": "b06ad9b18234f91ccd891641fd8cb6425af89dfe6226698f5875aba2ec840dd5",
-    "bytes": 259880,
-    "obtained": "2026-11-22T07:45:32Z",
-    "how": "added by hand",
-    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/corner_obs.pdf"
-  },
   "guide-graphic-calcs": {
     "file": "raw/guideline/guide-graphic-calcs.pdf",
     "sha256": "866f41f104601b96648ac9923401caf4b0a5a927afaf07c4d4768a5424fc294d",
