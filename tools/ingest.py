@@ -391,6 +391,7 @@ def cmd_index() -> None:
                     "kind": meta.get("kind"),
                     "authority": meta.get("authority"),
                     "source_id": meta.get("source_id"),
+                    "reference": bool(sources.get(meta.get("source_id"), {}).get("reference")),
                     "section": meta.get("section"),
                     "title": meta.get("title"),
                     "cite": meta.get("cite"),

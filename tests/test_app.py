@@ -353,9 +353,9 @@ def test_precedent_guard_leaves_normal_text_alone():
 
 
 def test_get_section_reads_document_pages():
-    for ref in ("design-guidelines:p022", "p022"):
-        res = knowledge.get_section(ref)
-        assert res and "wood with aluminum or fiberglass exterior cladding" in res[0]["text"]
+    res = knowledge.get_section("design-guidelines:p022")
+    assert res and "wood with aluminum or fiberglass exterior cladding" in res[0]["text"]
+    assert knowledge.get_section("p022") == []          # ambiguous across sources: the source must be named
     assert knowledge.get_section("nope:p999") == []
     assert knowledge.get_section("../../etc") == []
 
@@ -454,3 +454,32 @@ def test_prompt_has_the_absence_rule_and_the_list_pointer():
     assert "not on, not allowed by, or not covered by a list" in agent.SYSTEM
     assert "design-guidelines:p018-p022" in agent.SYSTEM
     assert any("p018-p022" in t["description"] for t in agent.TOOLS if t["name"] == "get_section")
+
+
+# --- knowledge catalog ---
+
+def test_catalog_lists_what_is_loaded_and_what_is_not():
+    c = knowledge.catalog()
+    ids = {s["id"] for s in c["available"]}
+    assert {"ch17", "ch08", "design-guidelines"} <= ids
+    assert all(s["documents"] > 0 for s in c["available"])
+    ch17 = next(s for s in c["available"] if s["id"] == "ch17")
+    assert "accessory dwelling" in ch17["covers"].lower() and ch17["effective"] == "2026-05-20"
+    assert not ({s["id"] for s in c["not_available"]} & ids)         # nothing is both
+
+
+def test_catalog_text_is_in_the_system_prompt():
+    assert "KNOWLEDGE BASE" in agent.SYSTEM and "ch17:" in agent.SYSTEM
+    assert "Search with more than one wording" in agent.SYSTEM
+
+
+def test_list_sources_tool_returns_the_catalog():
+    out = json.loads(agent.run_tool("list_sources", {}, {"property": None}, {"retrieved": [], "staff_seen": False}))
+    assert out["available"] and "not_available" in out
+
+
+def test_search_tool_accepts_other_wordings():
+    ctx = {"retrieved": [], "staff_seen": False}
+    out = json.loads(agent.run_tool("search_knowledge", {"query": "backyard cottage rental",
+                                    "also": ["short-term rental accessory dwelling unit"]}, {"property": None}, ctx))
+    assert any(h["doc_id"] == "ch17:17.40.030" for h in out)

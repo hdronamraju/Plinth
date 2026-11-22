@@ -1,0 +1,200 @@
+# Retrieval-only questions: plain-language queries with the documents that should come back (any one counts).
+# `also` = other wordings the agent would be expected to add. Run: python tools/eval_retrieval.py
+- id: R1
+  query: How close to my neighbor's fence can I put a garden shed?
+  also:
+  - accessory structure setback side rear yard
+  - shed must be within 35 feet of rear lot line 15 feet high
+  expect_any:
+  - ch17:17.20.040
+- id: R2
+  query: Can I rent out my backyard cottage on Airbnb?
+  also:
+  - short-term rental accessory dwelling unit
+  - rental for less than 30 consecutive days
+  expect_any:
+  - ch17:17.40.030
+- id: R3
+  query: How tall can my house be?
+  also:
+  - maximum structure height feet
+  - building height limit zone
+  expect_any:
+  - ch17:17.20.040
+  - ch17:17.90.020
+- id: R4
+  query: Do I need approval to build a retaining wall in my yard?
+  also:
+  - retaining wall height design review
+  - wall terracing fence permit
+  expect_any:
+  - ch17:17.32.010
+- id: R5
+  query: Is there a limit on how big my granny flat can be?
+  also:
+  - accessory dwelling unit maximum size square feet
+  - detached ADU floor area bedrooms
+  expect_any:
+  - ch17:17.38.060
+- id: R6
+  query: Can I turn my garage into a bedroom?
+  also:
+  - convert garage to accessory dwelling unit parking
+  - no garage may be altered for use other than parking
+  expect_any:
+  - ch17:17.30.060
+  - ch17:17.38.060
+- id: R7
+  query: What counts toward the size limit when I finish my basement?
+  also:
+  - floor area definition basement attic
+  - floor area ratio habitable space
+  expect_any:
+  - ch17:17.90.020
+  - ch17:17.20.040
+- id: R8
+  query: How long do neighbors have to appeal a design decision?
+  also:
+  - appeal design review decision calendar days
+  - appeal to planning commission or city council
+  expect_any:
+  - ch17:17.66.050
+  - ch17:17.78.020
+  - ch17:17.78.030
+- id: R9
+  query: Can I run a small business out of my house?
+  also:
+  - home occupation permit restrictions
+  - working from home business license
+  expect_any:
+  - ch17:17.44.020
+  - ch17:17.44.030
+- id: R10
+  query: Do I need a permit to replace my gas furnace with an electric heat pump?
+  also:
+  - building permit heat pump installation
+  - work exempt from permit replace furnace water heater
+  expect_any:
+  - ch08:8.02.020
+  - guide-heat-pump:p002
+- id: R11
+  query: Can I put solar panels on my roof?
+  also:
+  - rooftop solar energy system permit
+  - small residential solar expedited review
+  expect_any:
+  - ch08:8.04.030
+  - ch08:8.04.050
+  - ch08:8.04.020
+- id: R12
+  query: My neighbor's heat pump is too loud. What is the limit?
+  also:
+  - heat pump sound level decibels property line
+  - 50 dBA noise
+  expect_any:
+  - guide-heat-pump:p002
+- id: R13
+  query: How do I add an electric car charger?
+  also:
+  - electric vehicle charging station permit
+  - EV charger installation expedited
+  expect_any:
+  - ch08:8.06.020
+  - ch08:8.06.030
+  - ch08:8.06.050
+- id: R14
+  query: What has to be on the plans for a remodel?
+  also:
+  - design review submittal requirements site plan floor plans elevations
+  - application checklist plans required
+  expect_any:
+  - design-guidelines:p023
+  - design-guidelines:p024
+  - design-guidelines:p025
+  - design-guidelines:p026
+  - form-director-design-review:p002
+  - form-director-design-review:p003
+- id: R15
+  query: Why do I need story poles and when?
+  also:
+  - story pole requirement installation verification
+  - poles show height and mass of proposed construction
+  expect_any:
+  - policy-story-pole:p001
+  - design-guidelines:p029
+  - design-guidelines:p030
+- id: R16
+  query: Will the commission come look at my property?
+  also:
+  - site visit procedures planning commissioners staff
+  - visit the property before the hearing
+  expect_any:
+  - policy-site-visit:p001
+- id: R17
+  query: How wide can my driveway be?
+  also:
+  - driveway width standards residential
+  - parking space dimensions garage driveway
+  expect_any:
+  - policy-parking-driveway:p001
+  - policy-parking-driveway:p002
+  - design-guidelines:p065
+  - design-guidelines:p066
+- id: R18
+  query: When can I swap my windows without design review?
+  also:
+  - window replacement exception design review wood to clad
+  - replacement windows same size no permit
+  expect_any:
+  - design-guidelines:p022
+  - policy-window-replacement:p001
+- id: R19
+  query: What do I submit for a Planning Commission application?
+  also:
+  - planning commission design review application form
+  - application checklist documents to submit
+  expect_any:
+  - form-pc-design-review:p001
+  - form-pc-design-review:p002
+  - form-pc-design-review:p003
+- id: R20
+  query: Can my architect file the permit for me?
+  also:
+  - agent authorization form permit application
+  - authorize agent to act for owner
+  expect_any:
+  - form-agent-authorization:p001
+- id: R21
+  query: What happens if I build without a permit?
+  also:
+  - penalties violation enforcement notice of violation
+  - unpermitted work enforcement
+  expect_any:
+  - ch17:17.80.010
+  - ch17:17.80.060
+  - ch17:17.80.030
+  - ch08:8.02.100
+- id: R22
+  query: Can I split my lot into two?
+  also:
+  - urban lot split SB 9 requirements
+  - subdivide lot into two parcels
+  expect_any:
+  - ch17:17.54.050
+  - ch17:17.54.040
+  - ch19:p001
+- id: R23
+  query: Where can I put a tankless water heater?
+  also:
+  - tankless water heater exterior wall vent location
+  - water heater design review exemption
+  expect_any:
+  - policy-tankless-water-heater:p001
+  - design-guidelines:p022
+- id: R24
+  query: How do I figure out how much my project costs for the application?
+  also:
+  - construction cost estimate exterior improvements application
+  - cost estimation guidelines
+  expect_any:
+  - guide-construction-cost:p001

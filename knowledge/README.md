@@ -59,3 +59,18 @@ Run `python tools/ingest.py all` with no ids to fetch everything missing. Existi
 
 - Third-party summaries (GoCodebook and the like), which are not primary sources.
 - Raw emails. Precedent records keep only the question, the verbatim answer and context.
+
+## Catalog, named-only sources and search
+
+- **`covers.yaml`** has a one-line description per source (only what has been checked in the document). `app/knowledge.py`
+  `catalog()` combines it with `sources.yaml` and the sections folder, and the agent sees the result in its system prompt and
+  through the `list_sources` tool, including city documents that are published but not loaded.
+- **`reference: true`** in `sources.yaml` marks a source that is searched only when named (`--source <id>`). Used for city
+  chapters unrelated to building and land use, so they cannot crowd out the planning sources. They are still in the
+  catalog, so the agent can go to them.
+- **Several wordings.** `search.search(..., also=[...])` merges the rankings for up to three other wordings of a question
+  (reciprocal rank fusion). One wording behaves exactly as before. The agent is told to pass `also`.
+- **Forms count for less** (weight 0.8): application forms repeat code terms but are not answers.
+- **Measure it:** `python tools/eval_retrieval.py` runs `evals/retrieval.yaml` (24 plain-language questions) with and without
+  other wordings. Re-run it, and check the 53 eval questions' top-6, after adding sources.
+- **Hand-drawn or scanned PDFs** with no usable text are not loaded (no OCR here). They show in the catalog as not loaded.

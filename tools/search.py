@@ -29,6 +29,7 @@ SECTION_NUM = re.compile(r"\b\d{1,2}[A-Za-z]?\.\d{1,3}[A-Za-z]?(?:\.\d{1,3}[A-Za
 STOP = set("a an and are as at be by can for from has have how i if in is it its may of on or our that the "
            "their this to was we what when where which will with would you your do does my".split())
 AUTH_WEIGHT = {"binding": 1.0, "official": 0.95, "staff": 0.9}
+KIND_WEIGHT = {"form": 0.8}   # application forms repeat code terms but are not answers
 
 
 def tokens(text: str) -> list[str]:
@@ -74,16 +75,8 @@ def snippet(text: str, q: list[str], width: int = 360) -> str:
     return ("…" if start else "") + s + ("…" if start + width < len(text) else "")
 
 
-def search(query: str, k: int, source: str | None, authority: str | None, kind: str | None,
-           include_superseded: bool) -> list[dict]:
-    docs = load()
-    keep = [d for d in docs
-            if (not source or d["source_id"] == source)
-            and (not authority or d["authority"] == authority)
-            and (not kind or d["kind"] == kind)
-            and (include_superseded or d.get("status") != "superseded")]
+def _ranked(bm: "BM25", keep: list[dict], query: str) -> list[tuple[float, dict]]:
     q = tokens(query)
-    bm = BM25(keep)
     wanted = {m.lower() for m in SECTION_NUM.findall(query)}
     results = []
     for i, d in enumerate(keep):
@@ -91,18 +84,58 @@ def search(query: str, k: int, source: str | None, authority: str | None, kind: 
         if wanted and (d.get("section") or "").lower() in wanted:
             s += 100  # an exact section number in the query wins
         if s > 0:
-            results.append((s * AUTH_WEIGHT.get(d.get("authority"), 0.9), d))
+            results.append((s * AUTH_WEIGHT.get(d.get("authority"), 0.9) * KIND_WEIGHT.get(d.get("kind"), 1.0), d))
     results.sort(key=lambda x: -x[0])
+    return results
+
+
+def _hit(s: float, d: dict, q: list[str]) -> dict:
+    return {**{k: d[k] for k in ("doc_id", "cite", "title", "authority", "kind", "effective", "status", "path")},
+            "score": round(s, 2), "snippet": snippet(d["text"], q)}
+
+
+def search(query: str, k: int, source: str | None, authority: str | None, kind: str | None,
+           include_superseded: bool, also: list[str] | None = None) -> list[dict]:
+    """BM25 search. `also` = other wordings of the same question (up to 3); the rankings for all wordings
+    are merged by reciprocal rank fusion, so a document that ranks well for any wording is found."""
+    docs = load()
+    keep = [d for d in docs
+            if (not source or d["source_id"] == source)
+            and (not d.get("reference") or source == d["source_id"])   # reference docs only when named
+            and (not authority or d["authority"] == authority)
+            and (not kind or d["kind"] == kind)
+            and (include_superseded or d.get("status") != "superseded")]
+    bm = BM25(keep)
+    wordings = [query] + [w for w in (also or []) if isinstance(w, str) and w.strip()][:3]
     out, seen = [], set()
-    for s, d in results:
-        if d["doc_id"] in seen:  # one hit per section; open the file for the rest
-            continue
-        seen.add(d["doc_id"])
-        out.append({**{k: d[k] for k in ("doc_id", "cite", "title", "authority", "kind", "effective",
-                                           "status", "path")},
-                    "score": round(s, 2), "snippet": snippet(d["text"], q)})
-        if len(out) == k:
-            break
+    if len(wordings) == 1:
+        for s, d in _ranked(bm, keep, query):
+            if d["doc_id"] in seen:  # one hit per section; open the file for the rest
+                continue
+            seen.add(d["doc_id"])
+            out.append(_hit(s, d, tokens(query)))
+            if len(out) == k:
+                break
+        return out
+    fused: dict[str, float] = {}
+    best: dict[str, tuple[int, float, dict, list[str]]] = {}
+    for w in wordings:
+        rank, done = 0, set()
+        for s, d in _ranked(bm, keep, w):
+            if d["doc_id"] in done:
+                continue
+            done.add(d["doc_id"])
+            rank += 1
+            fused[d["doc_id"]] = fused.get(d["doc_id"], 0.0) + 1.0 / (60 + rank)
+            if d["doc_id"] not in best or rank < best[d["doc_id"]][0]:
+                best[d["doc_id"]] = (rank, s, d, tokens(w))
+            if rank >= 30:
+                break
+    for doc_id, f in sorted(fused.items(), key=lambda x: -x[1])[:k]:
+        _, s, d, q = best[doc_id]
+        h = _hit(s, d, q)
+        h["score"] = round(f * 1000, 2)       # fused score, scaled for readability
+        out.append(h)
     return out
 
 
