@@ -1,0 +1,10 @@
+.git
+.venv
+generated
+knowledge/raw
+knowledge/text
+brand/canvas
+tests
+__pycache__
+knowledge/precedent
+knowledge/index/CATALOG.md
