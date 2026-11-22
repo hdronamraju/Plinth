@@ -1,4 +1,12 @@
 {
+  "ch08": {
+    "file": "raw/code/ch08.pdf",
+    "sha256": "f8f5daa4273f81c5de4df44b4dac4429d7cb64b03236240e31245ff922ec9357",
+    "bytes": 421380,
+    "obtained": "2026-11-22T07:38:00Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 8.1 (Effective 2026-01-01).pdf"
+  },
   "ch17": {
     "file": "raw/code/ch17.pdf",
     "sha256": "65f08119fa208d4bc1ab846754e5126007ceff07ece04675a48294e561b5f797",
