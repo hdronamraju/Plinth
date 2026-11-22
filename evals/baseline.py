@@ -33,12 +33,19 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTION_FILES = ("evals/lorita.yaml", "evals/general.yaml")   # retrieval-only entries (group G) have no question
-PRICE = {"claude-sonnet-5-5": (2.0, 10.0), "claude-opus-5-5": (4.0, 20.0)}  # $/MTok in, out
+# $/MTok: input, output, 5-minute cache write, cache read
+PRICE = {"claude-sonnet-5-5": (2.0, 10.0, 2.5, 0.10), "claude-opus-5-5": (4.0, 20.0, 5.0, 0.20)}
 SEARCH_PRICE = 10 / 1000          # $ per web search; page fetches are not charged beyond their tokens
-MAX_SEARCHES = 5                  # per question, for each of search and fetch
+MAX_SEARCHES = 5                  # web searches per question
+MAX_FETCHES = 3                   # pages opened per question
+PAGE_TOKENS = 20_000              # each opened page is cut to this many tokens (a full code chapter is far longer)
 MAX_RESUMES = 4                   # a long search turn can pause; it is sent back this many times at most
 WEB_TOOLS = [{"type": "web_search_20260209", "name": "web_search", "max_uses": MAX_SEARCHES},
-             {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": MAX_SEARCHES}]
+             {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": MAX_FETCHES,
+              "max_content_tokens": PAGE_TOKENS}]
+# Saved on each row. Rows made with different settings are dropped and asked again, so one file is one setup.
+CONFIG = {"web": {"max_searches": MAX_SEARCHES, "max_fetches": MAX_FETCHES, "page_tokens": PAGE_TOKENS}}
+USAGE_KEYS = ("input_tokens", "output_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")
 
 RULES = """You help Piedmont, California homeowners check a project against the city's planning code \
 (Piedmont City Code Chapter 17, effective 2026-05-20) and the city's design guidelines and policies. \
@@ -72,14 +79,16 @@ def ask(client, model: str, system: str | None, question: str, web: bool) -> dic
     """One question, one answer. With web, Claude's server-side search and fetch run inside the call; a turn
     that pauses mid-search is sent back so it can finish."""
     msgs = [{"role": "user", "content": question}]
-    kw = ({"system": system} if system else {}) | ({"tools": WEB_TOOLS} if web else {})
-    usage = {"input_tokens": 0, "output_tokens": 0, "web_search_requests": 0, "calls": 0}
+    kw = {"system": system} if system else {}
+    if web:     # a paused turn is re-sent with everything read so far; caching makes that re-read cheap
+        kw |= {"tools": WEB_TOOLS, "cache_control": {"type": "ephemeral"}}
+    usage = dict.fromkeys(USAGE_KEYS, 0) | {"web_search_requests": 0, "calls": 0}
     blocks = []
     for _ in range(MAX_RESUMES + 1):
         r = client.messages.create(model=model, max_tokens=2000, messages=msgs, **kw)
         usage["calls"] += 1
-        usage["input_tokens"] += r.usage.input_tokens
-        usage["output_tokens"] += r.usage.output_tokens
+        for k in USAGE_KEYS:
+            usage[k] += getattr(r.usage, k, 0) or 0
         stu = getattr(r.usage, "server_tool_use", None)
         usage["web_search_requests"] += (getattr(stu, "web_search_requests", 0) or 0) if stu else 0
         blocks += r.content
@@ -109,7 +118,11 @@ def main() -> None:
     qs = questions()[: a.limit]
     out = ROOT / "evals" / "runs" / f"baseline-{a.condition}-{a.model}.jsonl"
     rows = [json.loads(l) for l in out.read_text().splitlines() if l.strip()] if out.exists() else []
-    rows = [r for r in rows if not r.get("error")]          # failed questions are dropped and asked again
+    config = CONFIG.get(a.condition, {})
+    stale = [r["id"] for r in rows if r.get("config", {}) != config]
+    if stale:
+        print(f"Asking {len(stale)} questions again: they were answered with different settings.")
+    rows = [r for r in rows if not r.get("error") and r.get("config", {}) == config]  # failed or stale: ask again
     if out.exists():
         out.write_text("".join(json.dumps(r) + "\n" for r in rows))
     done = {r["id"] for r in rows}
@@ -126,27 +139,28 @@ def main() -> None:
 
     import anthropic
     client = anthropic.Anthropic()
-    tin = tout = searches = 0
+    total = dict.fromkeys(USAGE_KEYS, 0) | {"web_search_requests": 0}
     with out.open("a") as fh:
         for i, q in enumerate(todo, 1):
-            row = {"id": q["id"], "question": q["question"], "target": f"{a.model} (no tools, {a.condition})",
-                   "condition": a.condition, "model": a.model,
+            row = {"id": q["id"], "question": q["question"], "target": f"{a.model} ({a.condition})",
+                   "condition": a.condition, "model": a.model, "config": config,
                    "asked_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                    "answer": None, "error": None}
             try:
                 row.update(ask(client, a.model, system, q["question"], web=a.condition == "web"))
-                tin += row["usage"]["input_tokens"]
-                tout += row["usage"]["output_tokens"]
-                searches += row["usage"]["web_search_requests"]
+                for k in total:
+                    total[k] += row["usage"][k]
             except anthropic.APIError as e:
                 row["error"] = f"{type(e).__name__}: {e}"
             fh.write(json.dumps(row) + "\n")
             fh.flush()
             print(f"[{i}/{len(todo)}] {q['id']}: {'error' if row['error'] else 'ok'}")
 
-    pin, pout = PRICE.get(a.model, (0, 0))
-    cost = (tin * pin + tout * pout) / 1e6 + searches * SEARCH_PRICE
-    print(f"\nTokens: {tin} in, {tout} out, {searches} web searches. Cost about ${cost:.2f}"
+    price = PRICE.get(a.model, (0, 0, 0, 0))
+    cost = sum(total[k] * p for k, p in zip(USAGE_KEYS, price)) / 1e6 + total["web_search_requests"] * SEARCH_PRICE
+    print(f"\nTokens: {total['input_tokens']} in, {total['output_tokens']} out, "
+          f"{total['cache_read_input_tokens']} read from cache, {total['cache_creation_input_tokens']} written to cache, "
+          f"{total['web_search_requests']} web searches. Cost about ${cost:.2f}"
           + ("" if a.model in PRICE else " (unknown model price)"))
     failed = [json.loads(l)["id"] for l in out.read_text().splitlines() if json.loads(l)["error"]]
     if failed:
