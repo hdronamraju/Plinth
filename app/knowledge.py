@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import search as _search  # noqa: E402
 
+MAX_PAGE_RUN = 6  # most pages one get_section("source:pNNN-pNNN") call may return
 CODE_EDITION = "Piedmont City Code Chapter 17, effective 2026-05-20"
 LABEL = {"binding": "Code says", "official": "City policy says", "staff": "Staff have said"}
 
@@ -65,9 +66,31 @@ def _find(number: str) -> list[Path]:
         src, page = (x.strip() for x in number.split(":", 1))
         if re.fullmatch(r"[\w.-]+", src) and re.fullmatch(r"p\d{3}", page):
             return sorted((ROOT / "knowledge" / "sections").glob(f"{src}/{page}.md"))
+    m = re.fullmatch(r"([\w.-]+):p(\d{3})-p(\d{3})", number)     # a run of pages: design-guidelines:p018-p022
+    if m:
+        first, last = int(m.group(2)), int(m.group(3))
+        if not (0 < first <= last and last - first < MAX_PAGE_RUN):
+            return []
+        base = ROOT / "knowledge" / "sections"
+        return [p for n in range(first, last + 1) for p in sorted(base.glob(f"{m.group(1)}/p{n:03d}.md"))]
     if re.fullmatch(r"p\d{3}", number):
         return sorted((ROOT / "knowledge" / "sections").glob(f"*/{number}.md"))
     return _search.find_section(number)
+
+
+def neighbors(doc_id: str) -> dict:
+    """For a page document (e.g. design-guidelines:p018) the ids of the pages before and after it, so a list
+    or table that continues across pages can be followed."""
+    m = re.fullmatch(r"([\w.-]+):p(\d{3})", doc_id or "")
+    if not m:
+        return {}
+    src, n = m.group(1), int(m.group(2))
+    base = ROOT / "knowledge" / "sections" / src
+    out = {}
+    for key, num in (("prev_page", n - 1), ("next_page", n + 1)):
+        if num > 0 and (base / f"p{num:03d}.md").exists():
+            out[key] = f"{src}:p{num:03d}"
+    return out
 
 
 def get_section(number: str) -> list[dict]:
