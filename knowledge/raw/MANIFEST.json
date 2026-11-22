@@ -23,6 +23,14 @@
     "how": "added by hand",
     "url": "https://piedmont.ca.gov//UserFiles/DBFiles/server_13659739/201911/16183531/design_review_guidelines.pdf"
   },
+  "guide-construction-cost": {
+    "file": "raw/guideline/guide-construction-cost.pdf",
+    "sha256": "72db2650f2d6c55c069c5bf13e337d0afd82a23505ab0aa0a2d14a7dc0efe16c",
+    "bytes": 11816,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Construction Cost Estimation.pdf"
+  },
   "guide-graphic-calcs": {
     "file": "raw/guideline/guide-graphic-calcs.pdf",
     "sha256": "866f41f104601b96648ac9923401caf4b0a5a927afaf07c4d4768a5424fc294d",
@@ -31,6 +39,14 @@
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/graphic_calcs.pdf"
   },
+  "guide-heat-pump": {
+    "file": "raw/guideline/guide-heat-pump.pdf",
+    "sha256": "4ca3c35d1cd7e8394f3b64ca29b7e184d97bfc6375cdd11f04dcdb4ee25d40d3",
+    "bytes": 7505501,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/HEATPUMP.pdf"
+  },
   "page-design-review": {
     "file": "raw/guideline/page-design-review.pdf",
     "sha256": "e105c8b10448cb818a3fec0eb03fdc0463a518dbb8b1d39ecc43c9fd236fa79e",
@@ -38,6 +54,22 @@
     "obtained": "2026-11-07T21:48:21Z",
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/services/permits/planning/types/design-review"
+  },
+  "policy-parking-driveway": {
+    "file": "raw/policy/policy-parking-driveway.pdf",
+    "sha256": "9f97c85847fbc4311688b9ef98f8c6ad9386a698c82b947419fceef966d716bb",
+    "bytes": 1617818,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/parking.pdf"
+  },
+  "policy-tankless-water-heater": {
+    "file": "raw/policy/policy-tankless-water-heater.pdf",
+    "sha256": "1f4acff44445316841648f8b8165fa75d9f6b952051aa07973bd57f9d07cdc5c",
+    "bytes": 11909,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/tankless_wh.pdf"
   },
   "policy-window-replacement": {
     "file": "raw/policy/policy-window-replacement.pdf",
