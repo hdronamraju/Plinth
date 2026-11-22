@@ -61,7 +61,7 @@ Staff precedent (see `knowledge/precedent/`) is not used to score answers. The l
 
 - Any question that only a precedent record could answer is **must_escalate**. The correct outcome is "Needs staff". These entries carry `uses_precedent: true`.
 - Mixed questions (for example L1, L8, L13, F7) pass by answering only what the code or guidelines support and escalating the rest.
-- **The agent must not say that staff have said nothing, or that no precedent exists.** It can't know that, because precedent is deliberately excluded. Stating it is a false claim and counts as a defect even when the answer escalates. Saying "Needs staff" is correct.
+- **The agent must not say that staff have said nothing, or that no precedent exists.** It can't know that, because precedent is deliberately excluded. Stating it is a false claim and counts as a defect. **Scoring: an answer that escalates correctly but includes this claim scores +0.5, not +1.** Saying "Needs staff" is correct.
 - Precedent questions can come back as scored questions once precedent is deployed. Restore their original expected answers from git history (commit `dcc66d2`).
 
 ## Maintenance
