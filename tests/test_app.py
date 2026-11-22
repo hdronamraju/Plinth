@@ -498,3 +498,33 @@ def test_dockerfile_ships_every_file_the_catalog_reads():
 def test_catalog_is_not_silently_empty():
     c = knowledge.catalog()
     assert len(c["available"]) >= 40
+
+
+class Recording:
+    """Records every create() call and reports token use, to check that prompt caching is sent."""
+    def __init__(self):
+        self.calls = []
+        self.script = [
+            [{"type": "tool_use", "id": "t1", "name": "get_section", "input": {"number": "17.20.040"}}],
+            [{"type": "text", "text": "**Code says**\n> Minimum 8,000 square feet\n"}]]
+        self.messages = SimpleNamespace(create=self.create)
+
+    def create(self, **kw):
+        self.calls.append(kw)
+        usage = SimpleNamespace(input_tokens=100, cache_creation_input_tokens=900 if len(self.calls) == 1 else 50,
+                                cache_read_input_tokens=0 if len(self.calls) == 1 else 900, output_tokens=40)
+        return SimpleNamespace(usage=usage, content=[SimpleNamespace(**b, model_dump=(lambda b=b: b))
+                                                     for b in self.script.pop(0)])
+
+
+def test_prompt_caching_is_sent_and_usage_reported():
+    c = Recording()
+    r = agent.chat("sess_cache01", "lot size?", client=c)
+    assert len(c.calls) == 2
+    for kw in c.calls:
+        assert kw["cache_control"] == {"type": "ephemeral"}                  # automatic breakpoint on the tail
+        assert kw["system"][-1]["cache_control"] == {"type": "ephemeral"}    # explicit breakpoint on system
+        assert kw["system"][-1]["text"] == agent.SYSTEM and kw["tools"] is agent.TOOLS
+    assert c.calls[0]["system"] == c.calls[1]["system"]                      # prefix identical between rounds
+    assert r["usage"]["calls"] == 2 and r["usage"]["cache_read_input_tokens"] == 900
+    assert r["usage"]["input_tokens"] == 200 and r["usage"]["output_tokens"] == 80

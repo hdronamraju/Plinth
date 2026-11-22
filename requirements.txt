@@ -1,4 +1,4 @@
-anthropic>=0.40
+anthropic>=0.125  # top-level cache_control (prompt caching)
 reportlab>=4.0
 pypdf>=4.0
 starlette>=0.37

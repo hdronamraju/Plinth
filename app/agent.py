@@ -324,13 +324,35 @@ EMPTY_FALLBACK = ("**Needs staff.** I could not put together an answer to that f
                   "Please try rephrasing, or add it to the staff questions.")
 
 
-def _final_answer(client, msgs: list) -> str:
+# Prompt caching. Each round of the tool loop resends the same tools + system prompt + conversation so far,
+# and input was ~80% of spend with nothing cached. Two breakpoints (5-minute TTL, refreshed by every read):
+#  - an explicit one on the system prompt, so tools + system are shared by every session and survive
+#    whatever happens in `messages`;
+#  - top-level automatic caching, which moves forward with the conversation, so round N+1 reads rounds 1..N.
+# Caching is a prefix match: SYSTEM and TOOLS must stay byte-identical between calls (no dates, ids or
+# per-user text in them; put anything dynamic in `messages`).
+CACHE = {"type": "ephemeral"}
+SYSTEM_BLOCKS = [{"type": "text", "text": SYSTEM, "cache_control": CACHE}]
+USAGE_KEYS = ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")
+
+
+def _call(client, msgs: list, usage: dict, **extra):
+    """One Messages API call with caching on; adds the response's token counts to `usage`."""
+    resp = client.messages.create(model=MODEL, max_tokens=2000, system=SYSTEM_BLOCKS, tools=TOOLS,
+                                  messages=msgs, cache_control=CACHE, **extra)
+    u = getattr(resp, "usage", None)
+    for k in USAGE_KEYS:
+        usage[k] += (getattr(u, k, 0) or 0) if u is not None else 0
+    usage["calls"] += 1
+    return resp
+
+
+def _final_answer(client, msgs: list, usage: dict) -> str:
     """The tool loop ended with no text (e.g. it ran out of turns). Ask once more for a plain answer."""
     try:
         if msgs and msgs[-1]["role"] == "assistant":
             msgs.pop()                                   # drop the empty assistant turn
-        resp = client.messages.create(model=MODEL, max_tokens=2000, system=SYSTEM, tools=TOOLS, messages=msgs,
-                                      tool_choice={"type": "none"})
+        resp = _call(client, msgs, usage, tool_choice={"type": "none"})
         text = "".join(getattr(b, "text", "") or (b.get("text", "") if isinstance(b, dict) else "")
                        for b in resp.content)
         if text.strip():
@@ -352,8 +374,9 @@ def chat(sid: str, user_text: str, client=None) -> dict:
     msgs = state["messages"] + [{"role": "user", "content": user_text}]
     ctx = {"retrieved": [], "changed": False, "searched": False, "staff_seen": False}
     text = ""
+    usage = dict.fromkeys(USAGE_KEYS, 0) | {"calls": 0}
     for _ in range(MAX_TURNS):
-        resp = client.messages.create(model=MODEL, max_tokens=2000, system=SYSTEM, tools=TOOLS, messages=msgs)
+        resp = _call(client, msgs, usage)
         raw = [b.model_dump() if hasattr(b, "model_dump") else b for b in resp.content]
         blocks = [{k: b[k] for k in (("type", "text") if b["type"] == "text" else ("type", "id", "name", "input"))}
                   for b in raw if b["type"] in ("text", "tool_use")]
@@ -370,7 +393,7 @@ def chat(sid: str, user_text: str, client=None) -> dict:
                             "content": run_tool(u["name"], u["input"], state, ctx)})
         msgs.append({"role": "user", "content": results})
     if not text.strip():
-        text = _final_answer(client, msgs)
+        text = _final_answer(client, msgs, usage)
     text, removed = verify_quotes(text, ctx["retrieved"])
     text, _ = strip_precedent_claims(text, ctx["staff_seen"])
     notes = []
@@ -380,8 +403,10 @@ def chat(sid: str, user_text: str, client=None) -> dict:
         notes.append("This answer did not consult the knowledge base. Treat it as **Needs staff**.")
     state["messages"] = msgs
     store.save(sid, state)
+    # One log line per answer (Fly keeps stdout): token use and cache hits, so cost per question is measurable.
+    print(json.dumps({"event": "chat_usage", "model": MODEL, **usage}), flush=True)
     return {"answer": text, "notes": notes, "staff_questions": state["staff_questions"],
-            "pdfs": state["pdfs"]}
+            "pdfs": state["pdfs"], "usage": {"model": MODEL, **usage}}
 
 
 EXTRACT_TOOL = {"name": "record_facts", "description": "Record property facts found in the pasted text. "
