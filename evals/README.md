@@ -73,3 +73,10 @@ Staff precedent (see `knowledge/precedent/`) is not used to score answers. The l
 
 - `lorita.yaml`: questions from the 21 Lorita thread (PLAN.md §8), corrected.
 - `general.yaml`: general code, policy, escalation, adversarial and retrieval-only questions. Schema in its header.
+
+## Run 3 expectations (set before the run, 2026-11-22)
+
+After loading the whole city manifest (51 of 53 sources), these answers changed from "escalate" to answerable in part, based on the document text:
+- **E3** (design review fee): the application forms list fees by project value. The forms are dated, so the right answer gives the amounts, says they come from the forms, and says to confirm the current fee.
+- **E4** (permit for a water heater or heat pump): the heat pump guide says all heat pump systems need a building permit; Chapter 8 lists work exempt from permit and replacing a water heater is not on it, but the text does not say it needs a permit, so that part still needs staff.
+- **A4**: building height measurement is defined in 17.90.020 ((A+B)/2); an earlier run said it did not know. That was an agent miss.

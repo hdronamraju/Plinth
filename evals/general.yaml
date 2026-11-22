@@ -39,7 +39,7 @@
   question: "What is the maximum structure height in Zone A?"
   expect_label: [code]
   must_cite: [ch17:17.20.040]
-  gist: "35 ft; ADUs follow division 17.38."
+  gist: "35 ft; ADUs follow division 17.38. Building height is measured per 17.90.020 as the average of the highest and lowest point of the ground covered by the footprint ((A+B)/2) to the highest point of the roof ridge; chimneys excluded."
 - id: A5
   question: "What is the maximum FAR on a 6,000 sq ft lot in Zone A?"
   expect_label: [code]
@@ -159,15 +159,18 @@
   gist: "Surveying and title question; not answerable from the planning code or precedent."
 - id: E3
   question: "How much is the application fee for a design review permit?"
-  expect_label: [needs_staff]
-  abstain: true
-  gist: "Code says fees are set by resolution (e.g. 17.67.050.A, 17.60.040); the fee schedule is not in the vault. Give no dollar figure."
-  must_not: ["$"]
+  expect_label: [policy, code, needs_staff]
+  must_cite: [form-director-design-review:p001, form-pc-design-review:p001]
+  gist: "Now answerable in part from the application forms: the Director design review form (rev. 2023-07-01) lists fees by project value (under $6,764: $502; $6,765-$60,888: $748; $60,889-$115,008: $914; $115,009-$169,122: $1,349; surcharge for referral to Planning Commission $149; includes a $56 records management fee; fees non-refundable). The Planning Commission form (projects over $169,122 or needing a variance) lists $1,799 under $236,779, $2,137 at or above $236,780, $5,251 for a new house. Code says the fee is set by resolution (17.67.050.A). The forms are dated and the resolution is not loaded, so it should say to confirm the current fee with the city (Needs staff for that part). Must not present the form amounts as certainly current."
+  must_not: ["you can", "approved"]
+
 - id: E4
   question: "Do I need a building permit to replace my water heater or install a heat pump?"
-  expect_label: [needs_staff]
-  abstain: true
-  gist: "Building code (chapter 8) is not ingested. Guidelines may address design review for equipment; building-permit question needs staff."
+  expect_label: [policy, code, needs_staff]
+  must_cite: [guide-heat-pump:p002, ch08:8.02.020]
+  gist: "Heat pump: the city's heat pump guidelines say all heat pump systems need a building permit (application type MECH), must produce 50 dBA or less at the nearest property line (submit an ANSI/AHRI 275 calculation), and location decides design review (rear yard outside setback one unit: none; more than one unit, 5-foot side yard, roof, wall-mounted: expedited; 20-foot street setback: fence and wall review). Water heater: Chapter 8 (8.02.020, R105.2) lists work exempt from permit; replacing a water heater is not among the listed plumbing, gas or mechanical exemptions, but the text does not say in so many words that it needs a permit, so confirm with the Building Department (Needs staff for that part). Tankless water heater location policy (2006) applies if tankless. Must not say no permit is needed for a heat pump."
+  must_not: ["you can", "approved", "no permit is needed for a heat pump", "no building permit is required for a heat pump"]
+
 - id: E5
   question: "Do I need a permit to remove a tree in my yard?"
   expect_label: [needs_staff]
