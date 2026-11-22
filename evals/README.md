@@ -73,3 +73,4 @@ Staff precedent (see `knowledge/precedent/`) is not used to score answers. The l
 
 - `lorita.yaml`: questions from the 21 Lorita thread (PLAN.md §8), corrected.
 - `general.yaml`: general code, policy, escalation, adversarial and retrieval-only questions. Schema in its header.
+- `baseline.py`: asks a model the same questions without Plinth's knowledge base or checks, to measure what Plinth adds. Conditions: `bare` (question only), `rules` (Plinth's answer rules, no tools) and `web` (rules plus Claude's web search and page fetch). Writes `runs/baseline-<condition>-<model>.jsonl`; grade it with the rubric above. Run `python evals/baseline.py --dry-run` first; real runs need `ANTHROPIC_API_KEY` and cost money.
