@@ -2,6 +2,7 @@
 server-side guards (quote verification, forced abstain)."""
 from __future__ import annotations
 
+import bisect
 import importlib.util
 import json
 import os
@@ -16,6 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILL_DIR = ROOT / "skills" / "export-staff-questions"
 MODEL = os.environ.get("PLINTH_MODEL", "claude-sonnet-5-5")
 MAX_TURNS = 8
+FULL_TEXT_HITS = 4
+FULL_TEXT_CHARS = 3500
 
 SYSTEM = f"""You are Plinth, an assistant that helps Piedmont, CA homeowners check a project against the \
 planning code and prepare questions for city planning staff. The knowledge base is the only source of \
@@ -35,6 +38,13 @@ that it is a staff answer, not code. If code and precedent conflict, show both a
 6. Property facts come from get_property; owner-entered facts are unconfirmed. Don't assume the zone \
 if it is blank; ask the user.
 7. Be concise and plain-spoken. You do not give legal advice or decide permits.
+8. Staff precedent may not be available to you. Use the **Staff have said (YYYY-MM-DD)** label only for a \
+precedent record that a search actually returned. NEVER say or imply that no precedent exists, that staff \
+have not addressed something, or that you searched precedent and found nothing: you cannot know that. When \
+a question turns on a staff judgment, write **Needs staff** and say nothing about precedent.
+9. Copy blockquotes from the full text in tool results. Search results include the full text of the top \
+passages; use get_section for any code section or document page (for example design-guidelines:p022) \
+whose text you need in full. Never quote from a cut-off snippet or paraphrase inside a blockquote.
 To export questions to PDF, call load_skill("export-staff-questions") first and follow it."""
 
 TOOLS = [
@@ -44,7 +54,8 @@ TOOLS = [
          "query": {"type": "string"},
          "source": {"type": "string", "description": "optional source id, e.g. ch17"},
          "authority": {"type": "string", "enum": ["binding", "official", "staff"]}}, "required": ["query"]}},
-    {"name": "get_section", "description": "Full text of one code section, e.g. 17.20.040.",
+    {"name": "get_section", "description": "Full text of one code section (e.g. 17.20.040) or one page of a "
+     "document (e.g. design-guidelines:p022, policy-window-replacement:p001, page-design-review:p002).",
      "input_schema": {"type": "object", "properties": {"number": {"type": "string"}}, "required": ["number"]}},
     {"name": "get_property", "description": "The homeowner's property record with each fact's source.",
      "input_schema": {"type": "object", "properties": {}}},
@@ -125,9 +136,16 @@ def run_tool(name: str, args: dict, state: dict, ctx: dict) -> str:
         hits = knowledge.search(args["query"], args.get("source"), args.get("authority"),
                                 property_address=address)
         ctx["retrieved"].extend(h["snippet"] for h in hits)
-        for h in hits:  # also allow quoting from the full section text
-            if h["kind"] == "code":
-                ctx["retrieved"].extend(s["text"] for s in knowledge.get_section(h["doc_id"].split(":")[-1]))
+        for n, h in enumerate(hits):  # full text of the top passages, so quotes are not cut off
+            if h["authority"] == "staff":
+                ctx["staff_seen"] = True
+            try:
+                _, body = knowledge.front_matter(ROOT / h["path"])
+            except Exception:
+                continue
+            ctx["retrieved"].append(body)
+            if n < FULL_TEXT_HITS:
+                h["text"] = body[:FULL_TEXT_CHARS]
         if not hits:
             return "NO MATCHES. The knowledge base does not support an answer. Abstain and mark Needs staff."
         return json.dumps(hits, ensure_ascii=False)
@@ -166,25 +184,131 @@ def run_tool(name: str, args: dict, state: dict, ctx: dict) -> str:
 
 
 QUOTE = re.compile(r"^>\s?(.+)$", re.M)
+GAP = 12  # words of interleaved text (e.g. a neighbouring table column) allowed between quoted words
 
 
 def _norm(s: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[“”\"'’‘…*_]", "", s)).strip().lower()
 
 
+def _words(s: str) -> list[str]:
+    return re.findall(r"[a-z0-9%$§]+", _norm(s))
+
+
+class _Pool:
+    """Words of everything retrieved this turn, indexed for ordered matching."""
+    def __init__(self, retrieved: list[str]):
+        self.text = _norm(" ".join(retrieved))
+        self.words = _words(self.text)
+        self.pos: dict[str, list[int]] = {}
+        for i, w in enumerate(self.words):
+            self.pos.setdefault(w, []).append(i)
+
+    def has(self, quote: str) -> bool:
+        """True if the quote is a verbatim passage, or the same words in the same order with only a few
+        words of other text between them. The PDF text stores table columns interleaved, so a faithful
+        quote of one cell is not a plain substring. Invented wording still fails: every word of the
+        quote must appear, in order, nearly adjacent."""
+        if quote in self.text:
+            return True
+        q = _words(quote)
+        if len(q) < 4 or q[0] not in self.pos:
+            return False
+        budget = max(6, len(q) // 5)
+        seen: set[tuple[int, int, int]] = set()
+
+        def walk(i: int, at: int, used: int) -> bool:
+            if i == len(q):
+                return True
+            if (i, at, used) in seen:
+                return False
+            seen.add((i, at, used))
+            lst = self.pos.get(q[i], [])
+            k = bisect.bisect_right(lst, at)
+            for nxt in lst[k:k + 3]:
+                gap = nxt - at - 1
+                if gap > GAP or used + gap > budget:
+                    break
+                if walk(i + 1, nxt, used + gap):
+                    return True
+            return False
+        return any(walk(1, start, 0) for start in self.pos[q[0]][:200])
+
+
 def verify_quotes(answer: str, retrieved: list[str]) -> tuple[str, int]:
     """Replace blockquotes that don't appear in anything retrieved this turn."""
-    pool = _norm(" ".join(retrieved))
+    pool = _Pool(retrieved)
     bad = 0
 
     def fix(m):
         nonlocal bad
         q = _norm(m.group(1))
-        if not q or q in pool or all(p in pool for p in re.split(r"\s*\.\.\.\s*", q) if p):
+        if not q or all(pool.has(p) for p in re.split(r"\s*\.\.\.\s*", q) if p):
             return m.group(0)
         bad += 1
         return "> [quote removed: could not be matched to a retrieved source]"
     return QUOTE.sub(fix, answer), bad
+
+
+_NO_PREC = re.compile(r"\b(nothing|no match(?:es)?|no staff|none|found no|not find|no record|no precedent|"
+                      r"did not (?:find|return)|returned no|not have)\b", re.I)
+_LABEL_LINE = re.compile(r"^\W*(?:staff have said)\b[^\n]*$", re.I)
+
+
+def strip_precedent_claims(text: str, staff_seen: bool) -> tuple[str, int]:
+    """Staff precedent can be missing from this deployment, so the agent cannot know that none exists.
+    Drop any sentence or "Staff have said" paragraph that claims so, unless a staff record was returned."""
+    if staff_seen:
+        return text, 0
+    dropped = 0
+    paras = re.split(r"\n{2,}", text)
+    out: list[str] = []
+    for p in paras:
+        body = re.sub(r"^\W*staff have said[^:\n]*:?\W*", "", p, flags=re.I).strip() if _LABEL_LINE.match(p) else None
+        if len(p) <= 260 and re.search(r"staff have said", p, re.I) and _NO_PREC.search(p):
+            dropped += 1                       # e.g. "City policy says / Staff have said: ... found nothing"
+            continue
+        if body and _NO_PREC.search(body):
+            dropped += 1                       # a "Staff have said: nothing / no precedent" paragraph
+            continue
+        if out and re.fullmatch(r"\W*staff have said\W*(?:\(.*?\))?\W*", out[-1], re.I) and _NO_PREC.search(p):
+            out.pop(); dropped += 1            # bare label on its own line followed by the claim
+            continue
+        kept = []
+        for sent in re.split(r"(?<=[.!?])\s+(?=[A-Z*])", p):
+            if (re.search(r"precedent", sent, re.I) and _NO_PREC.search(sent)
+                    and re.match(r"\W*(?:I|A|My|The)\b.*\b(?:search|searched|found|knowledge base|has no)", sent, re.I)
+                    ) or re.search(r"\bstaff (?:haven't|have not|hasn't|has not) (?:addressed|said|ruled|answered)", sent, re.I):
+                dropped += 1
+                continue
+            kept.append(sent)
+        if kept:
+            out.append(" ".join(kept))
+    while out and re.fullmatch(r"\W*staff have said\W*(?:\(.*?\))?\W*", out[-1], re.I):
+        out.pop(); dropped += 1                # a bare label left with nothing under it
+    return "\n\n".join(out), dropped
+
+
+EMPTY_FALLBACK = ("**Needs staff.** I could not put together an answer to that from the knowledge base. "
+                  "Please try rephrasing, or add it to the staff questions.")
+
+
+def _final_answer(client, msgs: list) -> str:
+    """The tool loop ended with no text (e.g. it ran out of turns). Ask once more for a plain answer."""
+    try:
+        if msgs and msgs[-1]["role"] == "assistant":
+            msgs.pop()                                   # drop the empty assistant turn
+        resp = client.messages.create(model=MODEL, max_tokens=2000, system=SYSTEM, tools=TOOLS, messages=msgs,
+                                      tool_choice={"type": "none"})
+        text = "".join(getattr(b, "text", "") or (b.get("text", "") if isinstance(b, dict) else "")
+                       for b in resp.content)
+        if text.strip():
+            msgs.append({"role": "assistant", "content": [{"type": "text", "text": text}]})
+            return text
+    except Exception:
+        pass
+    msgs.append({"role": "assistant", "content": [{"type": "text", "text": EMPTY_FALLBACK}]})
+    return EMPTY_FALLBACK
 
 
 def chat(sid: str, user_text: str, client=None) -> dict:
@@ -195,7 +319,7 @@ def chat(sid: str, user_text: str, client=None) -> dict:
         import anthropic
         client = anthropic.Anthropic()
     msgs = state["messages"] + [{"role": "user", "content": user_text}]
-    ctx = {"retrieved": [], "changed": False, "searched": False}
+    ctx = {"retrieved": [], "changed": False, "searched": False, "staff_seen": False}
     text = ""
     for _ in range(MAX_TURNS):
         resp = client.messages.create(model=MODEL, max_tokens=2000, system=SYSTEM, tools=TOOLS, messages=msgs)
@@ -214,7 +338,10 @@ def chat(sid: str, user_text: str, client=None) -> dict:
             results.append({"type": "tool_result", "tool_use_id": u["id"],
                             "content": run_tool(u["name"], u["input"], state, ctx)})
         msgs.append({"role": "user", "content": results})
+    if not text.strip():
+        text = _final_answer(client, msgs)
     text, removed = verify_quotes(text, ctx["retrieved"])
+    text, _ = strip_precedent_claims(text, ctx["staff_seen"])
     notes = []
     if removed:
         notes.append(f"{removed} quote(s) removed because they could not be matched to the knowledge base.")
