@@ -80,3 +80,13 @@ if __name__ == "__main__":
         if name.startswith("test_"):
             fn()
             print("ok", name)
+
+
+def test_heading_whose_title_starts_with_a_year_is_a_section():
+    """Chapter 8: '8.02.020  2022 California Residential Code - Amendments' must split, not merge."""
+    text = ("8.02.010  California Building Standards Code. Adopted.\n\nSome adopting text.\n\n"
+            "8.02.020  2022 California Residential Code - Amendments.\n\nSection R105.1 is amended.\n\n"
+            "8.02.030  2022 California Building Code - Amendments.\n\nSection 105 is amended.\n")
+    secs = parse_sections(text)
+    assert [s["section"] for s in secs] == ["8.02.010", "8.02.020", "8.02.030"]
+    assert "R105.1" in secs[1]["body"] and "R105.1" not in secs[2]["body"]

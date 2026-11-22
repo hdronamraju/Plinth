@@ -45,6 +45,20 @@ a question turns on a staff judgment, write **Needs staff** and say nothing abou
 9. Copy blockquotes from the full text in tool results. Search results include the full text of the top \
 passages; use get_section for any code section or document page (for example design-guidelines:p022) \
 whose text you need in full. Never quote from a cut-off snippet or paraphrase inside a blockquote.
+10. Never say that something is not on, not allowed by, or not covered by a list, table or section unless you \
+have read all of it. Lists and tables in the guidelines run across several pages, and search results may show \
+only one of them (a hit with next_page or prev_page is one page of a longer document). If a passage looks like \
+part of a longer list, read the rest first with get_section("source:pNNN-pNNN"). If you have not read it all, \
+say "I only read part of the list" and do not claim anything is absent. The guidelines' list of exceptions to \
+design review permits (section 2.05) is design-guidelines:p018-p022.
+11. The KNOWLEDGE BASE list below is everything you can search. Choose the source that fits the question and pass \
+its id as `source` when you know where the answer lives; search without a source when you do not. If a question \
+depends on a topic no listed source covers, or on a document marked not loaded, say it is not in the knowledge \
+base and mark it **Needs staff**. Do not guess from a nearby source.
+12. Search with more than one wording: put the user's words in `query` and one to three other phrasings in `also` \
+(plain words and the code's likely terms, such as "fence" and "wall", or "height" and "grade").
+
+{knowledge.catalog_text()}
 To export questions to PDF, call load_skill("export-staff-questions") first and follow it."""
 
 TOOLS = [
@@ -52,10 +66,17 @@ TOOLS = [
      "policies, staff precedent). Returns ranked passages with cite, authority, date and status.",
      "input_schema": {"type": "object", "properties": {
          "query": {"type": "string"},
+         "also": {"type": "array", "items": {"type": "string"}, "maxItems": 3,
+                  "description": "1-3 other wordings of the same question (plain words and the code's likely terms); "
+                                 "results for all wordings are merged"},
          "source": {"type": "string", "description": "optional source id, e.g. ch17"},
          "authority": {"type": "string", "enum": ["binding", "official", "staff"]}}, "required": ["query"]}},
+    {"name": "list_sources", "description": "List every document set in the knowledge base with what it covers, "
+     "plus the city documents that are not loaded. Use it to choose a source or to confirm something is not available.",
+     "input_schema": {"type": "object", "properties": {}}},
     {"name": "get_section", "description": "Full text of one code section (e.g. 17.20.040) or one page of a "
-     "document (e.g. design-guidelines:p022, policy-window-replacement:p001, page-design-review:p002).",
+     "document (e.g. design-guidelines:p022, policy-window-replacement:p001, page-design-review:p002), or a run "
+     "of up to 6 pages (e.g. design-guidelines:p018-p022).",
      "input_schema": {"type": "object", "properties": {"number": {"type": "string"}}, "required": ["number"]}},
     {"name": "get_property", "description": "The homeowner's property record with each fact's source.",
      "input_schema": {"type": "object", "properties": {}}},
@@ -134,7 +155,7 @@ def run_tool(name: str, args: dict, state: dict, ctx: dict) -> str:
     address = state["property"]["facts"]["address"]["value"] if state.get("property") else None
     if name == "search_knowledge":
         hits = knowledge.search(args["query"], args.get("source"), args.get("authority"),
-                                property_address=address)
+                                property_address=address, also=args.get("also"))
         ctx["retrieved"].extend(h["snippet"] for h in hits)
         for n, h in enumerate(hits):  # full text of the top passages, so quotes are not cut off
             if h["authority"] == "staff":
@@ -144,11 +165,14 @@ def run_tool(name: str, args: dict, state: dict, ctx: dict) -> str:
             except Exception:
                 continue
             ctx["retrieved"].append(body)
+            h.update(knowledge.neighbors(h.get("doc_id", "")))   # next_page / prev_page for page documents
             if n < FULL_TEXT_HITS:
                 h["text"] = body[:FULL_TEXT_CHARS]
         if not hits:
             return "NO MATCHES. The knowledge base does not support an answer. Abstain and mark Needs staff."
         return json.dumps(hits, ensure_ascii=False)
+    if name == "list_sources":
+        return json.dumps(knowledge.catalog(), ensure_ascii=False)
     if name == "get_section":
         secs = knowledge.get_section(args["number"])
         ctx["retrieved"].extend(s["text"] for s in secs)

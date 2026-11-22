@@ -353,9 +353,9 @@ def test_precedent_guard_leaves_normal_text_alone():
 
 
 def test_get_section_reads_document_pages():
-    for ref in ("design-guidelines:p022", "p022"):
-        res = knowledge.get_section(ref)
-        assert res and "wood with aluminum or fiberglass exterior cladding" in res[0]["text"]
+    res = knowledge.get_section("design-guidelines:p022")
+    assert res and "wood with aluminum or fiberglass exterior cladding" in res[0]["text"]
+    assert knowledge.get_section("p022") == []          # ambiguous across sources: the source must be named
     assert knowledge.get_section("nope:p999") == []
     assert knowledge.get_section("../../etc") == []
 
@@ -416,3 +416,70 @@ def test_precedent_guard_finds_claims_inside_bullet_lists():
     assert n == 1 and "precedent" not in out.lower()
     assert "Does the no-setback rule" in out and "Was the garage lawfully built?" in out and "20 feet" in out
     assert out.count("\n- ") == 2          # the other bullets are untouched
+
+
+# --- B6 fix: lists that run across pages ---
+
+def test_get_section_reads_a_run_of_pages():
+    res = knowledge.get_section("design-guidelines:p018-p022")
+    assert len(res) == 5
+    text = " ".join(r["text"] for r in res)
+    assert "32. The replacement of an existing wood window or door" in text      # item 32 is on the last page
+    assert "6. A satellite dish less than one meter in diameter." in text         # and item 6 on the first
+
+
+@pytest.mark.parametrize("bad", ["design-guidelines:p022-p018", "design-guidelines:p001-p020",
+                                 "design-guidelines:p000-p003", "nope:p001-p003", "../x:p001-p002"])
+def test_page_run_rejects_backwards_oversized_or_unknown(bad):
+    assert knowledge.get_section(bad) == []
+
+
+def test_page_neighbors():
+    assert knowledge.neighbors("design-guidelines:p018") == {"prev_page": "design-guidelines:p017",
+                                                             "next_page": "design-guidelines:p019"}
+    assert "prev_page" not in knowledge.neighbors("policy-window-replacement:p001")      # only one page
+    assert "next_page" not in knowledge.neighbors("policy-window-replacement:p001")
+    assert knowledge.neighbors("ch17:17.20.040") == {} and knowledge.neighbors("precedent:2026-10-26-x") == {}
+
+
+def test_search_hits_for_pages_carry_neighbors():
+    ctx = {"retrieved": [], "staff_seen": False}
+    out = json.loads(agent.run_tool("search_knowledge", {"query": "list of exceptions to design review permits"},
+                                    {"property": None}, ctx))
+    page_hits = [h for h in out if h["doc_id"].startswith("design-guidelines:p")]
+    assert page_hits and all("next_page" in h or "prev_page" in h for h in page_hits)
+
+
+def test_prompt_has_the_absence_rule_and_the_list_pointer():
+    assert "not on, not allowed by, or not covered by a list" in agent.SYSTEM
+    assert "design-guidelines:p018-p022" in agent.SYSTEM
+    assert any("p018-p022" in t["description"] for t in agent.TOOLS if t["name"] == "get_section")
+
+
+# --- knowledge catalog ---
+
+def test_catalog_lists_what_is_loaded_and_what_is_not():
+    c = knowledge.catalog()
+    ids = {s["id"] for s in c["available"]}
+    assert {"ch17", "ch08", "design-guidelines"} <= ids
+    assert all(s["documents"] > 0 for s in c["available"])
+    ch17 = next(s for s in c["available"] if s["id"] == "ch17")
+    assert "accessory dwelling" in ch17["covers"].lower() and ch17["effective"] == "2026-05-20"
+    assert not ({s["id"] for s in c["not_available"]} & ids)         # nothing is both
+
+
+def test_catalog_text_is_in_the_system_prompt():
+    assert "KNOWLEDGE BASE" in agent.SYSTEM and "ch17:" in agent.SYSTEM
+    assert "Search with more than one wording" in agent.SYSTEM
+
+
+def test_list_sources_tool_returns_the_catalog():
+    out = json.loads(agent.run_tool("list_sources", {}, {"property": None}, {"retrieved": [], "staff_seen": False}))
+    assert out["available"] and "not_available" in out
+
+
+def test_search_tool_accepts_other_wordings():
+    ctx = {"retrieved": [], "staff_seen": False}
+    out = json.loads(agent.run_tool("search_knowledge", {"query": "backyard cottage rental",
+                                    "also": ["short-term rental accessory dwelling unit"]}, {"property": None}, ctx))
+    assert any(h["doc_id"] == "ch17:17.40.030" for h in out)

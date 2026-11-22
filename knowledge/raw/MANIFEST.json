@@ -1,4 +1,156 @@
 {
+  "ch01": {
+    "file": "raw/code/ch01.pdf",
+    "sha256": "fdbe9c4a619b6741eed58ec16d05572797904a13e3f2778ac1bbd10ce969914b",
+    "bytes": 190718,
+    "obtained": "2026-11-22T07:51:46Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 1.pdf"
+  },
+  "ch02": {
+    "file": "raw/code/ch02.pdf",
+    "sha256": "3cd733e1663d424b9d9c7f78f6d3c4fbb2e706c2955b0eecf68129e7e2c7f475",
+    "bytes": 267484,
+    "obtained": "2026-11-22T07:51:46Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 2.pdf"
+  },
+  "ch03": {
+    "file": "raw/code/ch03.pdf",
+    "sha256": "e27a18260d5f47f4f6d4bb43f5ef40ed28ef2971f9a9c1f7872b254d00e7c9f4",
+    "bytes": 228630,
+    "obtained": "2026-11-22T07:51:47Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 3 (effective 05.21.2025).pdf"
+  },
+  "ch04": {
+    "file": "raw/code/ch04.pdf",
+    "sha256": "9483800e041b4da106ee1f56d045ffe4c8150a8e0047b413b7b0fd363f75475f",
+    "bytes": 129506,
+    "obtained": "2026-11-22T07:51:47Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 4.pdf"
+  },
+  "ch04a": {
+    "file": "raw/code/ch04a.pdf",
+    "sha256": "b28b5b288e0dd9697f4021efc8b5402bf17e9167aa3590ac0b80691beb36c290",
+    "bytes": 82964,
+    "obtained": "2026-11-22T07:51:47Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 4A.pdf"
+  },
+  "ch05": {
+    "file": "raw/code/ch05.pdf",
+    "sha256": "4fecd3367c39072a8aebd97ca90b77e62fa96621eb912e8f40f706b7bf4a0c48",
+    "bytes": 83225,
+    "obtained": "2026-11-22T07:51:48Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 5.pdf"
+  },
+  "ch06": {
+    "file": "raw/code/ch06.pdf",
+    "sha256": "8a527f6d9109ed380eb267d8a2671f83b66db1999f4aaf4bb0f6c3d7c6dbf5ce",
+    "bytes": 182826,
+    "obtained": "2026-11-22T07:51:48Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 6.pdf"
+  },
+  "ch07": {
+    "file": "raw/code/ch07.pdf",
+    "sha256": "c33d5b38e368c0e7acdf97cd85a3013398284081b3d2643a87fd70089914eadc",
+    "bytes": 16698,
+    "obtained": "2026-11-22T07:51:49Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 7.pdf"
+  },
+  "ch08": {
+    "file": "raw/code/ch08.pdf",
+    "sha256": "f8f5daa4273f81c5de4df44b4dac4429d7cb64b03236240e31245ff922ec9357",
+    "bytes": 421380,
+    "obtained": "2026-11-22T07:38:00Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 8.1 (Effective 2026-01-01).pdf"
+  },
+  "ch09": {
+    "file": "raw/code/ch09.pdf",
+    "sha256": "d9ce8ae86e95166e581ce3fba5ffeb43f2cc7f2ba0ae1cf430460b5c442fb8c1",
+    "bytes": 329713,
+    "obtained": "2026-11-22T07:51:49Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 9.pdf"
+  },
+  "ch10": {
+    "file": "raw/code/ch10.pdf",
+    "sha256": "8c1a4b6f79da83a9b499a82a9e972258f87687c98e9f56fb342452602d9ac7eb",
+    "bytes": 93079,
+    "obtained": "2026-11-22T07:51:49Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 10.pdf"
+  },
+  "ch11": {
+    "file": "raw/code/ch11.pdf",
+    "sha256": "2e2967ef49a8f913db86286bca3a34e77773c6df018ad4b90c27a09cc8f6e23d",
+    "bytes": 89960,
+    "obtained": "2026-11-22T07:51:50Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 11.pdf"
+  },
+  "ch12": {
+    "file": "raw/code/ch12.pdf",
+    "sha256": "20419332a2549857f14a5539a352143473a8c88cc30df84d714721d07c2b4d7d",
+    "bytes": 181571,
+    "obtained": "2026-11-22T07:51:50Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12.pdf"
+  },
+  "ch12a": {
+    "file": "raw/code/ch12a.pdf",
+    "sha256": "fa0c353c3e94d78cd37427b0e457c09b04a47e2e2951d51b1128a4ee14502e0b",
+    "bytes": 17993,
+    "obtained": "2026-11-22T07:51:50Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12A.pdf"
+  },
+  "ch12b": {
+    "file": "raw/code/ch12b.pdf",
+    "sha256": "77e90145c68735ad677e274bfcea6194a61c6ff28af568c11fa7bae70946a805",
+    "bytes": 12296,
+    "obtained": "2026-11-22T07:51:51Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12B.pdf"
+  },
+  "ch12c": {
+    "file": "raw/code/ch12c.pdf",
+    "sha256": "ba452cac5bb89f8871de155ef485e302cf52cf50f8267e9aa32693e2db51bdc6",
+    "bytes": 29497,
+    "obtained": "2026-11-22T07:51:51Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 12C.pdf"
+  },
+  "ch13": {
+    "file": "raw/code/ch13.pdf",
+    "sha256": "b5bec81a33acca2b456133b0f41707d53fd48ffcd9dc7985cf3498ff2422251f",
+    "bytes": 207591,
+    "obtained": "2026-11-22T07:51:51Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 13.pdf"
+  },
+  "ch14": {
+    "file": "raw/code/ch14.pdf",
+    "sha256": "cf74c86098828af155617adb2ff9edcb5d057413b835246b063d98d39c273c89",
+    "bytes": 137216,
+    "obtained": "2026-11-22T07:51:52Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 14.pdf"
+  },
+  "ch15": {
+    "file": "raw/code/ch15.pdf",
+    "sha256": "de574bf5d041c446e2c15c5d04afc08d8f5d1d4c03309c5d1d477a3e4744f2d1",
+    "bytes": 28924,
+    "obtained": "2026-11-22T07:51:52Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 15.pdf"
+  },
   "ch17": {
     "file": "raw/code/ch17.pdf",
     "sha256": "65f08119fa208d4bc1ab846754e5126007ceff07ece04675a48294e561b5f797",
@@ -6,6 +158,150 @@
     "obtained": "2026-11-07T21:48:21Z",
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/2026/May/Chapter 17 (Effective 2026-05-20).pdf"
+  },
+  "ch18": {
+    "file": "raw/code/ch18.pdf",
+    "sha256": "e6853bec04b7f31eb4e58807b7323c959fef69087dc5373ab044191e41d94066",
+    "bytes": 170503,
+    "obtained": "2026-11-22T07:51:53Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 18.pdf"
+  },
+  "ch19": {
+    "file": "raw/code/ch19.pdf",
+    "sha256": "f5903be26041f20e64ecaf14d3893bea66f36e7d600950838e65a07681897223",
+    "bytes": 410963,
+    "obtained": "2026-11-22T07:51:53Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 19 (effective 2025-09-18).pdf"
+  },
+  "ch20": {
+    "file": "raw/code/ch20.pdf",
+    "sha256": "eacbf74441355d7918c64a22401b86e08713e72f546fd5fbfa8891f55cdcc18e",
+    "bytes": 221094,
+    "obtained": "2026-11-22T07:51:53Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20.pdf"
+  },
+  "ch20a": {
+    "file": "raw/code/ch20a.pdf",
+    "sha256": "39cf568f1232549857f6e959bc8fcd561996b3cf9f31789e6b2e456e2896a4ee",
+    "bytes": 21550,
+    "obtained": "2026-11-22T07:51:54Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20A.pdf"
+  },
+  "ch20b": {
+    "file": "raw/code/ch20b.pdf",
+    "sha256": "12d5cf0329cbe02a1ada87adf126b14bbb5406375877ee3099720af16e1a3f0b",
+    "bytes": 105555,
+    "obtained": "2026-11-22T07:51:54Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20B.pdf"
+  },
+  "ch20e": {
+    "file": "raw/code/ch20e.pdf",
+    "sha256": "0c6957e3ea16ecc118b0f6105a70bc91da677b274a1bc2a63afd2cdd79aba62a",
+    "bytes": 24438,
+    "obtained": "2026-11-22T07:51:54Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 20E.pdf"
+  },
+  "ch21": {
+    "file": "raw/code/ch21.pdf",
+    "sha256": "c9b820aa22566c2e6cdac73c8507b4bb4c20f42c30fe3b21a598abcbb17f85a2",
+    "bytes": 14089,
+    "obtained": "2026-11-22T07:51:55Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 21.pdf"
+  },
+  "ch22": {
+    "file": "raw/code/ch22.pdf",
+    "sha256": "c8fb3c1380003ea82ce4a40a7a5fd6ba8b5e81f0c872e6cac15604b0f8804d44",
+    "bytes": 22578,
+    "obtained": "2026-11-22T07:51:55Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 22.pdf"
+  },
+  "ch23": {
+    "file": "raw/code/ch23.pdf",
+    "sha256": "426234a1f1e438c25e793559084e96fff58e0c02f8a250aacca8efd8c23332f1",
+    "bytes": 16387,
+    "obtained": "2026-11-22T07:51:56Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 23.pdf"
+  },
+  "ch24": {
+    "file": "raw/code/ch24.pdf",
+    "sha256": "9710ea8a3b2fc57ef2cc08f5bd550179c27aaac6efb60e327ba8c4471829f2b2",
+    "bytes": 15491,
+    "obtained": "2026-11-22T07:51:56Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 24.pdf"
+  },
+  "ch25": {
+    "file": "raw/code/ch25.pdf",
+    "sha256": "4a6e366a32f840f6a38f015f6e125080eccf54230edac8b65908059fa5b1e54a",
+    "bytes": 22321,
+    "obtained": "2026-11-22T07:51:57Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 25.pdf"
+  },
+  "ch26": {
+    "file": "raw/code/ch26.pdf",
+    "sha256": "87b1de9bbee40c4d30cca29f174d2e82d998f40ab0f52568a33f09a8e00d61e7",
+    "bytes": 46810,
+    "obtained": "2026-11-22T07:51:57Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 26.pdf"
+  },
+  "ch27": {
+    "file": "raw/code/ch27.pdf",
+    "sha256": "0d55811803282e9af483e07494540f4cd56015391a993b594327bead61564b71",
+    "bytes": 21327,
+    "obtained": "2026-11-22T07:51:57Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 27.pdf"
+  },
+  "ch28": {
+    "file": "raw/code/ch28.pdf",
+    "sha256": "a903027cad5139d51dbc476491b246afe0ebeef369c01b3119bf31362570ac24",
+    "bytes": 8828,
+    "obtained": "2026-11-22T07:51:58Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 28.pdf"
+  },
+  "ch29": {
+    "file": "raw/code/ch29.pdf",
+    "sha256": "c264e147fc3cd978e46f9290e1e921c9cd58070a44ec7f6043802115f42e3c38",
+    "bytes": 17335,
+    "obtained": "2026-11-22T07:51:58Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 29.pdf"
+  },
+  "ch30": {
+    "file": "raw/code/ch30.pdf",
+    "sha256": "b192b18c4ffa6753519d390303c18f646c996a3e03fefd605a2ce868b74c0272",
+    "bytes": 59436,
+    "obtained": "2026-11-22T07:51:58Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 30.pdf"
+  },
+  "ch31": {
+    "file": "raw/code/ch31.pdf",
+    "sha256": "c4c1f18eebf9932a1ed59bcbff82936689990bec3706dd6b022a24ea7094a346",
+    "bytes": 12285,
+    "obtained": "2026-11-22T07:51:59Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/Chapter 31.pdf"
+  },
+  "charter": {
+    "file": "raw/charter/charter.pdf",
+    "sha256": "3418d011eac7e607e80cd817103f09edd5aa31d615f92ea1100baa674b5ecf3a",
+    "bytes": 158486,
+    "obtained": "2026-11-22T07:51:45Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/City Charter & Code/charter.pdf"
   },
   "design-guidelines": {
     "file": "raw/guideline/design-guidelines.pdf",
@@ -15,6 +311,38 @@
     "how": "added by hand",
     "url": "https://piedmont.ca.gov//UserFiles/DBFiles/server_13659739/201911/16183531/design_review_guidelines.pdf"
   },
+  "form-agent-authorization": {
+    "file": "raw/form/form-agent-authorization.pdf",
+    "sha256": "d7b91b03393873758f14df8c6ad4006090559f5b303c52eb4447e5af6d13c7c2",
+    "bytes": 547558,
+    "obtained": "2026-11-22T07:52:00Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Agent Authorization.pdf"
+  },
+  "form-director-design-review": {
+    "file": "raw/form/form-director-design-review.pdf",
+    "sha256": "8e095c3a8b52e7b103f8623ea39b916d172eaa0112228cb9129b4e615685f5f2",
+    "bytes": 993072,
+    "obtained": "2026-11-22T07:52:01Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov//Userfiles/DBFiles/server_13659739/202306/19646425/director_design_review_application.pdf"
+  },
+  "form-pc-design-review": {
+    "file": "raw/form/form-pc-design-review.pdf",
+    "sha256": "7cd02a8184a551b82b71b2540fb9259f6a6e54cbed8ad240eff0d70ef33fbd80",
+    "bytes": 1052465,
+    "obtained": "2026-11-22T07:52:01Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov//Userfiles/DBFiles/server_13659739/202306/19646420/design_review_permit_planning_commission.pdf"
+  },
+  "guide-construction-cost": {
+    "file": "raw/guideline/guide-construction-cost.pdf",
+    "sha256": "72db2650f2d6c55c069c5bf13e337d0afd82a23505ab0aa0a2d14a7dc0efe16c",
+    "bytes": 11816,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/Construction Cost Estimation.pdf"
+  },
   "guide-graphic-calcs": {
     "file": "raw/guideline/guide-graphic-calcs.pdf",
     "sha256": "866f41f104601b96648ac9923401caf4b0a5a927afaf07c4d4768a5424fc294d",
@@ -23,6 +351,14 @@
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/graphic_calcs.pdf"
   },
+  "guide-heat-pump": {
+    "file": "raw/guideline/guide-heat-pump.pdf",
+    "sha256": "4ca3c35d1cd7e8394f3b64ca29b7e184d97bfc6375cdd11f04dcdb4ee25d40d3",
+    "bytes": 7505501,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Resources/HEATPUMP.pdf"
+  },
   "page-design-review": {
     "file": "raw/guideline/page-design-review.pdf",
     "sha256": "e105c8b10448cb818a3fec0eb03fdc0463a518dbb8b1d39ecc43c9fd236fa79e",
@@ -30,6 +366,38 @@
     "obtained": "2026-11-07T21:48:21Z",
     "how": "added by hand",
     "url": "https://piedmont.ca.gov/services/permits/planning/types/design-review"
+  },
+  "policy-parking-driveway": {
+    "file": "raw/policy/policy-parking-driveway.pdf",
+    "sha256": "9f97c85847fbc4311688b9ef98f8c6ad9386a698c82b947419fceef966d716bb",
+    "bytes": 1617818,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/parking.pdf"
+  },
+  "policy-site-visit": {
+    "file": "raw/policy/policy-site-visit.pdf",
+    "sha256": "319476174a7dc0a2e62404c10bbbd0617a8e21d1ffb11a6718b5b3468525dc56",
+    "bytes": 18759,
+    "obtained": "2026-11-22T07:51:59Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/site_visit.pdf"
+  },
+  "policy-story-pole": {
+    "file": "raw/policy/policy-story-pole.pdf",
+    "sha256": "c55504c3d5e84ea8aaa594a7eee47ba0c25b4fe63a94f004ccbd1c9aeffaab43",
+    "bytes": 27851,
+    "obtained": "2026-11-22T07:51:59Z",
+    "how": "fetched",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/story_pole.pdf"
+  },
+  "policy-tankless-water-heater": {
+    "file": "raw/policy/policy-tankless-water-heater.pdf",
+    "sha256": "1f4acff44445316841648f8b8165fa75d9f6b952051aa07973bd57f9d07cdc5c",
+    "bytes": 11909,
+    "obtained": "2026-11-22T07:45:32Z",
+    "how": "added by hand",
+    "url": "https://piedmont.ca.gov/UserFiles/Servers/Server_13659739/File/Government/Departments/Planning Division/Design Review/tankless_wh.pdf"
   },
   "policy-window-replacement": {
     "file": "raw/policy/policy-window-replacement.pdf",

@@ -1,0 +1,17 @@
+# One line per source on what it covers, shown to the agent in its catalog (app/knowledge.py catalog()).
+# Only write what has been checked in the document itself. A source with no entry is shown by title only.
+ch17: "Zoning ordinance. Zones A-E (setbacks, height, lot coverage, FAR), accessory dwelling units (17.38), SB 9 lot splits and two-unit housing (17.54), short-term rentals, home occupations, fences and walls (17.32), parking (17.30), design review and variance procedures (17.66-17.70), nonconforming structures (17.50), definitions and measurements (17.90)."
+ch08: "Building code adoption. 2022 California codes adopted with Piedmont amendments (8.02), including local permit rules (R105.1 permits required, R105.2 work exempt from permit); rooftop solar (8.04), EV charging (8.06), green building for city projects, sanitary sewers (8.12), fire hazard abatement and vegetation (8.14)."
+design-guidelines: "Residential design guidelines. 1 Introduction; 2 The design review process (permit types, submittal requirements, list of exceptions to design review in 2.05 on pages 2-7 to 2-11, story poles); 3 Site design; 4 Building design in general (windows, materials, equipment); 5 Single-family residential building design; 6 Multi-family residential building design."
+page-design-review: "Design Review web page: permit types (DRD, DREX, DRPC), what is exempt, how to apply and what to upload."
+guide-graphic-calcs: "Worked example of calculating structure coverage, hardscape coverage and floor area ratio (FAR) graphically."
+policy-window-replacement: "2003 City policy on replacing windows: compatibility over material, vinyl allowed only if paintable, three-dimensional simulated divided lites."
+policy-parking-driveway: "Residential parking and driveway policy."
+policy-tankless-water-heater: "2006 policy on locating tankless water heaters (interior preferred, exterior vent limits)."
+policy-site-visit: "Policy on site visits for design review."
+policy-story-pole: "Story pole policy: when poles are required, installation and verification."
+guide-heat-pump: "Installing a heat pump: building permit required, 50 dBA limit, which locations need which design review."
+guide-construction-cost: "How to estimate construction cost for an application."
+form-agent-authorization: "Form authorizing an agent to act on a permit application."
+form-director-design-review: "Application form for Director design review (rev. 2023-07-01)."
+form-pc-design-review: "Application form for Planning Commission design review."
