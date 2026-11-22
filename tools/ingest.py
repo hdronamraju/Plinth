@@ -163,11 +163,11 @@ def cmd_extract(ids: list[str]) -> None:
 # "Section 1.01 Name."  "Sec. 8.12 Permits required. Body text may follow on the same line."
 # Indented lines with the same shape are a division's table of contents.
 NUM = r"\d{1,2}[A-Z]?\.\d{1,3}[A-Z]?(?:\.\d{1,3}[A-Z]?)?"
-HEAD = re.compile(rf"^ ?(?:Sec(?:tion)?\.?\s+)?(?P<num>{NUM})\.?[ \t]+(?P<line>[A-Z][^\n]*)$")
+HEAD = re.compile(rf"^ ?(?:Sec(?:tion)?\.?\s+)?(?P<num>{NUM})\.?[ \t]+(?P<line>(?:[A-Z]|20\d\d )[^\n]*)$")   # a title may start with a year: "2022 California Residential Code"
 # Division headings are printed in capitals ("DIVISION 17.20  ZONE A: SINGLE FAMILY RESIDENTIAL").
 # Case matters: body sentences often start "division 17.38, rather than this table."
 DIVISION = re.compile(r"^\s*(DIVISION|ARTICLE|PART|SECTION)\s+(?P<num>\d+[A-Z]?(?:\.\d+)?)\.?\s+(?P<title>[A-Z0-9][A-Z0-9 ,;:&()'/.\-]*)$")
-TOC_LINE = re.compile(rf"^(?:\s*Sections:\s*|\s+{NUM}\.?\s+[A-Z][^\n]{{0,120}})$")
+TOC_LINE = re.compile(rf"^(?:\s*Sections:\s*|\s+{NUM}\.?\s+(?:[A-Z]|20\d\d )[^\n]{{0,120}})$")
 PAGE_NO = re.compile(r"^\s*(?:\d+[A-Z]?\s*-\s*\d+|Page \d+( of \d+)?|\d+)\s*$")
 
 
