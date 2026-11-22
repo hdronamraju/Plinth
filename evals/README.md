@@ -12,9 +12,9 @@ The eval must reward 1, tolerate 2 only when needed, and punish 3 hard. A system
 
 ## Definitions
 
-- **Correct answer:** the gist matches the vault, every quote is a substring of the cited file, labels (code / policy / staff / needs staff) are right, and precedent scope and status are respected.
+- **Correct answer:** the gist matches the vault, every quote is a substring of the cited file, labels (code / policy / staff / needs staff) are right, and no claim is made about what staff have or have not said (see Precedent below).
 - **Escalation:** the answer is labelled "Needs staff" (or partly so) and makes no unsupported factual claim. Escalating the unknowable part of a mixed question while answering the rest counts as correct.
-- **Confident wrong:** any of: a factual claim that contradicts or goes beyond the cited source; a fabricated or non-verbatim quote; a wrong number; an answer to a question that should be escalated; saying "approved" or "you can" (trust rule 4); stating precedent as law, or ignoring `scope`, `status` or `superseded_by`. If the answer is wrong but clearly labelled "Needs staff", it is an escalation, not confident wrong.
+- **Confident wrong:** any of: a factual claim that contradicts or goes beyond the cited source; a fabricated or non-verbatim quote; a wrong number; an answer to a question that should be escalated; saying "approved" or "you can" (trust rule 4). If the answer is wrong but clearly labelled "Needs staff", it is an escalation, not confident wrong.
 
 ## Question types
 
@@ -51,7 +51,18 @@ Read them in that order. A change that raises 2 but lets 1 rise above 0 is a reg
 
 ## Procedural checks (trace-based)
 
-Graded in addition to the outcome, to catch right answers reached the wrong way: retrieve before any claim; exact `section` lookup when a section is named; precedent searched for property-line, ADU-conversion and window questions; `scope` and `status` read; superseded record followed; verify step ran before rendering; no answer after a failed verification; both sources shown on a code/precedent conflict. Grade presence and ordering, not an exact sequence. Two hard fails: a claim before retrieval, and rendering an answer after verification failed.
+Graded in addition to the outcome, to catch right answers reached the wrong way: retrieve before any claim; exact `section` lookup when a section is named; verify step ran before rendering; no answer after a failed verification. Grade presence and ordering, not an exact sequence. Two hard fails: a claim before retrieval, and rendering an answer after verification failed.
+
+Deferred until precedent is back in scope: precedent searched for property-line, ADU-conversion and window questions; `scope` and `status` read; superseded record followed; both sources shown on a code/precedent conflict. Note that production runs only return the answer, not the searches, so the procedural checks can only be graded where a trace is available.
+
+## Precedent (out of scope for now)
+
+Staff precedent (see `knowledge/precedent/`) is not used to score answers. The live site does not include it, and the evals should not depend on it. So:
+
+- Any question that only a precedent record could answer is **must_escalate**. The correct outcome is "Needs staff". These entries carry `uses_precedent: true`.
+- Mixed questions (for example L1, L8, L13, F7) pass by answering only what the code or guidelines support and escalating the rest.
+- **The agent must not say that staff have said nothing, or that no precedent exists.** It can't know that, because precedent is deliberately excluded. Stating it is a false claim and counts as a defect even when the answer escalates. Saying "Needs staff" is correct.
+- Precedent questions can come back as scored questions once precedent is deployed. Restore their original expected answers from git history (commit `dcc66d2`).
 
 ## Maintenance
 

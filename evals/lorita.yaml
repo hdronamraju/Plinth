@@ -1,46 +1,56 @@
 # Eval set seeded from the 21 Lorita Avenue thread (PLAN.md §8), corrected after checking
 # the vault. See the header of general.yaml for the schema and grading rules.
 #
-# Goal and scoring: see README.md (correct answer > escalate > confident wrong). L9 is a
-# must_escalate item; L6b, L8, L10 are mixed (answer the supported part, escalate the rest).
+# Goal and scoring: see README.md (correct answer > escalate > confident wrong).
 #
-# Labels: code | policy | staff | needs_staff
-# Corrections vs PLAN.md: #6 split by new-vs-conversion; #7 cites the 10-26 record (no 10-28 record
-# exists); #8 notes pending=true; #10 zone is not in the vault, only the 20 ft street yard is.
+# PRECEDENT IS OUT OF SCOPE for these evals (entries marked uses_precedent: true). Questions that
+# only staff precedent could answer are must_escalate (abstain: true). Mixed ones (L1, L8, L13)
+# answer only what the code or guidelines support and escalate the rest. The agent must never say
+# that staff have said nothing or that no precedent exists; "Needs staff" is the correct answer.
+# L9 is also must_escalate; L6b and L10 are mixed.
+#
+# Labels: code | policy | needs_staff
+# Corrections vs PLAN.md: #6 split by new-vs-conversion; #10 zone is not in the vault, only the
+# 20 ft street yard is. The 21 Lorita precedent records still exist in knowledge/precedent/.
 
 - id: L1
   question: "Can I replace a window with a same-size double-pane window on the part of the house over the property line?"
-  expect_label: [policy, staff]
-  must_cite: [precedent:2026-10-26-same-size-window-replacement, design-guidelines:p022]
-  gist: "Yes if size, location, operation, recess and lite pattern don't change; 3-D simulated or true divided lites only. Staff 2026-10-26 (scope general); Guidelines p. 2-11 item 32."
-  must_not: ["you can", "approved"]
+  uses_precedent: true
+  expect_label: [policy, needs_staff]
+  must_cite: [design-guidelines:p022, policy-window-replacement:p001]
+  gist: "Answer what the guidelines support: Guidelines 2.05 item 32 exempts replacing an existing WOOD window with wood having aluminum or fiberglass cladding if size/location, operation, recess and divided lite pattern (true or 3-D simulated) are unchanged; window policy items 5 and 7. Escalate whether the same applies to the part of the house over the property line. Must not state what staff have or have not said."
+  must_not: ["no staff precedent", "no precedent", "approved"]
 
 - id: L2
   question: "Can I put a smaller window in the existing opening over the property line?"
-  expect_label: [staff]
-  must_cite: [precedent:2026-10-26-smaller-window-over-property-line]
-  gist: "No; not an in-kind repair. Staff 2026-10-26, scope this_property."
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. Whether a smaller window in an existing opening over the property line is allowed is a staff determination; the code and guidelines do not address it. Must not state what staff have or have not said."
   property_scoped: true
-
 - id: L3
   question: "Can I do interior work in the portion of the building over the property line?"
-  expect_label: [staff]
-  must_cite: [precedent:2026-10-26-interior-work-over-property-line]
-  gist: "Allowed as long as the exterior is unaffected. Staff 2026-10-26, scope this_property."
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. Whether interior work is allowed in a portion of the building over the property line is a staff determination; the code and guidelines do not address it. Must not state what staff have or have not said."
   property_scoped: true
-
 - id: L4
   question: "How do I count FAR and lot coverage for a structure that crosses the property line?"
-  expect_label: [staff]
-  must_cite: [precedent:2026-10-26-floor-area-for-encroaching-structures]
-  gist: "Include the entire footprint and habitable floor area regardless of location, even past the boundary (also landscape coverage). Staff 2026-10-26, scope general. Should mention 17.90.020 definitions."
-
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. May quote the 17.90.020 floor area definition as context, but must not state how a portion over the property line is counted for FAR, lot coverage or landscape coverage; that is a staff determination. Must not state what staff have or have not said."
 - id: L5
   question: "How do I show the side setback where the house crosses the property line?"
-  expect_label: [staff]
-  must_cite: [precedent:2026-10-26-setback-value-over-property-line]
-  gist: "Negative value with a note indicating the encroachment. Staff 2026-10-26, scope general."
-
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. How to show a side setback where the building crosses the line (value and notation) is a staff determination; no code section answers it. Must not state what staff have or have not said."
 - id: L6a
   question: "Can I build a new detached ADU above a new garage? What setbacks apply?"
   expect_label: [code]
@@ -57,17 +67,19 @@
 
 - id: L7
   question: "Can I alter the roof over the portion of the building past the property line?"
-  expect_label: [staff]
-  must_cite: [precedent:2026-10-26-roof-over-property-line, precedent:2026-10-20-alterations-over-property-line]
-  gist: "No roof changes for the portion past the boundary (2026-10-26; repeated 2026-10-28 for the garage, quoted in that record's Context). Alterations generally not allowed, in-kind repairs are (2026-10-20). Scope this_property."
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. Whether the roof over the portion past the property line can be changed is a staff determination; no code section answers it. Must not state what staff have or have not said."
   property_scoped: true
-
 - id: L8
   question: "Can I convert the garage that crosses the property line into an ADU?"
-  expect_label: [code, staff, needs_staff]
-  must_cite: [precedent:2026-11-06-garage-adu-path-forward, precedent:2026-10-29-garage-over-line-not-convertible, ch17:17.38.060]
-  gist: "Show both: 2026-10-29 'no' is superseded by 2026-11-06 'path forward' (pending: true, details to be discussed). Flag as unsettled. Do not state what the path is. Code: conversions same location/dimensions need no setback."
-  must_not: ["you can", "approved", "staff approved"]
+  uses_precedent: true
+  expect_label: [code, needs_staff]
+  must_cite: [ch17:17.38.060]
+  gist: "Code: a conversion in the same location and dimensions needs no side/rear setback (17.38.060.B.6.b). Escalate: whether a garage crossing the property line qualifies, how 17.50.020 (nonconforming structures) interacts, and the encroachment. Must not say yes or no to the conversion and must not state what staff have or have not said."
+  must_not: ["no staff precedent", "no precedent", "approved"]
   property_scoped: true
 
 - id: L9
@@ -86,19 +98,22 @@
 
 - id: L11
   question: "What should I send before a pre-application meeting with a planner?"
-  expect_label: [staff]
-  must_cite: [precedent:2026-09-24-pre-application-materials]
-  gist: "Preliminary drawings or schematics, variance findings, and any questions. Staff 2026-09-24, scope general."
-
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. What to send before a pre-application meeting is a staff process question; no source in the vault covers it. Must not state what staff have or have not said."
 - id: L12
   question: "My other property also has a house that crosses the line. Can I replace its roof?"
-  expect_label: [staff, needs_staff]
-  must_cite: [precedent:2026-10-26-roof-over-property-line]
-  gist: "Show the 21 Lorita answer, labelled as scope this_property and not binding elsewhere; say to confirm with staff. Do not present as a rule."
-  must_not: ["you can", "the code says"]
-
+  uses_precedent: true
+  abstain: true
+  expect_label: [needs_staff]
+  gist: "Escalate. Whether a roof over the portion of a building past the line can be replaced is a staff determination, and any answer for another property would need confirming. No code section answers it. Must not state what staff have or have not said."
+  must_not: ["no staff precedent", "no precedent", "approved"]
 - id: L13
   question: "Can I exclude the part of my house over the property line from FAR, since 17.90.020 doesn't mention it?"
-  expect_label: [code, staff]
-  must_cite: [ch17:17.90.020, precedent:2026-10-26-floor-area-for-encroaching-structures]
-  gist: "Show 17.90.020 floor area text and the 2026-10-26 staff ruling that the entire footprint counts. Staff answer is current and general; label as staff, not law; flag the tension for staff, don't pick a winner silently."
+  uses_precedent: true
+  must_not: ["no staff precedent", "no precedent", "approved"]
+  expect_label: [code, needs_staff]
+  must_cite: [ch17:17.90.020]
+  gist: "Show the 17.90.020 floor area text as written; escalate whether and how the portion over the property line is counted. Must not state what staff have or have not said."
