@@ -9,10 +9,15 @@
 #   abstain:      true => pass only if no factual claim is made and "Add to staff questions" is offered
 #   retrieval:    optional, {query, expect_in_top: [ids]} for the retrieval-only group
 #
+# GOAL (full rubric in README.md): best = a correct sourced answer (minimize human escalation);
+# second best = escalate to a human; worst = a confidently incorrect answer. Score accordingly:
+# correct +1, escalate when an answer existed +0.25, confident wrong -3. Entries with abstain: true
+# are must_escalate (correct outcome = escalation); the rest are answerable or mixed.
+#
 # Automatic checks: label match, cite recall, quote grounding (each quote is a substring of the
 # cited file), forbidden phrases, precedent hygiene (dated, scope, superseded/pending shown).
-# Priority metrics: false-answer rate on groups E and F (target 0); quote-grounding failures (0);
-# then over-abstain on A-C; then gist accuracy.
+# Headline metrics, in order: confident-wrong rate (gate: 0 on E and F), correct-answer rate,
+# needless-escalation rate, escalation recall.
 
 # ---------- A. Code lookups (answer, quote, cite) ----------
 - id: A1

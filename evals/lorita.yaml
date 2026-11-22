@@ -1,6 +1,9 @@
 # Eval set seeded from the 21 Lorita Avenue thread (PLAN.md §8), corrected after checking
 # the vault. See the header of general.yaml for the schema and grading rules.
 #
+# Goal and scoring: see README.md (correct answer > escalate > confident wrong). L9 is a
+# must_escalate item; L6b, L8, L10 are mixed (answer the supported part, escalate the rest).
+#
 # Labels: code | policy | staff | needs_staff
 # Corrections vs PLAN.md: #6 split by new-vs-conversion; #7 cites the 10-26 record (no 10-28 record
 # exists); #8 notes pending=true; #10 zone is not in the vault, only the 20 ft street yard is.
