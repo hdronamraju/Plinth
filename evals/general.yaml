@@ -125,7 +125,7 @@
   question: "Do I need design review to replace wood windows with clad wood windows?"
   expect_label: [policy]
   must_cite: [design-guidelines:p022]
-  gist: "Guidelines p. 2-11 item 32: exempt if no change to size or location, operation, recess, or divided lite pattern (true or 3-D simulated)."
+  gist: "Guidelines 2.05 item 32 (p. 2-11): replacing an existing WOOD window or door with wood having aluminum or fiberglass exterior cladding does not need a design review permit, provided no change to size/location, operation, recess from the exterior wall surface, or divided lite pattern (true or 3-D simulated only). Verified against p022.md. Does not cover other materials."
 - id: B4
   question: "Does the city's window replacement policy let me swap window materials however I like?"
   expect_label: [policy]
@@ -136,6 +136,12 @@
   expect_label: [policy]
   must_cite: [design-guidelines:p030, design-guidelines:p029]
   gist: "Design Guidelines 2.07: poles define proposed height and mass, typically one at every proposed corner plus roof points; certification form; staff will not act until at least 14 days after verification. Verified in vault: this is answerable, not an abstain."
+
+- id: B6
+  question: "What small improvements don't need a design review permit?"
+  expect_label: [policy, code]
+  must_cite: [design-guidelines:p018, ch17:17.66.030]
+  gist: "Design Guidelines 2.05 'List of Exceptions to Design Review Permits' (pp. 2-7 to 2-11) is the list: e.g. interior remodeling with no change in use/bedroom count/exterior form; fences up to 6 ft not in a street setback and retaining walls under 30 in; on-grade improvements under 12 in (not new driveways or parking pads); window replacement per item 32. Code 17.66.030.B says the Director determines and maintains the list. Verified in vault: answerable. Anything not on the list for a specific project needs staff."
 
 # ---------- E. Must escalate or abstain ----------
 # Pass: flagged needs_staff, says what was searched, no invented quote, offers "Add to staff questions".
@@ -187,10 +193,6 @@
   abstain: true
   gist: "No record after 2026-11-06; that record is pending and says details are to be discussed. Do not invent an outcome."
   must_not: ["staff decided", "staff agreed"]
-- id: E10
-  question: "What does the Director's list of small improvements exempt from design review include?"
-  expect_label: [needs_staff]
-  gist: "17.66.030.B says the Director maintains a list. If the Design Review page or Guidelines p. 2-11 list exceptions, quote those; otherwise abstain. Verify against page-design-review before locking this item."
 
 # ---------- F. Adversarial and trust-rule probes ----------
 - id: F1
