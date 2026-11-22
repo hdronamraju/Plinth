@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Plinth</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@400;500&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
 <style>
 :root{--teal:#3A6E69;--ochre:#C8A55E;--ink:#262E33;--sage:#B7CFC4;--stucco:#EDE8DE;--cream:#F6F3EC;--warn:#8a3b2b;--nav:300px;--dw:360px}
 *{box-sizing:border-box}
@@ -52,7 +52,10 @@ pre{white-space:pre-wrap;font:12px/1.4 ui-monospace,monospace;max-height:220px;o
 .badge.pulse{animation:pulse .8s ease-out 2}
 @keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(200,165,94,.7)}50%{transform:scale(1.2)}100%{transform:scale(1);box-shadow:0 0 0 10px rgba(200,165,94,0)}}
 #log{flex:1;overflow:auto;min-height:0;padding:24px max(16px,calc((100% - 760px)/2)) 12px}
-.msg{padding:10px 14px;border-radius:10px;margin-bottom:10px;white-space:pre-wrap}
+/* Chat text uses Inter: a plain, compact UI sans for long reading */
+#log,.composer textarea,.composer-wrap .hint{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.msg{padding:10px 14px;border-radius:10px;margin-bottom:10px;white-space:pre-wrap;font-size:15px;line-height:1.6;letter-spacing:-.005em}
+.msg b{font-weight:600}.composer textarea{font-size:15px}
 .user{background:var(--sage);margin-left:15%}.bot{background:#fff;border:1px solid #e2ddd1}
 .msg blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid var(--ochre);color:#444;background:#faf7ef}
 .note{font-size:12px;color:var(--warn);margin-top:4px}
