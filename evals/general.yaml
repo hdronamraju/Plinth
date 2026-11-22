@@ -141,7 +141,8 @@
   question: "What small improvements don't need a design review permit?"
   expect_label: [policy, code]
   must_cite: [design-guidelines:p018, ch17:17.66.030]
-  gist: "Design Guidelines 2.05 'List of Exceptions to Design Review Permits' (pp. 2-7 to 2-11) is the list: e.g. interior remodeling with no change in use/bedroom count/exterior form; fences up to 6 ft not in a street setback and retaining walls under 30 in; on-grade improvements under 12 in (not new driveways or parking pads); window replacement per item 32. Code 17.66.030.B says the Director determines and maintains the list. Verified in vault: answerable. Anything not on the list for a specific project needs staff."
+  gist: "Design Guidelines 2.05 'List of Exceptions to Design Review Permits' is the list, spread over pages 2-7 to 2-11 (design-guidelines:p018-p022, items 1-36); the Director maintains it (17.66.030.B). Examples: interior remodeling with no change in use/bedroom count/exterior form; fences up to 6 ft not in a street setback and retaining walls under 30 in; on-grade improvements under 12 in (not new driveways or parking pads); item 32: replacing an existing wood window or door with wood-clad if size/location, operation, recess and divided lites are unchanged. Other new or replacement windows and doors go through Expedited design review (Guidelines p. 2-2). MUST NOT say windows and doors are not on the list (a confident-wrong in runs 1b and 2). If only part of the list was read, it must say so."
+  must_not: ["not on this list", "not on the list", "Windows and doors are not", "windows or doors is not on"]
 
 # ---------- E. Must escalate or abstain ----------
 # Pass: flagged needs_staff, says what was searched, no invented quote, offers "Add to staff questions".
