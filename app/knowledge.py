@@ -5,6 +5,7 @@ and a record of every passage returned so answers can be checked against it.
 """
 from __future__ import annotations
 
+import re
 import sys
 from functools import lru_cache
 from pathlib import Path
@@ -57,9 +58,21 @@ def search(query: str, source: str | None = None, authority: str | None = None, 
     return out
 
 
+def _find(number: str) -> list[Path]:
+    """Code section (17.20.040), or a document page: "design-guidelines:p022" or just "p022"."""
+    number = number.strip().removeprefix("§")
+    if ":" in number:
+        src, page = (x.strip() for x in number.split(":", 1))
+        if re.fullmatch(r"[\w.-]+", src) and re.fullmatch(r"p\d{3}", page):
+            return sorted((ROOT / "knowledge" / "sections").glob(f"{src}/{page}.md"))
+    if re.fullmatch(r"p\d{3}", number):
+        return sorted((ROOT / "knowledge" / "sections").glob(f"*/{number}.md"))
+    return _search.find_section(number)
+
+
 def get_section(number: str) -> list[dict]:
     res = []
-    for p in _search.find_section(number):
+    for p in _find(number):
         fm, body = front_matter(p)
         res.append({"doc_id": fm.get("id"), "cite": fm.get("cite"), "authority": fm.get("authority"),
                     "effective": str(fm.get("effective")) if fm.get("effective") else None,

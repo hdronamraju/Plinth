@@ -302,3 +302,107 @@ def test_pdf_still_builds_without_script_font(monkeypatch, tmp_path):
     out = exp.build_pdf(tmp_path / "x.pdf", "PL-X", 1, "1 Main St", [("Zone", "A", "owner")], "p", [
         {"id": "a", "title": "t", "context": "c", "code_ref": "", "code_cite": "", "precedent": "", "proposed": "p"}])
     assert {"q1_decision", "q1_notes", "reviewer_name"} <= set(pypdf.PdfReader(out).get_fields())
+
+
+# --- fixes from eval run 1 on production (quote checker, precedent claims, truncation, empty answer) ---
+
+ZONE_A = lambda: [knowledge.get_section("17.20.040")[0]["text"]]
+
+
+@pytest.mark.parametrize("quote", [
+    # faithful quotes of single table cells: the PDF text interleaves the label column ("rear yard setback")
+    "> Minimum 5 feet for a primary or accessory structure, unless the yard is street facing, in which case the minimum is 20 feet",
+    "> Maximum 40% lot coverage for primary and accessory structures, subject to exception for accessory dwelling unit construction set forth in division 17.38.",
+    "> Minimum 30% landscaping, subject to exception for accessory dwelling unit construction set forth in division 17.38.",
+    "> Minimum 20 feet for primary or accessory structure, subject to exception for accessory dwelling unit construction set forth in division 17.38.",
+    "> Maximum 50% of the lot area if the parcel is 5,001 square feet to 10,000 square feet.",
+])
+def test_verify_keeps_faithful_table_cell_quotes(quote):
+    out, bad = agent.verify_quotes(quote, ZONE_A())
+    assert bad == 0 and out == quote
+
+
+@pytest.mark.parametrize("fake", [
+    "> Minimum 25 feet for primary or accessory structure, subject to exception for accessory dwelling unit construction",
+    "> Minimum 6 feet for a primary or accessory structure, unless the yard is street facing, in which case the minimum is 20 feet",
+    "> Maximum 60% lot coverage for primary and accessory structures",
+    "> The city shall approve any fence under eight feet without review",
+    "> feet 20 minimum yard street structure accessory primary",      # right words, wrong order
+])
+def test_verify_still_rejects_invented_or_altered_quotes(fake):
+    out, bad = agent.verify_quotes(fake, ZONE_A())
+    assert bad == 1 and "quote removed" in out
+
+
+def test_precedent_absence_claims_are_dropped_unless_staff_record_returned():
+    text = ("**Code says** the setback is 20 feet.\n\n"
+            "**Staff have said:** I found no staff precedent on this.\n\n"
+            "**Staff have said**\n\nThe knowledge base has no staff precedent on window replacement.\n\n"
+            "**Needs staff**\n- Does the garage qualify? A search of staff precedent returned no matches.\n\n"
+            "**Staff have said**: Nothing.")
+    out, n = agent.strip_precedent_claims(text, staff_seen=False)
+    assert n >= 4 and "precedent" not in out.lower() and "Staff have said" not in out
+    assert "the setback is 20 feet" in out and "Does the garage qualify?" in out
+    kept, n2 = agent.strip_precedent_claims(text, staff_seen=True)
+    assert n2 == 0 and kept == text
+
+
+def test_precedent_guard_leaves_normal_text_alone():
+    text = "**Code says** nothing about trees.\n\n> Minimum 5 feet\n\n**Needs staff**: who owns the strip?"
+    assert agent.strip_precedent_claims(text, staff_seen=False) == (text, 0)
+
+
+def test_get_section_reads_document_pages():
+    for ref in ("design-guidelines:p022", "p022"):
+        res = knowledge.get_section(ref)
+        assert res and "wood with aluminum or fiberglass exterior cladding" in res[0]["text"]
+    assert knowledge.get_section("nope:p999") == []
+    assert knowledge.get_section("../../etc") == []
+
+
+def test_search_returns_full_text_of_top_hits():
+    ctx = {"retrieved": [], "staff_seen": False}
+    out = json.loads(agent.run_tool("search_knowledge", {"query": "story pole"}, {"property": None}, ctx))
+    assert out[0].get("text") and len(out[0]["text"]) > len(out[0]["snippet"])
+    assert any(len(t) > 400 for t in ctx["retrieved"])
+
+
+def test_search_marks_staff_seen_only_for_staff_hits():
+    ctx = {"retrieved": [], "staff_seen": False}
+    agent.run_tool("search_knowledge", {"query": "street yard setback", "authority": "binding"}, {"property": None}, ctx)
+    assert ctx["staff_seen"] is False
+
+
+class EmptyThenText:
+    """First turn returns no text and no tool call (the empty answer seen on production)."""
+    def __init__(self, second):
+        self.calls = 0
+        self.second = second
+        self.messages = SimpleNamespace(create=self.create)
+
+    def create(self, **kw):
+        self.calls += 1
+        blocks = [] if self.calls == 1 else [{"type": "text", "text": self.second}]
+        return SimpleNamespace(content=[SimpleNamespace(**b, model_dump=(lambda b=b: b)) for b in blocks])
+
+
+def test_empty_answer_gets_a_second_try():
+    c = EmptyThenText("**Code says** hello")
+    r = agent.chat("sess_empty01", "q?", client=c)
+    assert r["answer"] == "**Code says** hello" and c.calls == 2
+
+
+def test_empty_answer_twice_falls_back_to_needs_staff():
+    c = EmptyThenText("")
+    r = agent.chat("sess_empty02", "q?", client=c)
+    assert r["answer"].startswith("**Needs staff.**")
+
+
+def test_precedent_guard_catches_variants_seen_in_production():
+    text = ("- **Wood to wood-clad:** Staff haven't addressed whether your windows qualify. "
+            "The knowledge base has no staff precedent on this.\n\n"
+            "**City policy says / Staff have said:** I searched staff precedent and policy for earlier ADU rules and found nothing.\n\n"
+            "**Code says** the 2026 amendments are listed.")
+    out, n = agent.strip_precedent_claims(text, staff_seen=False)
+    assert n == 3 and "precedent" not in out.lower() and "Staff haven't" not in out
+    assert out.strip() == "**Code says** the 2026 amendments are listed."  # a bullet holding only the claim goes too
