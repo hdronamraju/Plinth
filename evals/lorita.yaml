@@ -1,0 +1,101 @@
+# Eval set seeded from the 21 Lorita Avenue thread (PLAN.md §8), corrected after checking
+# the vault. See the header of general.yaml for the schema and grading rules.
+#
+# Labels: code | policy | staff | needs_staff
+# Corrections vs PLAN.md: #6 split by new-vs-conversion; #7 cites the 10-26 record (no 10-28 record
+# exists); #8 notes pending=true; #10 zone is not in the vault, only the 20 ft street yard is.
+
+- id: L1
+  question: "Can I replace a window with a same-size double-pane window on the part of the house over the property line?"
+  expect_label: [policy, staff]
+  must_cite: [precedent:2026-10-26-same-size-window-replacement, design-guidelines:p022]
+  gist: "Yes if size, location, operation, recess and lite pattern don't change; 3-D simulated or true divided lites only. Staff 2026-10-26 (scope general); Guidelines p. 2-11 item 32."
+  must_not: ["you can", "approved"]
+
+- id: L2
+  question: "Can I put a smaller window in the existing opening over the property line?"
+  expect_label: [staff]
+  must_cite: [precedent:2026-10-26-smaller-window-over-property-line]
+  gist: "No; not an in-kind repair. Staff 2026-10-26, scope this_property."
+  property_scoped: true
+
+- id: L3
+  question: "Can I do interior work in the portion of the building over the property line?"
+  expect_label: [staff]
+  must_cite: [precedent:2026-10-26-interior-work-over-property-line]
+  gist: "Allowed as long as the exterior is unaffected. Staff 2026-10-26, scope this_property."
+  property_scoped: true
+
+- id: L4
+  question: "How do I count FAR and lot coverage for a structure that crosses the property line?"
+  expect_label: [staff]
+  must_cite: [precedent:2026-10-26-floor-area-for-encroaching-structures]
+  gist: "Include the entire footprint and habitable floor area regardless of location, even past the boundary (also landscape coverage). Staff 2026-10-26, scope general. Should mention 17.90.020 definitions."
+
+- id: L5
+  question: "How do I show the side setback where the house crosses the property line?"
+  expect_label: [staff]
+  must_cite: [precedent:2026-10-26-setback-value-over-property-line]
+  gist: "Negative value with a note indicating the encroachment. Staff 2026-10-26, scope general."
+
+- id: L6a
+  question: "Can I build a new detached ADU above a new garage? What setbacks apply?"
+  expect_label: [code]
+  must_cite: [ch17:17.38.060]
+  gist: "New (not converted) ADU: 4 ft side/rear setback; detached height max 18 ft (+2 ft for matching roof pitch); size caps in B.1."
+  must_not: ["you can", "approved"]
+
+- id: L6b
+  question: "Can I add an ADU above my existing garage by converting it in place?"
+  expect_label: [code, needs_staff]
+  must_cite: [ch17:17.38.060]
+  gist: "Conversion in same location and dimensions: no setback required (B.6.b). Must NOT say 4 ft applies to a same-footprint conversion. Whether a raise or loft qualifies is not answered by the code text."
+  must_not: ["you can", "approved"]
+
+- id: L7
+  question: "Can I alter the roof over the portion of the building past the property line?"
+  expect_label: [staff]
+  must_cite: [precedent:2026-10-26-roof-over-property-line, precedent:2026-10-20-alterations-over-property-line]
+  gist: "No roof changes for the portion past the boundary (2026-10-26; repeated 2026-10-28 for the garage, quoted in that record's Context). Alterations generally not allowed, in-kind repairs are (2026-10-20). Scope this_property."
+  property_scoped: true
+
+- id: L8
+  question: "Can I convert the garage that crosses the property line into an ADU?"
+  expect_label: [code, staff, needs_staff]
+  must_cite: [precedent:2026-11-06-garage-adu-path-forward, precedent:2026-10-29-garage-over-line-not-convertible, ch17:17.38.060]
+  gist: "Show both: 2026-10-29 'no' is superseded by 2026-11-06 'path forward' (pending: true, details to be discussed). Flag as unsettled. Do not state what the path is. Code: conversions same location/dimensions need no setback."
+  must_not: ["you can", "approved", "staff approved"]
+  property_scoped: true
+
+- id: L9
+  question: "Can we rebuild the garage shifted fully onto our lot?"
+  expect_label: [needs_staff]
+  abstain: true
+  gist: "No code section or precedent answers this. 2026-11-06 only says there is a path forward for the conversion; details pending. Offer 'Add to staff questions'."
+  must_not: ["you can", "approved", "yes", "no"]
+
+- id: L10
+  question: "Is 21 Lorita in Zone A, and what is the street setback?"
+  expect_label: [code, needs_staff]
+  must_cite: [ch17:17.20.040]
+  gist: "Street yard min 20 ft in Zone A (17.20.040.A). The zone itself is a property fact not in the vault: say it must come from the property record / zoning map (17.08.020), not confirmed."
+  must_not: ["21 Lorita is in Zone A"]
+
+- id: L11
+  question: "What should I send before a pre-application meeting with a planner?"
+  expect_label: [staff]
+  must_cite: [precedent:2026-09-24-pre-application-materials]
+  gist: "Preliminary drawings or schematics, variance findings, and any questions. Staff 2026-09-24, scope general."
+
+- id: L12
+  question: "My other property also has a house that crosses the line. Can I replace its roof?"
+  expect_label: [staff, needs_staff]
+  must_cite: [precedent:2026-10-26-roof-over-property-line]
+  gist: "Show the 21 Lorita answer, labelled as scope this_property and not binding elsewhere; say to confirm with staff. Do not present as a rule."
+  must_not: ["you can", "the code says"]
+
+- id: L13
+  question: "Can I exclude the part of my house over the property line from FAR, since 17.90.020 doesn't mention it?"
+  expect_label: [code, staff]
+  must_cite: [ch17:17.90.020, precedent:2026-10-26-floor-area-for-encroaching-structures]
+  gist: "Show 17.90.020 floor area text and the 2026-10-26 staff ruling that the entire footprint counts. Staff answer is current and general; label as staff, not law; flag the tension for staff, don't pick a winner silently."
