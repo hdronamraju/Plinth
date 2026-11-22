@@ -8,6 +8,9 @@ COPY brand brand
 COPY tools/search.py tools/search.py
 COPY knowledge/index knowledge/index
 COPY knowledge/sections knowledge/sections
+# The agent's source catalog is built from these two files (app/knowledge.py catalog()).
+COPY knowledge/sources.yaml knowledge/sources.yaml
+COPY knowledge/covers.yaml knowledge/covers.yaml
 # Staff precedent (real email thread, names a planner) is deliberately NOT shipped: drop it from the
 # search index too, then fail the build if any trace remains. The check looks for the private data itself
 # (precedent records, the planners' names), not the plain word "precedent": city code uses it legitimately

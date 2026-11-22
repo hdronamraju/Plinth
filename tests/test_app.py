@@ -483,3 +483,18 @@ def test_search_tool_accepts_other_wordings():
     out = json.loads(agent.run_tool("search_knowledge", {"query": "backyard cottage rental",
                                     "also": ["short-term rental accessory dwelling unit"]}, {"property": None}, ctx))
     assert any(h["doc_id"] == "ch17:17.40.030" for h in out)
+
+
+def test_dockerfile_ships_every_file_the_catalog_reads():
+    """The live image once had an empty catalog because the Dockerfile did not COPY sources.yaml and covers.yaml."""
+    dockerfile = (ROOT / "Dockerfile").read_text()
+    for f in knowledge.CATALOG_FILES:
+        assert f"COPY {f} {f}" in dockerfile, f"Dockerfile does not copy {f}"
+        assert (ROOT / f).exists()
+    ignored = (ROOT / ".dockerignore").read_text().split()
+    assert not any(f.startswith(i.rstrip("/")) for f in knowledge.CATALOG_FILES for i in ignored)
+
+
+def test_catalog_is_not_silently_empty():
+    c = knowledge.catalog()
+    assert len(c["available"]) >= 40
