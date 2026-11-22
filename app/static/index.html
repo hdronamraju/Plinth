@@ -46,7 +46,10 @@ async function api(path,opt={}){const r=await fetch(path+(path.includes('?')?'&'
  const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
 function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|\n)&gt; ?(.*)/g,'$1<blockquote>$2</blockquote>').replace(/<\/blockquote>\n/g,'</blockquote>')}
 function msg(cls,t,notes=[]){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=cls=='bot'?md(t):esc(t);
- notes.forEach(n=>{const e=document.createElement('div');e.className='note';e.textContent=n;d.append(e)});$('log').append(d);$('log').scrollTop=1e9}
+ notes.forEach(n=>{const e=document.createElement('div');e.className='note';e.textContent=n;d.append(e)});$('log').append(d);$('log').scrollTop=1e9;return d}
+// A new answer opens at its first line, not its last: scroll the log (and the page, on a phone) to its top.
+function toStart(d){const log=$('log');log.scrollTop+=d.getBoundingClientRect().top-log.getBoundingClientRect().top-8;
+ if(d.getBoundingClientRect().top<0||d.getBoundingClientRect().top>innerHeight*0.6)d.scrollIntoView({block:'start'})}
 const LAB={apn:'APN',zone:'Zone',lot_size:'Lot size',year_built:'Year built',building_sqft:'Building size (sq ft)',bedrooms:'Bedrooms',bathrooms:'Bathrooms',existing_structures:'Existing structures',easements:'Easements / encroachments',permits_on_file:'Permits / survey on file'};
 const isOwner=v=>v.source.startsWith('entered by owner');
 function field(k,v){if(k=='zone'){return `<div class="fact"><label for="f_zone">Zone</label><select id="f_zone" data-k="zone"><option value="">Not known</option>${['A','B','C','D','E'].map(z=>`<option ${v.value==z?'selected':''}>${z}</option>`).join('')}</select><small>${v.value?esc(v.source)+', as of '+esc(v.as_of):'Not in public data we can query. Piedmont\'s official zoning map is held by the City Clerk (§17.08.020). Pick it once you have confirmed it.'}</small></div>`}
@@ -73,8 +76,8 @@ function renderSQ(list,pdfs){$('sqs').className='';$('sqs').innerHTML=list.lengt
  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{const r=await api('/api/staff-questions',{method:'PUT',body:JSON.stringify({staff_questions:list.filter(q=>q.id!=b.dataset.del)})});renderSQ(r.staff_questions,pdfs)});
  $('pdfs').innerHTML=(pdfs||[]).map(p=>`<p>📄 <a href="/api/pdf/${p.file}?s=${S}" target="_blank">${esc(p.doc_id)} v${p.version}</a> (${p.count} questions)</p>`).join('')}
 async function ask(text){msg('user',text);$('send').disabled=true;const t=document.createElement('div');t.className='hint';t.textContent='Searching the knowledge base…';$('log').append(t);
- try{const r=await api('/api/chat',{method:'POST',body:JSON.stringify({message:text})});t.remove();msg('bot',r.answer,r.notes);renderSQ(r.staff_questions,r.pdfs)}
- catch(e){t.remove();msg('bot','⚠ '+e.message)}$('send').disabled=false}
+ try{const r=await api('/api/chat',{method:'POST',body:JSON.stringify({message:text})});t.remove();toStart(msg('bot',r.answer,r.notes));renderSQ(r.staff_questions,r.pdfs)}
+ catch(e){t.remove();toStart(msg('bot','⚠ '+e.message))}$('send').disabled=false}
 $('go').onclick=async()=>{const a=$('addr').value.trim();if(!a)return;$('go').disabled=true;
  try{const r=await api('/api/property',{method:'POST',body:JSON.stringify({address:a})});renderProp(r.property,r.zone)}catch(e){$('propbody').textContent=e.message}$('go').disabled=false};
 let sugTimer,sugAbort,sugIdx=-1,sugItems=[];
