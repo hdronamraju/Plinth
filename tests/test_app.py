@@ -456,6 +456,20 @@ def test_prompt_has_the_absence_rule_and_the_list_pointer():
     assert any("p018-p022" in t["description"] for t in agent.TOOLS if t["name"] == "get_section")
 
 
+def test_prompt_has_answer_first_format():
+    assert "Answer format" in agent.SYSTEM and "all in bold" in agent.SYSTEM
+    assert "starting at the beginning of the line with `> `" in agent.SYSTEM
+
+
+def test_indented_and_bulleted_quotes_are_verified():
+    retrieved = ["Minimum 8,000 square feet"]
+    text = "**Answer.**\n\n- **Code says**\n  > Totally invented rule\n- > Another fake\n  > Minimum 8,000 square feet"
+    out, bad = agent.verify_quotes(text, retrieved)
+    assert bad == 2
+    assert "Totally invented" not in out and "Another fake" not in out
+    assert "Minimum 8,000 square feet" in out          # a real quote survives, even when indented
+
+
 # --- knowledge catalog ---
 
 def test_catalog_lists_what_is_loaded_and_what_is_not():

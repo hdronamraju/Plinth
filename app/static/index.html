@@ -68,7 +68,10 @@ pre{white-space:pre-wrap;font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,monosp
 .msg{margin-bottom:18px;white-space:pre-wrap;font-size:15px;line-height:1.65;letter-spacing:-.005em}
 .msg b{font-weight:600}
 .user{background:var(--soft);border-radius:12px;padding:10px 14px;margin-left:auto;width:fit-content;max-width:80%}
-.bot{padding:0 2px}
+.bot{padding:0 2px;white-space:normal}
+.bot p{margin:0 0 10px}.bot>p:first-child>b:first-child{font-size:16px;line-height:1.5}
+.msg ul.ev{margin:4px 0 10px;padding-left:18px}.msg ul.ev li{margin:6px 0;padding-left:2px}.msg ul.ev li::marker{color:var(--muted)}
+.msg li blockquote{margin:6px 0 2px}
 .msg blockquote{margin:6px 0;padding:6px 12px;border-left:2px solid var(--ochre);color:rgba(38,46,51,.85);background:#F6F2EA;border-radius:0 6px 6px 0}
 .note{font-size:12px;color:var(--warn);margin-top:6px}
 .welcome{margin:14vh auto 0;max-width:440px;text-align:center}
@@ -169,7 +172,18 @@ const LS={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k
 const WIDE=matchMedia('(min-width:1100px)'),PHONE=matchMedia('(max-width:719px)');
 async function api(path,opt={}){const r=await fetch(path+(path.includes('?')?'&':'?')+'s='+S,{...opt,headers:{'content-type':'application/json','x-session':S}});
  const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
-function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|\n)&gt; ?(.*)/g,'$1<blockquote>$2</blockquote>').replace(/<\/blockquote>\n/g,'</blockquote>')}
+// Answers come as: a bold first line, then "- " evidence bullets, each followed by "> " quote lines.
+function md(t){const inl=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');const out=[];let list=null,para=[];
+ const flushP=()=>{if(para.length){out.push('<p>'+para.join('<br>')+'</p>');para=[]}};
+ const closeL=()=>{if(list){out.push('<ul class="ev">'+list.map(i=>'<li>'+i+'</li>').join('')+'</ul>');list=null}};
+ const addQ=(html,arr,i)=>{arr[i]=arr[i].endsWith('</blockquote>')?arr[i].slice(0,-13)+'<br>'+html+'</blockquote>':arr[i]+'<blockquote>'+html+'</blockquote>'};
+ for(const line of String(t??'').split('\n')){let m;
+  if((m=line.match(/^\s*(?:[-*]\s+)?>\s?(.*)$/))){const q=inl(m[1]);
+   if(list)addQ(q,list,list.length-1);else{flushP();if(out.length&&out[out.length-1].startsWith('<blockquote>'))addQ(q,out,out.length-1);else out.push('<blockquote>'+q+'</blockquote>')}}
+  else if((m=line.match(/^\s*[-*]\s+(.*)$/))){flushP();(list||=[]).push(inl(m[1]))}
+  else if(!line.trim())flushP();
+  else{closeL();para.push(inl(line.trim()))}}
+ flushP();closeL();return out.join('')}
 function msg(cls,t,notes=[]){$('welcome')?.remove();const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=cls=='bot'?md(t):esc(t);
  notes.forEach(n=>{const e=document.createElement('div');e.className='note';e.textContent=n;d.append(e)});$('log').append(d);$('log').scrollTop=1e9;return d}
 // A new answer opens at its first line, not its last: scroll the log to its top.
