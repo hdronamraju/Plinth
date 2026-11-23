@@ -6,8 +6,8 @@
   python tools/probe_parcel.py "..." --url https://host/arcgis/rest/services/X/MapServer/0
 
 Prints, per provider: whether it responds, its field names, the raw attributes of the parcel at
-the point, and which of Plinth's fields would be filled. When one works, set
-PLINTH_PARCEL_URL to its layer URL. Paste the output back if you want help mapping fields.
+the point, and which of Plinth's fields would be filled. For an address it first shows what the Alameda
+County lookup Plinth uses returns. To try another layer as a fallback, set PLINTH_PARCEL_URL to its URL. Paste the output back if you want help mapping fields.
 """
 import argparse
 import json
@@ -32,6 +32,11 @@ def main():
             sys.exit("Geocoder returned no match (or is unreachable).")
         lon, lat = g["coordinates"]["x"], g["coordinates"]["y"]
         print(f"Geocoded: {g['matchedAddress']}  lat={lat} lon={lon}\n")
+        facts, notes = parcel.lookup(lat, lon, address=g["matchedAddress"])
+        print("=" * 70, f"\n{parcel.COUNTY['name']} (what Plinth uses)\n{parcel.COUNTY['url']}")
+        print("Plinth would fill:", {k: v["value"] for k, v in facts.items()} or "nothing")
+        for n in notes:
+            print("note:", n)
     else:
         ap.error("give an address or --latlon")
     layers = [{"name": f"extra {u}", "url": u} for u in a.url] + parcel.providers()

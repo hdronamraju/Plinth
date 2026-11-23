@@ -17,6 +17,8 @@ from app import property as prop
 
 @pytest.fixture(autouse=True)
 def tmp_store(tmp_path, monkeypatch):
+    from app import parcel as _parcel
+    monkeypatch.setattr(_parcel, "_get", lambda u, timeout=10: {"features": []})  # no network in tests
     monkeypatch.setattr(store, "DIR", tmp_path)
 
 
@@ -145,27 +147,78 @@ from app import parcel
 FAKE_PARCEL = {"features": [{"attributes": {"PARNO": "050-3456-012-00", "ACRES": 0.2, "YEARBUILT": 1927, "BEDS": 0}}]}
 GEO = {"matchedAddress": "21 PORTSMOUTH RD, PIEDMONT, CA, 94610", "coordinates": {"x": -122.23, "y": 37.82},
        "addressComponents": {"city": "PIEDMONT", "state": "CA", "zip": "94610"}}
+SQUARE = {"rings": [[[0, 0], [0, 80], [100, 80], [100, 0], [0, 0]]]}  # 100 ft x 80 ft, clockwise like ArcGIS
 
 
-def test_parcel_fills_only_returned_fields_with_source():
-    rec = prop.build("x", GEO, fetch=lambda u: FAKE_PARCEL)
-    f = rec["facts"]
-    assert f["apn"]["value"] == "050-3456-012-00" and "UCD_Parcels" in f["apn"]["source"]
+def county_feat(apn, number="21", street="PORTSMOUTH RD", geometry=SQUARE):
+    return {"attributes": {"PrintParcel": apn, "APN": apn, "SitusStreetNumber": number, "SitusStreetName": street,
+                           "SitusCity": "PIEDMONT"}, "geometry": geometry}
+
+
+def test_split_street():
+    assert parcel.split_street("120 VISTA AVE, PIEDMONT, CA, 94611") == ("120", "VISTA AVE")
+    assert parcel.split_street("VISTA AVE, PIEDMONT") is None
+
+
+def test_county_parcel_by_address_fills_apn_and_lot_size():
+    urls = []
+    def fetch(u):
+        urls.append(u)
+        return {"features": [county_feat("50-1234-5")]} if "SitusStreetNumber" in u else {"features": []}
+    f = prop.build("x", GEO, fetch=fetch)["facts"]
+    assert f["apn"]["value"] == "50-1234-5" and "Alameda County" in f["apn"]["source"]
+    assert f["lot_size"]["value"] == "8,000 sq ft" and "boundary" in f["lot_size"]["source"]
+    assert f["year_built"]["value"] == "" and f["zone"]["value"] == ""  # not in the county layer -> blank
+    assert len(urls) == 1 and "PORTSMOUTH+RD" in urls[0] and "Mailing" not in urls[0]
+
+
+def test_county_falls_back_to_nearby_parcel_with_matching_number():
+    def fetch(u):
+        if "SitusStreetNumber%3D" in u:
+            return {"features": []}  # address search misses
+        return {"features": [county_feat("50-1-1", number="23"), county_feat("50-1-2")]}
+    f = prop.build("x", GEO, fetch=fetch)["facts"]
+    assert f["apn"]["value"] == "50-1-2"
+
+
+def test_county_never_guesses_a_neighbor():
+    fetch = lambda u: {"features": [county_feat("50-1-1", number="23")]} if "distance" in u else {"features": []}
+    rec = prop.build("x", GEO, fetch=fetch)
+    assert rec["facts"]["apn"]["value"] == "" and "no parcel listed" in rec["parcel_notes"][-1]
+
+
+def test_county_several_parcels_at_one_address():
+    fetch = lambda u: {"features": [county_feat("50-1-1"), county_feat("50-1-2")]}
+    rec = prop.build("x", GEO, fetch=fetch)
+    assert rec["facts"]["apn"]["value"] == "50-1-1, 50-1-2" and rec["facts"]["lot_size"]["value"] == ""
+    assert "2 parcels share" in rec["parcel_notes"][0]
+
+
+def test_ring_area_subtracts_holes():
+    hole = [[10, 10], [20, 10], [20, 20], [10, 20], [10, 10]]  # counter-clockwise
+    assert parcel.ring_area_sqft({"rings": SQUARE["rings"] + [hole]}) == 8000 - 100
+
+
+def test_configured_layer_used_when_county_has_nothing(monkeypatch):
+    monkeypatch.setenv("PLINTH_PARCEL_URL", "https://example.test/arcgis/rest/services/P/MapServer/0")
+    fetch = lambda u: FAKE_PARCEL if u.startswith("https://example.test") else {"features": []}
+    f = prop.build("x", GEO, fetch=fetch)["facts"]
+    assert f["apn"]["value"] == "050-3456-012-00" and "PLINTH_PARCEL_URL" in f["apn"]["source"]
     assert f["lot_size"]["value"].startswith("8,712 sq ft") and f["year_built"]["value"] == "1927"
-    assert f["bedrooms"]["value"] == "" and f["zone"]["value"] == ""  # not returned -> blank, not guessed
+    assert f["bedrooms"]["value"] == ""  # zero -> blank, not guessed
 
 
 def test_parcel_failure_is_soft():
     def boom(u):
         raise OSError("blocked")
     rec = prop.build("x", GEO, fetch=boom)
-    assert rec["facts"]["apn"]["value"] == "" and len(rec["parcel_notes"]) >= 1
+    assert rec["facts"]["apn"]["value"] == "" and "unreachable" in rec["parcel_notes"][0]
 
 
 def test_edit_changes_source_only_when_value_changes():
-    rec = prop.build("x", GEO, fetch=lambda u: FAKE_PARCEL)
-    prop.update_facts(rec, {"apn": "050-3456-012-00", "year_built": "1930"})
-    assert "UCD" in rec["facts"]["apn"]["source"] and rec["facts"]["year_built"]["source"] == "entered by owner"
+    rec = prop.build("x", GEO, fetch=lambda u: {"features": [county_feat("50-1234-5")]})
+    prop.update_facts(rec, {"apn": "50-1234-5", "year_built": "1930"})
+    assert "Alameda" in rec["facts"]["apn"]["source"] and rec["facts"]["year_built"]["source"] == "entered by owner"
 
 
 def test_paste_extraction_drops_ungrounded_values():

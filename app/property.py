@@ -1,5 +1,6 @@
-"""Property record. Every fact is {value, source, as_of}. Geocoder facts come from the US Census;
-everything else is owner-entered and labeled so. Zone is never guessed."""
+"""Property record. Every fact is {value, source, as_of}. Address and coordinates come from the US Census
+geocoder; APN and lot size from Alameda County's parcel map (app/parcel.py); everything else is
+owner-entered and labeled so. Zone is never guessed."""
 from __future__ import annotations
 
 import datetime as dt
@@ -58,9 +59,9 @@ def build(address: str, geo: dict | None = None, use_geocoder: bool = True, fetc
     for f in FIELDS:
         prop[f] = fact("", "entered by owner")
     notes = []
-    if geo and prop.get("latitude", {}).get("value") is not None:
+    if geo:
         found, notes = parcel.lookup(prop["latitude"]["value"], prop["longitude"]["value"],
-                                     **({"fetch": fetch} if fetch else {}))
+                                     address=geo.get("matchedAddress"), **({"fetch": fetch} if fetch else {}))
         prop.update(found)
     return {"facts": prop, "warnings": warnings, "parcel_notes": notes, "not_confirmed": NOT_CONFIRMED,
             "confirmed": False}
