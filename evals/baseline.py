@@ -4,7 +4,9 @@ Plinth's answers come from the model plus the knowledge base plus server checks.
 model (or another one) the same questions without them, so the score gap shows what Plinth adds.
 
 Conditions:
-  bare   the question only, the way a homeowner would type it into a chatbot; no tools
+  bare   the question only, with no city named; no tools
+  city   the question with "I live in Piedmont, California." in front, the way a homeowner would type it
+         into a chatbot; no tools
   rules  Plinth's answer rules (quote and cite, label each part, say Needs staff when unsure); no tools
   web    the same rules plus Claude's built-in web search and page fetch: "could a chatbot that can
          search replace Plinth?" Each row also records the searches, pages opened and cited URLs.
@@ -14,10 +16,13 @@ Usage:
   python evals/baseline.py --condition rules --limit 3    # try three questions first
   python evals/baseline.py --condition rules              # all 53
   python evals/baseline.py --condition bare
+  python evals/baseline.py --condition city
   python evals/baseline.py --condition web --limit 3      # costs more: searches plus the pages they return
+  python evals/baseline.py --condition web --parallel 4   # ask 4 questions at a time (web takes ~1 min each)
 
 Answers go to evals/runs/baseline-<condition>-<model>.jsonl, one line per question, in the same shape as the
-Plinth runs. Re-running the same command skips questions already answered and retries any that failed.
+Plinth runs. Re-running the same command skips questions already answered and asks again any that failed
+or were cut off before the answer finished.
 Needs ANTHROPIC_API_KEY. Graded by hand or by an LLM against evals/README.md, like the Plinth runs.
 """
 from __future__ import annotations
@@ -27,6 +32,7 @@ import datetime
 import json
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import yaml
@@ -39,6 +45,8 @@ SEARCH_PRICE = 10 / 1000          # $ per web search; page fetches are not charg
 MAX_SEARCHES = 5                  # web searches per question
 MAX_FETCHES = 3                   # pages opened per question
 PAGE_TOKENS = 20_000              # each opened page is cut to this many tokens (a full code chapter is far longer)
+MAX_TOKENS = {"web": 16_000}     # web search's own code execution counts as output; 2,000 cut answers off
+DEFAULT_MAX_TOKENS = 2000
 MAX_RESUMES = 4                   # a long search turn can pause; it is sent back this many times at most
 WEB_TOOLS = [{"type": "web_search_20260209", "name": "web_search", "max_uses": MAX_SEARCHES},
              {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": MAX_FETCHES,
@@ -65,7 +73,8 @@ CLOSED = {"SOURCES": "You have no documents, search or tools: answer only from w
 WEB = {"SOURCES": "You can search the web and open pages. Prefer the city's own published code and documents, "
                   "and check that what you rely on is the current edition.",
        "QUOTE": "Only quote words you have read on a page you opened, copied exactly."}
-SYSTEM = {"bare": None, "rules": RULES.format(**CLOSED), "web": RULES.format(**WEB)}
+SYSTEM = {"bare": None, "city": None, "rules": RULES.format(**CLOSED), "web": RULES.format(**WEB)}
+PREFIX = {"city": "I live in Piedmont, California. "}   # put in front of each question
 
 
 def questions() -> list[dict]:
@@ -75,7 +84,7 @@ def questions() -> list[dict]:
     return out
 
 
-def ask(client, model: str, system: str | None, question: str, web: bool) -> dict:
+def ask(client, model: str, system: str | None, question: str, web: bool, max_tokens: int) -> dict:
     """One question, one answer. With web, Claude's server-side search and fetch run inside the call; a turn
     that pauses mid-search is sent back so it can finish."""
     msgs = [{"role": "user", "content": question}]
@@ -85,7 +94,7 @@ def ask(client, model: str, system: str | None, question: str, web: bool) -> dic
     usage = dict.fromkeys(USAGE_KEYS, 0) | {"web_search_requests": 0, "calls": 0}
     blocks = []
     for _ in range(MAX_RESUMES + 1):
-        r = client.messages.create(model=model, max_tokens=2000, messages=msgs, **kw)
+        r = client.messages.create(model=model, max_tokens=max_tokens, messages=msgs, **kw)
         usage["calls"] += 1
         for k in USAGE_KEYS:
             usage[k] += getattr(r.usage, k, 0) or 0
@@ -109,9 +118,10 @@ def ask(client, model: str, system: str | None, question: str, web: bool) -> dic
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--condition", choices=("bare", "rules", "web"), default="rules")
+    ap.add_argument("--condition", choices=("bare", "city", "rules", "web"), default="rules")
     ap.add_argument("--model", default="claude-sonnet-5-5")
     ap.add_argument("--limit", type=int, help="only the first N questions (to try it out)")
+    ap.add_argument("--parallel", type=int, default=1, help="questions asked at the same time (default 1)")
     ap.add_argument("--dry-run", action="store_true", help="print the prompt and questions; call nothing")
     a = ap.parse_args()
 
@@ -122,17 +132,22 @@ def main() -> None:
     stale = [r["id"] for r in rows if r.get("config", {}) != config]
     if stale:
         print(f"Asking {len(stale)} questions again: they were answered with different settings.")
-    rows = [r for r in rows if not r.get("error") and r.get("config", {}) == config]  # failed or stale: ask again
+    cut = [r["id"] for r in rows if r.get("stop_reason") == "max_tokens"]
+    if cut:
+        print(f"Asking {len(cut)} questions again: their answers were cut off ({', '.join(cut)}).")
+    rows = [r for r in rows if not r.get("error") and r.get("config", {}) == config
+            and r.get("stop_reason") != "max_tokens"]          # failed, stale or cut off: ask again
     if out.exists():
         out.write_text("".join(json.dumps(r) + "\n" for r in rows))
     done = {r["id"] for r in rows}
     todo = [q for q in qs if q["id"] not in done]
-    system = SYSTEM[a.condition]
+    system, prefix = SYSTEM[a.condition], PREFIX.get(a.condition, "")
+    max_tokens = MAX_TOKENS.get(a.condition, DEFAULT_MAX_TOKENS)
 
     print(f"{len(qs)} questions, {len(done & {q['id'] for q in qs})} already answered, {len(todo)} to ask")
     print(f"model {a.model}, condition {a.condition}, output {out.relative_to(ROOT)}")
     if a.dry_run:
-        print("\nSystem prompt:\n" + (system or "(none)") + "\n\nFirst question:\n" + (todo or qs)[0]["question"])
+        print("\nSystem prompt:\n" + (system or "(none)") + "\n\nFirst question:\n" + prefix + (todo or qs)[0]["question"])
         return
     if not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("Set ANTHROPIC_API_KEY first.")
@@ -140,21 +155,39 @@ def main() -> None:
     import anthropic
     client = anthropic.Anthropic()
     total = dict.fromkeys(USAGE_KEYS, 0) | {"web_search_requests": 0}
-    with out.open("a") as fh:
-        for i, q in enumerate(todo, 1):
-            row = {"id": q["id"], "question": q["question"], "target": f"{a.model} ({a.condition})",
-                   "condition": a.condition, "model": a.model, "config": config,
-                   "asked_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                   "answer": None, "error": None}
-            try:
-                row.update(ask(client, a.model, system, q["question"], web=a.condition == "web"))
-                for k in total:
-                    total[k] += row["usage"][k]
-            except anthropic.APIError as e:
-                row["error"] = f"{type(e).__name__}: {e}"
-            fh.write(json.dumps(row) + "\n")
-            fh.flush()
-            print(f"[{i}/{len(todo)}] {q['id']}: {'error' if row['error'] else 'ok'}")
+    def one(q: dict) -> dict:
+        row = {"id": q["id"], "question": q["question"], "target": f"{a.model} ({a.condition})",
+               "condition": a.condition, "model": a.model, "config": config,
+               "asked_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+               "answer": None, "error": None}
+        if prefix:
+            row["asked"] = prefix + q["question"]
+        try:
+            row.update(ask(client, a.model, system, prefix + q["question"], web=a.condition == "web",
+                           max_tokens=max_tokens))
+        except anthropic.APIError as e:
+            row["error"] = f"{type(e).__name__}: {e}"
+        return row
+
+    # Rows are written as each answer arrives, so stopping with Ctrl+C keeps every finished answer.
+    ex = ThreadPoolExecutor(max_workers=max(1, a.parallel))
+    try:
+        with out.open("a") as fh:
+            futures = [ex.submit(one, q) for q in todo]
+            for i, f in enumerate(as_completed(futures), 1):
+                row = f.result()
+                if row.get("usage"):
+                    for k in total:
+                        total[k] += row["usage"][k]
+                fh.write(json.dumps(row) + "\n")
+                fh.flush()
+                status = "error" if row["error"] else "cut off" if row.get("stop_reason") == "max_tokens" else "ok"
+                print(f"[{i}/{len(todo)}] {row['id']}: {status}")
+    except KeyboardInterrupt:
+        ex.shutdown(wait=False, cancel_futures=True)
+        print("\nStopped. Finished answers are saved; run the same command to continue.")
+        os._exit(1)        # don't wait for questions still in flight
+    ex.shutdown()
 
     price = PRICE.get(a.model, (0, 0, 0, 0))
     cost = sum(total[k] * p for k, p in zip(USAGE_KEYS, price)) / 1e6 + total["web_search_requests"] * SEARCH_PRICE
@@ -162,9 +195,10 @@ def main() -> None:
           f"{total['cache_read_input_tokens']} read from cache, {total['cache_creation_input_tokens']} written to cache, "
           f"{total['web_search_requests']} web searches. Cost about ${cost:.2f}"
           + ("" if a.model in PRICE else " (unknown model price)"))
-    failed = [json.loads(l)["id"] for l in out.read_text().splitlines() if json.loads(l)["error"]]
+    saved = [json.loads(l) for l in out.read_text().splitlines() if l.strip()]
+    failed = [r["id"] for r in saved if r["error"] or r.get("stop_reason") == "max_tokens"]
     if failed:
-        print(f"Errors on {failed}. Run the same command again to retry just those.")
+        print(f"Errors or cut-off answers on {failed}. Run the same command again to retry just those.")
 
 
 if __name__ == "__main__":
